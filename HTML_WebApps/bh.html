@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<link rel="stylesheet" type="text/css" href="bh.css" />
+		
+		<!-- Below links to a JavaScript file, which will run most of the stuff
+			 needed for this app. -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+		</script>
+		<!-- <script type="text/javascript" src="jquery.min.js"></script> -->
+		<script src="bh.js"></script>
+		<meta charset="UTF-8">
+		<title>Boat House App</title>
+	</head>
+	<body> 
+		<h1>Water Testing App</h1>
+		<p>This app lets you collect water samples and analysis the results
+		using iSENSE. <br /> All data is posted to project called "Lab Tests"</p>
+		<form name="boathouse">
+
+		<span id = "data">Data set name: </span>
+		<input type="letter" name="dataset" id="dataset_name">
+		<br/>
+		
+		<span id = "temp">Temperature: </span>
+		<input  type="number" name="Temperature" id='tp' min="0" max="35" step=".5" value="5">
+		<br/>
+		
+		<span id = "PH">pH: </span>
+		<input type="number" name="pH" id ='ph' min="0" max="10" step=".1" value="5">
+		<br/>
+		
+		<span id = "oxygen">Dissolved Oxygen: </span>
+		<input type="number" name="Oxygen" id='o2' min="0" max="10" step=".1" value="5">
+		<br/>
+		
+		<span id = "phosp">Phosphates: </span>
+		<input  type="number" name="Phosphates" id='phos' min="0" max="10" step=".1" value="5">
+		<br />
+		</form>
+		
+		<input type="button" id='sub' onclick="submitter()" value="Submit to iSENSE & rSENSE.">
+		<br/><br/>
+		
+		<a href="main.html">Return to the main page</a>
+		
+		<br/>
+		
+		<span id="loc">This should change</span>
+		
+	</body>
+</html>
