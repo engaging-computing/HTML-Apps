@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<link rel="stylesheet" type="text/css" href="bh.css" />
+		
+		<!-- Below links to a JavaScript file, which will run most of the stuff
+			 needed for this app. -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+		</script>
+		<!-- <script type="text/javascript" src="jquery.min.js"></script> -->
+		<script src="script.js"></script>
+		<meta charset="UTF-8">
+		<title>HTML 5 Test</title>
+	</head>
+	<body> 
+		<h1>Boat House App</h1>
+		
+		<form name="boathouse">
+
+<!-- 	Probably the best way of doing table value - uses a drop down menu	-->
+		<span id = "table">Table Letter: </span>
+		<select id="table_val">
+			<option value="A">Table A</option>
+			<option value="B">Table B</option>
+			<option value="C">Table C</option>
+		</select>
+		<br />
+		
+		<span id = "temp">Temperature: </span>
+		<input  type="number" name="Temperature" id='tp' min="0" max="35" step=".5" 				value="5">
+		<br />
+		
+		<span id = "PH">pH: </span>
+		<input type="number" name="pH" id ='ph' min="0" max="10" step=".1" value="5">
+		<br />
+		
+		<span id = "oxygen">Dissolved Oxygen: </span>
+		<input type="number" name="Oxygen" id='o2' min="0" max="10" step=".1" value="5">
+		<br />
+		
+		<span id = "phosp">Phosphates: </span>
+		<input  type="number" name="Phosphates" id='phos' min="0" max="10" step=".1" 					value="5">
+		<br />
+		</form>
+		
+		<input type="button" id='sub' onclick="submitter()" value="Submit to iSENSE & rSENSE.">
+		
+	</body>
+</html>
