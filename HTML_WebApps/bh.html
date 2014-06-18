@@ -7,16 +7,18 @@
 			 needed for this app. -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
 		</script>
-		<!-- <script type="text/javascript" src="jquery.min.js"></script> -->
 		<script src="bh.js"></script>
 		<meta charset="UTF-8">
-		<title>Boat House App</title>
+		<title>Water Testing App</title>
 	</head>
 	<body> 
 		<h1>Water Testing App</h1>
 		<p>This app lets you collect water samples and analysis the results
 		using iSENSE. <br /> All data is posted to project called "Lab Tests"</p>
 		<form name="boathouse">
+
+		<!-- This part uses HTML 5 forms to collect data from the user. The javascript
+			 file bh.js takes this data and sends it the iSENSE website. -->
 
 		<span id = "data">Data set name: </span>
 		<input type="letter" name="dataset" id="dataset_name">
@@ -43,10 +45,8 @@
 		<br/><br/>
 		
 		<a href="main.html">Return to the main page</a>
-		
 		<br/>
 		
 		<span id="loc">This should change</span>
-		
 	</body>
 </html>

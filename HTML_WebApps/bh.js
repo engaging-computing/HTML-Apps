@@ -8,7 +8,7 @@ function submitter()
 	
 	if(navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
-			location.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+			location.innerHTML = "Latitude: " + position.coords.latitude + 									"<br>Longitude: " + position.coords.longitude;
 			lat = position.coords.latitude;
 			long = position.coords.longitude;
 		});
@@ -31,12 +31,7 @@ function submitter()
 	formData.push(document.boathouse.ph.value);
 	formData.push(document.boathouse.o2.value);
 	formData.push(document.boathouse.phos.value);
-	
 	var letter = document.getElementById("dataset_name").value;
-	var temp = formData[0];
-	var ph = formData[1];
-	var dox = formData[2];
-	var phos = formData[3];
 
 	/*	PUT VARIABLES BETWEEN []S	*/
 	
@@ -47,10 +42,10 @@ function submitter()
 		'title': [],
 		'data':
 	  	{
-			'2308': [temp],
-			'2309': [ph],
-			'2310': [dox],
-			'2311': [phos],
+			'2308': [formData[0]],
+			'2309': [formData[1]],
+			'2310': [formData[2]],
+			'2311': [formData[3]],
 			'2500': [timestamp],
 			'2501': [lat],
 			'2502': [long]
@@ -67,10 +62,10 @@ function submitter()
 		'title': [],
 		'data':
 	  	{
-			'2640': [temp],
-			'2641': [ph],
-			'2642': [dox],
-			'2643': [phos],
+			'2640': [formData[0]],
+			'2641': [formData[1]],
+			'2642': [formData[2]],
+			'2643': [formData[3]],
 			'2685': [timestamp],
 			'2687': [lat],
 			'2688': [long]
