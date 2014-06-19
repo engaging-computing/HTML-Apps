@@ -82,7 +82,8 @@
 
 			function post()
 			{
-				$.post('http://rsense-dev.cs.uml.edu/api/v1/projects/547/jsonDataUpload',   {
+
+				var post_data =  {
 					email: 'tyler.puleo22@gmail.com',
 					password: '414991@Westland',
 					title: 'TEST',
@@ -91,8 +92,11 @@
 						'2505': post_array_x,
 						'2506': post_array_y,
 						'2507': post_array_z,
-					}
-				});
+					}};
+				alert(JSON.stringify(post_data));
+
+				$.post('http://rsense-dev.cs.uml.edu/api/v1/projects/547/jsonDataUpload', post_data 
+				);
 			}
 
 			function failure()

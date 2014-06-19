@@ -29,13 +29,13 @@
 			}
 			#START{
 
-				background-color:red;
+				background-color:green;
 				
 
 			}
 			#POST{
 
-				background-color:red;
+				background-color:yellow;
 				
 
 			}
