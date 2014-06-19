@@ -8,7 +8,8 @@ function submitter()
 							async: false,
 							dataType: "JSON"
 							}).responseText;
-
+							
+	// This should be cleaned up at some point.
 /*
 	var response = $.get(
 		'http://isenseproject.org/api/v1/projects/',
