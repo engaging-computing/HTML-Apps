@@ -10,12 +10,17 @@
 		<script src="eye.js"></script>
 		
 		<meta charset="UTF-8">
-		<title>Eye Color and Ancestry</title>
+		<title>Eye Color & Ancestry</title>
 	</head>
 	<body> 
 		<h1>Eye Color Map</h1>
 		<p>Please click on the country of your ancestry.</p>
-		<img src="worldmap.png" style="margin: 0px auto;display:block"/>
 		
+		<img id="world" src="worldmap.png" style="margin: 0px auto; display:block; border: 2px solid blue"/>
+		<br/>
+		
+		<p>You selected an X of <span id="coord_x">--</span> and a Y of <span id="coord_y">--</span></p>
+		<p>That translates into GPS coordinates of <span id="GPS_X">--</span> long and <span id="GPS_Y">--</span> lat!</p>
+
 	</body>
 </html>
