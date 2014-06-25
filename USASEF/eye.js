@@ -27,9 +27,12 @@ function getPosition(event)
 	var long = (360 / 872) * x;
 	var lat  = (180 / 533) * y; 
 	
+	// Update HTML page to show correct Lat/Long
 	GPS_LONG.innerHTML = long;
 	GPS_LAT.innerHTML = lat;
 	
+	// Get eye color that user selected.
+	var color = document.getElementById("");
 	
 	// Get current time - used for timestamp & also to make title different for each
 	// data set.
@@ -45,7 +48,7 @@ function getPosition(event)
 	  	{
 			'2704': [lat],
 			'2705': [long],
-			'2706': ['blue']
+			'2706': []
 	 	}
 	}
 	
