@@ -12,13 +12,37 @@ function getPosition(event)
 
 	var x = event.x - canvas.offsetLeft;
 	var y = event.y - canvas.offsetTop;
-
+	
+	var test1 = canvas.offsetLeft;
+	var test2 = canvas.offsetTop;
+	
+	console.log("Looks like left is: " + test1 + " and " + test2);
+	
+	/* 	
+		678.5
+		314
+		if(x < 678.5)
+			x = 
+		
+		566
+		
+		
+	*/
+	
 	console.log("x: " + x + "  y: " + y);
 	
 	coord_x.innerHTML = x;
 	coord_y.innerHTML = y;
 	
 	// Figure out how to convert coordinates to GPS?
-	GPS_X.innerHTML = "xx";
-	GPS_Y.innerHTML = "xx";
+	/*
+		One formula to try is:
+		Long = (360 / Map Width) * X
+		Lat = (180 / Map Height) * Y
+	*/
+	var long = (360 /  628) * x;
+	var lat  = (180 / 1357) * y; 
+	
+	GPS_LONG.innerHTML = long;
+	GPS_LAT.innerHTML = lat;
 }
