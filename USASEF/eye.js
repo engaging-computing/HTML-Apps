@@ -24,8 +24,8 @@ function getPosition(event)
 		Long = (360 / Map Width) * X
 		Lat = (180 / Map Height) * Y
 	*/
-	var long = (360 /  628) * x;
-	var lat  = (180 / 1357) * y; 
+	var long = (360 / 872) * x;
+	var lat  = (180 / 533) * y; 
 	
 	GPS_LONG.innerHTML = long;
 	GPS_LAT.innerHTML = lat;
