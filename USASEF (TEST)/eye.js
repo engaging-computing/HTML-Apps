@@ -1,45 +1,50 @@
-document.addEventListener("DOMContentLoaded", init, false);
+document.addEventListener("DOMContentLoaded", check_photo, false);
 
-function init()
+function check_photo()
 {
 	var canvas = document.getElementById("world");
-	canvas.addEventListener("mousedown", getPosition, false);
+	canvas.addEventListener("mousedown", getCoords, false);
 }
 
-function getPosition(event)
+function getCoords(event)
 {
 	var canvas = document.getElementById("world");
-
-	var x = (event.x - canvas.offsetLeft) - 439;
-	//x = x * -1;
-	var y = (event.y - canvas.offsetTop) - 270;
+	
+	/*  Get x & y coordinates. NOTE: the numbers 500 and 249 are to center
+		the x & y coordinates on the center of the map. I also change the sign
+		of the y coordinate for converting it to lat and long.	*/
+	var x = (event.x - canvas.offsetLeft) - 500;
+	var y = (event.y - canvas.offsetTop)  - 249;
 	y = y * -1;
 	
+	// Update the HTML file.
 	coord_x.innerHTML = x;
 	coord_y.innerHTML = y;
 	
-	// Figure out how to convert coordinates to GPS?
-	/*
-		One formula to try is:
-		Long = (360 / Map Width) * X
-		Lat = (180 / Map Height) * Y
-	*/
-	var long = (360 / 872) * x;
-	var lat  = (180 / 533) * y; 
+	/*	Convert x & y to Lat & Long
+		Long = (360 / Map Width)  * X
+		Lat  = (180 / Map Height) * Y		*/
+	var long = (360 / 1000) * x;
+	var lat  = (180 /  500) * y; 
 	
-	// Update HTML page to show correct Lat/Long
-	GPS_LONG.innerHTML = long;
-	GPS_LAT.innerHTML = lat;
+	// Round the lat & long
+	var long_round, lat_round;
+	long_round = long.toFixed(2);
+	 lat_round = lat.toFixed(2);
+	
+	// Update HTML page to show current Lat/Long
+	GPS_LONG.innerHTML = long_round;
+	GPS_LAT.innerHTML  = lat_round;
 	
 	// Get eye color that user selected.
-	var color = document.getElementById("");
+	var color = document.getElementById("eye_color");
 	
-	// Get current time - used for timestamp & also to make title different for each
-	// data set.
+	/* Get current time - used for timestamp & 
+	   also to make title different for each data set. */
 	var currentTime = new Date();
 	var timestamp = JSON.stringify(currentTime);
 	
-	// iSENSE
+	// Data to be uploaded to iSENSE
 	var upload = {
 		'email': 'j@j.j',
 		'password': 'j',
