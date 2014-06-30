@@ -1,23 +1,27 @@
-var lat = 0;
-var long = 0;
-
 function submitter() 
 {
 	// Get location - lat & long
 	var location = document.getElementById("loc");
+	var lat, long;
 	
-	if(navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(function(position) {
-			location.innerHTML = "Latitude: " + position.coords.latitude + 									"<br>Longitude: " + position.coords.longitude;
+	if(navigator.gelocation) 
+	{
+		// We can get the location!
+		navigator.geolocation.getCurrentPosition(successCallback,errorCallback,{timeout:10000});
+		function successCallback() {
 			lat = position.coords.latitude;
 			long = position.coords.longitude;
-		});
+			location.innerHTML = "Latitude: " + position.coords.latitude + 								 
+							 "<br>Longitude: " + position.coords.longitude;
+		}
 	}
-	else{
-		location.innerHTML = "Geolocation is not supported by this browser.";
-		lat = 0;
-		long = 0;
+	else {
+		function errorCallback() {
+			// Location isn't available.
+			location.innerHTML = "Geolocation is not supported by this browser.";
+		}
 	}
+	
 	console.log("Latitude is: " + lat);
 	console.log("Longitude is: " + long);
 

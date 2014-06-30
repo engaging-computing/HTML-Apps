@@ -2,13 +2,16 @@ document.addEventListener("DOMContentLoaded", check_photo, false);
 
 function check_photo()
 {
-	var canvas = document.getElementById("world");
+	var canvas = document.getElementById("zoomLens");
 	canvas.addEventListener("mousedown", getCoords, false);
 }
 
 function getCoords(event)
 {
-	var canvas = document.getElementById("world");
+	// Possible soloution: zoomLens has a left and a top that could be useful.
+	
+
+	var canvas = document.getElementById("zoomLens");
 	
 	/*  Get x & y coordinates. NOTE: the numbers 500 and 249 are to center
 		the x & y coordinates on the center of the map. I also change the sign
