@@ -20,8 +20,7 @@
 		<h1>Eye Color Map</h1>
 		<p>Please click on the country of your ancestry.</p>
 
-		<img id="world" src="world_map_satview.jpg" style="margin: 0px auto; display:block; border: 2px solid blue" data-zoom-image="world_map_satview_large.jpg"/>
-		<br/>
+		<a href="#"> <img id="world" src="world_map_satview.jpg"/> </a><br/>
 		
 		<p>Select your eye color: 
 		
@@ -42,19 +41,18 @@
 		<script>
 			// Zoom feature - this only seems to work inside the HTML? Probably
 			// due to depencies (elevateZoom jQuery file))
-			
-			/* crosshair
 			$("#world").elevateZoom({
-				zoomeType: "inner",
-				cursor: "crosshair"
-			});
+		  		zoomType  : "lens",
+		  		lensShape : "round",
+	        	containLensZoom : true,
+	        	lensSize  : 100
+    	  	}); 
+			
+		/*	http://stackoverflow.com/questions/10011286/javascript-or-jquery-get-background-position-properties-of-a-given-element-and-t
 			*/
 			
-			$("#world").elevateZoom({
-				zoomType: "lens",
-				lensShape: "round",
-				lensSize: 200
-			});
+			myPos = $('.zoomLens').css("background-position");
+			console.log(myPos[0] + myPos[1]);
 			
 		</script>
 		
