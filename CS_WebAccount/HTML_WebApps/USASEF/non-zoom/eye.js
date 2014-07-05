@@ -8,9 +8,6 @@ function check_photo()
 
 function getCoords(event)
 {
-	// Possible soloution: zoomLens has a left and a top that could be useful.
-	
-
 	var canvas = document.getElementById("world");
 	
 	/*  Get x & y coordinates. NOTE: the numbers 500 and 249 are to center
@@ -62,7 +59,7 @@ function getCoords(event)
 	}
 	
 	// Modify this title to be the dataset name
-	upload.title = '*name* ' + timestamp;
+	upload.title = 'Test ' + timestamp;
 	
 	var reply;
 	
