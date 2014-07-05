@@ -9,3 +9,13 @@ Current WebApps:
 5. Dataset Info Searcher
 6. Field Searcher
 7. USASEF Eye Color Ancestry (work in progress)
+	- Non-zoom version works well in Chrome - fails in Firefox...
+	- Zoom version just fails completely...
+	- Find better map?
+
+Future WebApps / Plans:
+1. USASEF Plinko Probability
+2. Customization of current apps (Different Project IDs, 
+Contributor key support for all projects, Username/Password support,
+etc.)
+3. Generic iSENSE Uploader?
