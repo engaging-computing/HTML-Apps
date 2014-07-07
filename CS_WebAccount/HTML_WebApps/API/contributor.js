@@ -30,15 +30,14 @@ function submitter()
 	// Post to iSENSEPROJECT V1 - Works.
 	if(confirm("Do you want to upload this data to iSENSE?")) {
 		// Post to iSENSE
-		$.post(API_URL, upload);
+		var result = $.post(API_URL, upload);
 		
-		result.done(function(){
-			rev.innerHTML = "Posted successfully!";
-		});
-	
-		result.fail(function(){
-			rev.innerHTML = "FAILED TO POST TO PROJECT!";
-		});
+		if(result.done) {
+			rev.innerHTML = "Successfully posted to iSENSE!";
+		}
+		else if(result.fail) {
+			rev.innerHTML = "Failed to post to iSENSE!";
+		}
 		
 		// Add a link in the HTML file to the project they contributed to.
 		The_URL.innerHTML = '<a href="'+ USER_URL +'">' + USER_URL_TEXT + '</a>';

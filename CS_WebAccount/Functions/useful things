@@ -51,6 +51,17 @@
 		The_URL.innerHTML = "Canceled!";
 	}
 	
+	** detect if the posting was a success or failure **
+	// Post to iSENSE
+	var result = $.post(API_URL, upload);
+
+	if(result.done) {
+		rev.innerHTML = "Successfully posted to iSENSE!";
+	}
+	else if(result.fail) {
+		rev.innerHTML = "Failed to post to iSENSE!";
+	}
+	
 **** Alert user when they've uploaded their data ****
 
 	alert("Thanks for submitting your data!");

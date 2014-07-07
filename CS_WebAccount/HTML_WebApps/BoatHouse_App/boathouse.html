@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html>
 	<head> 
-		<link rel="stylesheet" type="text/css" href="bh.css" />
+		<link rel="stylesheet" type="text/css" href="boathouse.css" />
 		
 		<!-- Below links to a JavaScript file, which will run most of the stuff
 			 needed for this app. -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
 		</script>
-		<script src="bh.js"></script>
+		<script src="boathouse.js"></script>
 		<meta charset="UTF-8">
-		<title>Water Testing App</title>
+		<title>Boat House Test App</title>
 	</head>
 	<body> 
-		<h1>Water Testing App</h1>
-		<p>This app lets you collect water samples and analysis the results
-		using iSENSE. <br /> All data is posted to project called "Lab Tests"</p>
+		<h1>Boat House App</h1>
+		
 		<form name="boathouse">
 
-		<!-- This part uses HTML 5 forms to collect data from the user. The javascript
-			 file bh.js takes this data and sends it the iSENSE website. -->
-
-		<span id = "data">Data set name: </span>
-		<input type="letter" name="dataset" id="dataset_name">
+<!-- 	Probably the best way of doing table value - uses a drop down menu	-->
+		<span id = "table">Table Letter: </span>
+		<select id="table_val">
+			<option value="A">Table A</option>
+			<option value="B">Table B</option>
+			<option value="C">Table C</option>
+		</select>
 		<br/>
 		
 		<span id = "temp">Temperature: </span>
@@ -38,18 +39,15 @@
 		
 		<span id = "phosp">Phosphates: </span>
 		<input  type="number" name="Phosphates" id='phos' min="0" max="10" step=".1" value="5">
-		<br />
+		<br/>
 		</form>
 		
-		<span id="loc">Latitude & longitude will appear here.</span>
+		<input type="button" id='sub' onclick="submitter()" value="Submit to iSENSE & rSENSE.">
 		<br/>
 		
-		<input type="button" id='sub' onclick="submitter()" value="Submit to iSENSE & rSENSE.">
-		<br/><br/>
-		
-		<span id="The_URL">The URL to the project that you contributed to will appear here!</span>
-		<br/><br/>
+		<span id="The_URL"><p>The URL to the project that you contributed to will appear here!</p></span>
 		
 		<a href="/~jdowning/HTML_WebApps/webapps.html">Return to the WebApps index</a>
+
 	</body>
 </html>
