@@ -46,12 +46,14 @@ function submitter()
 	// Modify the title to be either A, B or C
 	upload.title = "Table " + [letter] + " " + [timestamp];
 	
-	// Post to iSENSEPROJECT
-	$.post(API_URL, upload);
-	
-	// Add a link in the HTML file to the project they contributed to.
-	The_URL.innerHTML = '<br/> <a href="'+ USER_URL +'">' + USER_URL_TEXT + '</a> <br/> <br/>';
+	if(confirm("Do you want to upload this data to iSENSE?")) {
+		// Post to iSENSE
+		$.post(API_URL, upload);
 		
-	//	$('#myResults').html(upload.formData);
-	alert("Thanks for submitting your data!");
+		// Add a link in the HTML file to the project they contributed to.
+		The_URL.innerHTML = '<br/><a href="'+ USER_URL +'">' + USER_URL_TEXT + '</a> <br/> <br/>';
+	}
+	else {
+		The_URL.innerHTML = "<br/>Canceled!<br/><br/>";
+	}
 }

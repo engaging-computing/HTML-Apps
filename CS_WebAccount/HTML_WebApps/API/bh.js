@@ -62,9 +62,14 @@ function submitter()
 	// Modify this title to be the dataset name
 	upload.title = [title] + " " + [timestamp];
 
-	// Post to iSENSEPROJECT
-	$.post(API_URL, upload);
-	
-	// Add a link in the HTML file to the project they contributed to.
-	The_URL.innerHTML = '<a href="'+ USER_URL +'">' + USER_URL_TEXT + '</a>';
+	if(confirm("Do you want to upload this data to iSENSE?")) {
+		// Post to iSENSE
+		$.post(API_URL, upload);
+		
+		// Add a link in the HTML file to the project they contributed to.
+		The_URL.innerHTML = '<a href="'+ USER_URL +'">' + USER_URL_TEXT + '</a>';
+	}
+	else {
+		The_URL.innerHTML = "Canceled!";
+	}
 }

@@ -1,11 +1,18 @@
 function submitter() 
 {
+	// Make the URL links.
+	var API_URL = 'http://isenseproject.org/api/v1/projects/555/jsonDataUpload';
+	var USER_URL = 'http://isenseproject.org/projects/556';
+	var USER_URL_TEXT = 'Click here to go to your project!';
+	
 	// Get the data that the user entered
 	var formData = document.getElementById("scores").value;
-	var letter = document.getElementById("dataset_name").value;
-	var URL = 'http://isenseproject.org/api/v1/projects/555/jsonDataUpload';
-	/*	PUT VARIABLES BETWEEN []S	*/
+	var title = document.getElementById("dataset_name").value;
 	
+	// Get current time - used for timestamp
+	var currentTime = new Date();
+	var timestamp = JSON.stringify(currentTime);
+		
 	// Data to be uploaded
 	var upload = {
 		'title': [],
@@ -18,42 +25,25 @@ function submitter()
 	}
 	
 	// Modify this title to be the dataset name
-	upload.title = '' + [letter];
-
+	upload.title = [title] + ' ' + [timestamp];
+	
 	// Post to iSENSEPROJECT V1 - Works.
-	var result = $.post(
-		'http://isenseproject.org/api/v1/projects/555/jsonDataUpload',
-		upload
-	); 
+	if(confirm("Do you want to upload this data to iSENSE?")) {
+		// Post to iSENSE
+		$.post(API_URL, upload);
+		
+		result.done(function(){
+			rev.innerHTML = "Posted successfully!";
+		});
 	
-	result.done(function(){
-		rev.innerHTML = "Posted successfully!";
-	});
-	
-	result.fail(function(){
-		rev.innerHTML = "FAILED TO POST TO PROJECT!";
-	});
-
-/*  This part doesn't work. Was trying to display the final URL of the dataset.
-	Something must be wrong with my code.
-
-	var result = $.ajax({
-		type: "POST",
-		url: URL,
-		async: false,
-		data: upload,
-		dataType: "JSON"
-	}).resultText;
-	
-	if(result === undefined)
-	{
-		rev.innerHTML = "FAILED TO POST TO PROJECT!";
+		result.fail(function(){
+			rev.innerHTML = "FAILED TO POST TO PROJECT!";
+		});
+		
+		// Add a link in the HTML file to the project they contributed to.
+		The_URL.innerHTML = '<a href="'+ USER_URL +'">' + USER_URL_TEXT + '</a>';
 	}
-	else{
-		rev.innerHTML = "Posted successfully!";
+	else {
+		The_URL.innerHTML = "Canceled!";
 	}
-	
-	console.log(result);
-*/
-	
 }
