@@ -7,8 +7,18 @@ h1{
 }
 body{
 	color: black;
-	font: times;		
-	font-size: 3em;
+	font: Times;		
+	font-size: 38px;
+	line-height: 110%;
+}
+
+input{
+	text-indent: 25px;
+    width: 200px;
+    border: 1px solid #000;
+    padding: 0;
+    margin: 0px;
+    height: 22px;
 }
 
 #js{
@@ -16,6 +26,7 @@ body{
 }
 
 /* Margins for the buttons */
+
 #table{
 	margin: 0em 2.5em 0em 0em;
 }
