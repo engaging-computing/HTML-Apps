@@ -8,6 +8,11 @@ function check_photo()
 
 function getCoords(event)
 {
+	// Make the URL links.
+	var API_URL = 'http://isenseproject.org/api/v1/projects/567/jsonDataUpload';
+	var USER_URL = 'http://isenseproject.org/projects/556';
+	var USER_URL_TEXT = 'Click here to go to your project!';
+
 	var canvas = document.getElementById("world");
 	
 	/*  Get x & y coordinates. NOTE: the numbers 500 and 249 are to center
@@ -63,13 +68,12 @@ function getCoords(event)
 	
 	var reply;
 	
-	if(confirm("Do you want to upload this data to iSENSE?")) 
-	{
-		$.post(
-			'http://isenseproject.org/api/v1/projects/567/jsonDataUpload',
-			upload
-		);
-		reply = "Uploaded to iSENSE";
+	if(confirm("Do you want to upload this data to iSENSE?")) {
+		// Post to iSENSE
+		$.post(API_URL, upload);
+		
+		// Add a link in the HTML file to the project they contributed to.
+		reply = "Uploaded to iSENSE <br/><br/>" + '<a href="' + USER_URL + '">' + USER_URL_TEXT + '</a> <br/>';
 	}
 	else {
 		reply = "Canceled!";

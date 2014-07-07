@@ -1,5 +1,10 @@
 function submitter() 
 {
+	// Make the URL links.
+	var API_URL = 'http://isenseproject.org/api/v1/projects/556/jsonDataUpload';
+	var USER_URL = 'http://isenseproject.org/projects/556';
+	var USER_URL_TEXT = 'Click here to go to your project!';
+
 	// Get location - lat & long
 	var location = document.getElementById("loc");
 	var lat, long;
@@ -35,32 +40,10 @@ function submitter()
 	formData.push(document.boathouse.ph.value);
 	formData.push(document.boathouse.o2.value);
 	formData.push(document.boathouse.phos.value);
-	var letter = document.getElementById("dataset_name").value;
+	var title = document.getElementById("dataset_name").value;
 
-	/*	PUT VARIABLES BETWEEN []S	*/
-	
-	// rSENSE
-	var upload = {
-		'email': 'j@j.j',
-		'password': 'j',
-		'title': [],
-		'data':
-	  	{
-			'2308': [formData[0]],
-			'2309': [formData[1]],
-			'2310': [formData[2]],
-			'2311': [formData[3]],
-			'2500': [timestamp],
-			'2501': [lat],
-			'2502': [long]
-	 	}
-	}
-	
-	// Modify this title to be the dataset name
-	upload.title = '' + [letter];
-	
 	// iSENSE
-	var upload2 = {
+	var upload = {
 		'email': 'j@j.j',
 		'password': 'j',
 		'title': [],
@@ -77,17 +60,11 @@ function submitter()
 	}
 	
 	// Modify this title to be the dataset name
-	upload2.title = '' + [letter];
-	
-	// Post to rSENSE-DEV
-	$.post(
-		'http://rsense-dev.cs.uml.edu/api/v1/projects/511/jsonDataUpload', 
-		upload
-	);
+	upload.title = [title] + " " + [timestamp];
 
 	// Post to iSENSEPROJECT
-	$.post(
-		'http://isenseproject.org/api/v1/projects/556/jsonDataUpload',
-		upload2
-	);
+	$.post(API_URL, upload);
+	
+	// Add a link in the HTML file to the project they contributed to.
+	The_URL.innerHTML = '<a href="'+ USER_URL +'">' + USER_URL_TEXT + '</a>';
 }

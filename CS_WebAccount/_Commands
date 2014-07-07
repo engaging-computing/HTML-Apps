@@ -3,5 +3,4 @@ chmod 755 * 	=> sets permissions
 
 
 *** Copy code in GitHub directory to cs.uml.edu/~jdowning/
-scp -r ~/Coding/ECG/Github-HTML5/CS_WebAccount/* jdowning@cs.uml.edu:~/public_html
-
+scp -r ~/Coding/ECG/Github-HTML5/CS_WebAccount/* jdowning@mercury.cs.uml.edu:~/public_html

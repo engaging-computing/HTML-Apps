@@ -27,7 +27,7 @@ function submitter()
 	/*  In the future: allow different projects, contributor keys and username
 		and passwords. 	*/
 	
-	// iSENSE
+	// Data to be uploaded to iSENSE
 	var upload = {
 		'email': 'j@j.j',
 		'password': 'j',
@@ -43,7 +43,7 @@ function submitter()
 	 	}
 	}
 	
-	// Modify this title to be either A, B or C
+	// Modify the title to be either A, B or C
 	upload.title = "Table " + [letter] + " " + [timestamp];
 	
 	// Post to iSENSEPROJECT
