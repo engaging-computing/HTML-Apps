@@ -1,12 +1,15 @@
 function submitter() 
 {
-/*	
-	Things to add:
-	Timestamps
-	Choose table "A", "B" or "C"
-	Allow uploading with specific table in the title - ie Table A, Table B, Table C, etc
-*/
+	// Make the URL links.
+	var API_URL = 'http://isenseproject.org/api/v1/projects/556/jsonDataUpload';
+	var USER_URL = 'http://isenseproject.org/projects/556';
+	var USER_URL_TEXT = 'Click here to go to your project!';
 
+	// Get current time - used for timestamp
+	var currentTime = new Date();
+	var timestamp = JSON.stringify(currentTime);
+	
+	// Get the variables that the user entered in the HTML portion of the app.
 	var formData = [];
 
 	formData.push(document.boathouse.tp.value);
@@ -14,39 +17,25 @@ function submitter()
 	formData.push(document.boathouse.o2.value);
 	formData.push(document.boathouse.phos.value);
 	
+	// get the letter they entered. Make it easier to submit the other data.
 	var letter = document.getElementById("table_val").value;
-	console.log(letter);
 	var temp = formData[0];
 	var ph = formData[1];
 	var dox = formData[2];
 	var phos = formData[3];
 
-	/*	FOR SOME REASON, PUT VARIABLES BETWEEN []S	*/
+	/*  In the future: allow different projects, contributor keys and username
+		and passwords. 	*/
 	
-	// rSENSE
+	// iSENSE
 	var upload = {
 		'email': 'j@j.j',
 		'password': 'j',
 		'title': [],
 		'data':
 	  	{
-			'2308': [temp],
-			'2309': [ph],
-			'2310': [dox],
-			'2311': [phos]
-	 	}
-	}
-	
-	// Modify the title depending on which number is selected.
-	upload.title = "Table " + [letter];
-	
-	// iSENSE
-	var upload2 = {
-		'email': 'j@j.j',
-		'password': 'j',
-		'title': [],
-		'data':
-	  	{
+	  		'2685': [timestamp],
+			// LAT AND LONG ARE NOT USED FOR THIS WEB APP.
 			'2640': [temp],
 			'2641': [ph],
 			'2642': [dox],
@@ -55,45 +44,14 @@ function submitter()
 	}
 	
 	// Modify this title to be either A, B or C
-	upload2.title = "Table " + [letter];
-	
-	$('#myResults').html(upload.formData);
-	
-	// Post to RSENSE-DEV
-	$.post(
-		'http://rsense-dev.cs.uml.edu/api/v1/projects/511/jsonDataUpload', 
-		upload
-	);
+	upload.title = "Table " + [letter] + " " + [timestamp];
 	
 	// Post to iSENSEPROJECT
-	$.post(
-		'http://isenseproject.org/api/v1/projects/556/jsonDataUpload',
-		upload2
-	);
+	$.post(API_URL, upload);
 	
+	// Add a link in the HTML file to the project they contributed to.
+	The_URL.innerHTML = '<br/> <a href="'+ USER_URL +'">' + USER_URL_TEXT + '</a> <br/> <br/>';
+		
+	//	$('#myResults').html(upload.formData);
 	alert("Thanks for submitting your data!");
-	
-	/*
-		This is what the "data" portion of the post should look like.
-	{
-		'email': 'j@j.j',
-		'password': 'j',
-		'title': 'Table B Data',
-		'data':
-	  		{
-				'2642': [5, 5, 5, 5]
-	 	 	}
-	 }
-		This is a correct & working jQuery post
-	$.post('http://isenseproject.org/api/v1/projects/556/jsonDataUpload', 
-	{
-		'email': 'j@j.j',
-		'password': 'j',
-		'title': 'Table C Data',
-		'data':
-	  		{
-				'2642': [5, 5, 5, 5]
-	 	 	}
-	});
-	*/
 }
