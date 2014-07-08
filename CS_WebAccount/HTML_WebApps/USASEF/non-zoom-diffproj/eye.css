@@ -10,6 +10,13 @@ p{
 	text-align: center;
 }
 
+pre{
+	color: black;
+	font-weight: bold;
+	text-align: center;
+	font-size: 15px;
+}
+
 #large{
 	width: 200%;
 	height: auto;
