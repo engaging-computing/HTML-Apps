@@ -1,3 +1,16 @@
+var start, end;
+
+// Detect when the user clicks on one of the buttons.
+/*
+$("#A").click(function(event){
+	console.log("You clicked A!");
+});
+*/
+
+$("button").click(function() {
+	alert($(this).attr('A'));
+});
+
 function submitter() 
 {
 	// Make the URL links.
@@ -8,21 +21,6 @@ function submitter()
 	// Get current time - used for timestamp
 	var currentTime = new Date();
 	var timestamp = JSON.stringify(currentTime);
-	
-	// Get the variables that the user entered in the HTML portion of the app.
-	var formData = [];
-
-	formData.push(document.boathouse.tp.value);
-	formData.push(document.boathouse.ph.value);
-	formData.push(document.boathouse.o2.value);
-	formData.push(document.boathouse.phos.value);
-	
-	// get the letter they entered. Make it easier to submit the other data.
-	var letter = document.getElementById("table_val").value;
-	var temp = formData[0];
-	var ph = formData[1];
-	var dox = formData[2];
-	var phos = formData[3];
 
 	/*  In the future: allow different projects, contributor keys and username
 		and passwords. 	*/
@@ -34,17 +32,12 @@ function submitter()
 		'title': [],
 		'data':
 	  	{
-	  		'2685': [timestamp],
-			// LAT AND LONG ARE NOT USED FOR THIS WEB APP.
-			'2640': [temp],
-			'2641': [ph],
-			'2642': [dox],
-			'2643': [phos]
+	  		// Fix this.
 	 	}
 	}
 	
 	// Modify the title to be either A, B or C
-	upload.title = "Table " + [letter] + " " + [timestamp];
+	upload.title = "Plinko " + [timestamp];
 	
 	if(confirm("Do you want to upload this data to iSENSE?")) {
 		// Post to iSENSE
