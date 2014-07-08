@@ -18,10 +18,16 @@ p{
 #zoom{
 	width: auto;
 	height: auto;
-};
+}
 
 #center{
 	color: black;
 	font-weight: bold;
 	text-align: center;
-};
+}
+
+#left{
+	color: blue;
+	font-weight: bold;
+	text-align: left;
+}

@@ -1,5 +1,12 @@
 document.addEventListener("DOMContentLoaded", check_photo, false);
 
+var project_id = 0, contributor_key = 0;
+
+function change_project_id(id) {
+	project_id = id;
+	console.log(id);
+}
+
 function check_photo()
 {
 	var canvas = document.getElementById("world");
