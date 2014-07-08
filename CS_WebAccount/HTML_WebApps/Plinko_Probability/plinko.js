@@ -1,15 +1,19 @@
-var start, end;
+// Global variables for keeping track of what the user has selected.
+var start_choice, end_choice;
 
-// Detect when the user clicks on one of the buttons.
-/*
-$("#A").click(function(event){
-	console.log("You clicked A!");
-});
-*/
+// Set the start variable when the user clicks a button.
+function start(choice) {
+	start_choice = choice;
+	START.innerHTML = start_choice;
+	//console.log(start_choice); 	// DEBUGGING.
+}
 
-$("button").click(function() {
-	alert($(this).attr('A'));
-});
+// Ending variable gets set here.
+function end(choice) {
+	end_choice = choice;
+	ENDJ.innerHTML = end_choice;
+	//console.log(end_choice);		// DEBUGGING
+}
 
 function submitter() 
 {
