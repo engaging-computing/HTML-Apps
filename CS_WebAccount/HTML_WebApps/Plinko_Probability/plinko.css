@@ -5,6 +5,7 @@ h1{
 	font-size: 1em;
 	/* border: solid black 2px; */
 }
+
 body{
 	color: black;
 	font: Times;		
@@ -36,4 +37,8 @@ button{
 	color: red;
 }
 
+#sub{
+	width: 40em;
+	height: 3em;
+}
 

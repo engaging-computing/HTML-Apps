@@ -1,5 +1,5 @@
 // Global variables for keeping track of what the user has selected.
-var start_choice, end_choice;
+var start_choice = 0, end_choice = 0;
 
 // Set the start variable when the user clicks a button.
 function start(choice) {
@@ -11,18 +11,25 @@ function start(choice) {
 // Ending variable gets set here.
 function end(choice) {
 	end_choice = choice;
-	ENDJ.innerHTML = end_choice;
+	END.innerHTML = end_choice;
 	//console.log(end_choice);		// DEBUGGING
 }
 
 function submitter() 
 {
+	if(start_choice == 0 || end_choice == 0)
+	{
+		alert("ERROR - select a letter AND a number!");
+		return;
+	}
+	
 	// Make the URL links.
-	var API_URL = 'http://isenseproject.org/api/v1/projects/556/jsonDataUpload';
-	var USER_URL = 'http://isenseproject.org/projects/556';
+	var API_URL = 'http://isenseproject.org/api/v1/projects/598/jsonDataUpload';
+	var USER_URL = 'http://isenseproject.org/projects/598';
 	var USER_URL_TEXT = 'Click here to go to your project!';
 
-	// Get current time - used for timestamp
+	/* 	Get current time - used for making the title different 
+		every time the user uploads data. 	*/
 	var currentTime = new Date();
 	var timestamp = JSON.stringify(currentTime);
 
@@ -36,7 +43,8 @@ function submitter()
 		'title': [],
 		'data':
 	  	{
-	  		// Fix this.
+	  		'2878': [end_choice],
+	  		'2879': [start_choice]
 	 	}
 	}
 	
