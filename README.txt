@@ -12,7 +12,7 @@ Current WebApps:
 	- Non-zoom version works well in Chrome - fails in Firefox...
 	- Zoom version just fails completely...
 	- Find better map?
-8. Plinko Probability (Future)
+8. Plinko Probability
 
 Future WebApps / Plans:
 1. USASEF Plinko Probability
