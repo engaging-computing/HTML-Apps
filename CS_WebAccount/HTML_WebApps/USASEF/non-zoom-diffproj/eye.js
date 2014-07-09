@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", check_photo, false);
 
-var project_id = 0, contributor_key = 0;
-var reply;
+var project_id = 567, contributor_key = 0;
+var reply = 5;
 var API_URL;
 var USER_URL;
+var USER_URL_TEXT = 'Click here to go to your project!';
 	
 function pop_up_contributor() {
 	var answer = prompt("Please enter the contributor key\nthat you want to use for this WebApp: ");
@@ -57,11 +58,9 @@ function check_photo()
 }
 
 function getCoords(event)
-{
-	var USER_URL_TEXT = 'Click here to go to your project!';
-	
+{	
 	// Make the URL links.	- ALWAYS DOUBLE CHECK THESE... USER_URL WAS WRONG!
-	if(project_id == 0)	{
+	if(project_id === 567)	{
 		API_URL = 'http://isenseproject.org/api/v1/projects/567/jsonDataUpload';
 		USER_URL = 'http://isenseproject.org/projects/567';
 	}
@@ -127,19 +126,19 @@ function getCoords(event)
 		// Post to iSENSE
 		var result = $.post(API_URL, upload)
 		
-		// Add a link in the HTML file to the project they contributed to.
-		if(result.done) {
-			reply = "Uploaded to iSENSE <br/><br/>" + '<a href="' + USER_URL + '">' + USER_URL_TEXT + '</a> <br/>';
+		// If we were able to upload to iSENSE, 
+		result.done(function() {
+			RES.innerHTML = "Uploaded to iSENSE <br/><br/>" + '<a href="' + USER_URL + '">' + USER_URL_TEXT + '</a> <br/>';
 			console.log("Success");
-		}
-		else if(result.fail) {
-			reply = "Failed to post to iSENSE!";
+		});
+		result.fail(function(textStatus) {
+			RES.innerHTML = "Failed to post to iSENSE!";
 			console.log("Failed");
-		}
+		});
+
 	}
 	else {
-		reply = "Canceled!";
+		// User canceled the upload.
+		RES.innerHTML = "Canceled!";
 	}
-	
-	RES.innerHTML = reply;
 }
