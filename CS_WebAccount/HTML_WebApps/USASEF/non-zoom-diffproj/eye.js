@@ -126,14 +126,17 @@ function getCoords(event)
 		// Post to iSENSE
 		var result = $.post(API_URL, upload)
 		
-		// If we were able to upload to iSENSE, 
+		// If we were able to upload to iSENSE, then show them the URL to their project!
 		result.done(function() {
 			RES.innerHTML = "Uploaded to iSENSE <br/><br/>" + '<a href="' + USER_URL + '">' + USER_URL_TEXT + '</a> <br/>';
 			console.log("Success");
 		});
+		
+		// If we failed to upload to iSENSE, show an error and why it failed.
 		result.fail(function(textStatus) {
 			RES.innerHTML = "Failed to post to iSENSE!";
-			console.log("Failed");
+			var resp = JSON.stringify(textStatus);
+			console.log("Failed. Response Text:\n" + resp);
 		});
 
 	}
