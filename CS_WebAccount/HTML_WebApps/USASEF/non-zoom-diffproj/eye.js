@@ -1,54 +1,60 @@
 document.addEventListener("DOMContentLoaded", check_photo, false);
 
-var project_id = 567, contributor_key = 0;
-var reply = 5;
+var project_title = "Test";
+var project_id = 567;
+var contributor_key = 0;
 var API_URL;
 var USER_URL;
 var USER_URL_TEXT = 'Click here to go to your project!';
 	
-function pop_up_contributor() {
-	var answer = prompt("Please enter the contributor key\nthat you want to use for this WebApp: ");
+function popup_title() {
+	var title = prompt("Please enter the title\nfor this submission: ");
 	
-	// Only do the following if the user enters something!
-	if(answer != null)
+	// If they didn't enter anything, "Test" will be the title.
+	if(title != "Test")
 	{
-		change_contributor_key(answer);
-		//console.log(answer);	// DEBUGGING
+		project_title = title;
+		
+		// Change the HTML to show the title changed.
+		document.getElementById("project_title").innerHTML = project_title;
 	}
 }
 
-function change_contributor_key(key) {
-	contributor_key = key;
+function popup_contributor() {
+	var key = prompt("Please enter the contributor key\nthat you want to use for this WebApp: ");
 	
-	// Change the HTML to show that the contributor key has been set.
-	document.getElementById("contrib_key").innerHTML = contributor_key;
-	
-	// DEBUGGING
-	//console.log(contributor_key);
-	//console.log(key);
+	// Only do the following if the user enters something!
+	if(key != null)
+	{
+		contributor_key = key;
+		
+		// Change the HTML to show that the contributor key has been set.
+		document.getElementById("contrib_key").innerHTML = contributor_key;
+		
+		// DEBUGGING
+		//console.log(contributor_key);
+		//console.log(key);
+		//console.log(answer);
+	}
 }
 
-function pop_up() {
+function popup_projID() {
 	// Prompt to get PROJECT ID from user
-	var answer = prompt("Please enter the project ID \nthat you want to use for this WebApp: ");
+	var id = prompt("Please enter the project ID \nthat you want to use for this WebApp: ");
 
 	// Only do the following if the user enters something!
-	if(answer != null)
+	if(id != null)
 	{
-		change_project_id(answer);
-		//console.log(answer);	// DEBUGGING
+		project_id = id;
+	
+		// Update the HTML file to indicate the change.
+		document.getElementById("project_num").innerHTML = project_id;
+	
+		// DEBUGGING
+		//console.log(id);	
+		//console.log(project_id);
+		//console.log(answer);
 	}
-}
-
-function change_project_id(id) {
-	project_id = id;
-	
-	// Update the HTML file to indicate the change.
-	document.getElementById("project_num").innerHTML = project_id;
-	
-	// DEBUGGING
-	//console.log(id);	
-	//console.log(project_id);
 }
 
 function check_photo()
@@ -106,21 +112,34 @@ function getCoords(event)
 	var currentTime = new Date();
 	var timestamp = JSON.stringify(currentTime);
 	
-	// Data to be uploaded to iSENSE
-	var upload = {
-		'email': 'j@j.j',
-		'password': 'j',
-		'title': [],
-		'data':
-	  	{
-			'2704': [lat],
-			'2705': [long],
-			'2706': [color]
-	 	}
+	/* 	ADDED SUPPORT FOR OTHER PROJECT IDs. This means I will need to GET the 
+		field #s for lat, long and color!!	*/
+	if(project_id == 567) {
+		// Data to be uploaded to iSENSE
+		var upload = {
+			'email': 'j@j.j',
+			'password': 'j',
+			'title': [],
+			'data':
+		  	{
+				'2704': [lat],
+				'2705': [long],
+				'2706': [color]
+		 	}
+		}
+	}
+	else{
+		// This part is tricky...
+		
+	}
+	
+	// Just a test to see if I can get contributor key upload supported.
+	if(contributor_key != 0) {
+		
 	}
 	
 	// Modify this title to be the dataset name
-	upload.title = 'Test ' + timestamp;
+	upload.title = project_title + " " + timestamp;
 	
 	if(confirm("Do you want to upload this data to iSENSE?")) {
 		// Post to iSENSE
@@ -128,7 +147,7 @@ function getCoords(event)
 		
 		// If we were able to upload to iSENSE, then show them the URL to their project!
 		result.done(function() {
-			RES.innerHTML = "Uploaded to iSENSE <br/><br/>" + '<a href="' + USER_URL + '">' + USER_URL_TEXT + '</a> <br/>';
+			RES.innerHTML = "Uploaded to iSENSE! " + '<a href="' + USER_URL + '">' + USER_URL_TEXT + '</a> <br/>';
 			console.log("Success");
 		});
 		
