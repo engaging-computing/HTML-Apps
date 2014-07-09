@@ -1,6 +1,31 @@
 document.addEventListener("DOMContentLoaded", check_photo, false);
 
 var project_id = 0, contributor_key = 0;
+var reply;
+var API_URL;
+var USER_URL;
+	
+function pop_up_contributor() {
+	var answer = prompt("Please enter the contributor key\nthat you want to use for this WebApp: ");
+	
+	// Only do the following if the user enters something!
+	if(answer != null)
+	{
+		change_contributor_key(answer);
+		//console.log(answer);	// DEBUGGING
+	}
+}
+
+function change_contributor_key(key) {
+	contributor_key = key;
+	
+	// Change the HTML to show that the contributor key has been set.
+	document.getElementById("contrib_key").innerHTML = contributor_key;
+	
+	// DEBUGGING
+	//console.log(contributor_key);
+	//console.log(key);
+}
 
 function pop_up() {
 	// Prompt to get PROJECT ID from user
@@ -17,9 +42,11 @@ function pop_up() {
 function change_project_id(id) {
 	project_id = id;
 	
-	$(".container span:contains('')").html(project_id);
-//	project_num.innerHMTL = project_id;		// Update the HTML file to indicate the change.
-	//console.log(id);	// DEBUGGING
+	// Update the HTML file to indicate the change.
+	document.getElementById("project_num").innerHTML = project_id;
+	
+	// DEBUGGING
+	//console.log(id);	
 	//console.log(project_id);
 }
 
@@ -31,10 +58,17 @@ function check_photo()
 
 function getCoords(event)
 {
-	// Make the URL links.	- ALWAYS DOUBLE CHECK THESE... USER_URL WAS WRONG!
-	var API_URL = 'http://isenseproject.org/api/v1/projects/567/jsonDataUpload';
-	var USER_URL = 'http://isenseproject.org/projects/567';
 	var USER_URL_TEXT = 'Click here to go to your project!';
+	
+	// Make the URL links.	- ALWAYS DOUBLE CHECK THESE... USER_URL WAS WRONG!
+	if(project_id == 0)	{
+		API_URL = 'http://isenseproject.org/api/v1/projects/567/jsonDataUpload';
+		USER_URL = 'http://isenseproject.org/projects/567';
+	}
+	else {
+		API_URL = 'http://isenseproject.org/api/v1/projects/' + project_id +'/jsonDataUpload';
+		USER_URL = 'http://isenseproject.org/projects/' + project_id + '/';
+	}	
 
 	var canvas = document.getElementById("world");
 	
@@ -89,14 +123,19 @@ function getCoords(event)
 	// Modify this title to be the dataset name
 	upload.title = 'Test ' + timestamp;
 	
-	var reply;
-	
 	if(confirm("Do you want to upload this data to iSENSE?")) {
 		// Post to iSENSE
-		$.post(API_URL, upload);
+		var result = $.post(API_URL, upload)
 		
 		// Add a link in the HTML file to the project they contributed to.
-		reply = "Uploaded to iSENSE <br/><br/>" + '<a href="' + USER_URL + '">' + USER_URL_TEXT + '</a> <br/>';
+		if(result.done) {
+			reply = "Uploaded to iSENSE <br/><br/>" + '<a href="' + USER_URL + '">' + USER_URL_TEXT + '</a> <br/>';
+			console.log("Success");
+		}
+		else if(result.fail) {
+			reply = "Failed to post to iSENSE!";
+			console.log("Failed");
+		}
 	}
 	else {
 		reply = "Canceled!";
