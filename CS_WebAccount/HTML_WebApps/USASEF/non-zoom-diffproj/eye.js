@@ -135,7 +135,7 @@ function getCoords(event)
 	
 	// Just a test to see if I can get contributor key upload supported.
 	if(contributor_key != 0) {
-		// ...
+		// 
 	}
 	
 	// Modify this title to be the dataset name
