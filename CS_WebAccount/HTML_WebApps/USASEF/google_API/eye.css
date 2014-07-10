@@ -1,11 +1,3 @@
-/* THIS IS A TEST */
-body {
-   -moz-transform: scale(1.0, 1.0);
-   zoom: 1.0;
-   zoom: 100%;
-}
-
-
 /* This all works. */
 h1{
 	color: blue;
