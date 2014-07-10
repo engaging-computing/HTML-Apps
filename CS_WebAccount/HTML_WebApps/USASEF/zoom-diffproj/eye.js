@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", check_photo, false);
 
+var zoom_num = .8;
 var user = "--";
 var project_title = "Test";
 var project_id = 567;
@@ -7,6 +8,26 @@ var contributor_key = 0;
 var API_URL;
 var USER_URL;
 var USER_URL_TEXT = 'Click here to go to your project!';
+
+function zoom_in() {
+	zoom_num += .05;
+	
+	$(document).ready(function() {
+		$('body').css('zoom', zoom_num); /* Webkit browsers */
+		$('body').css('zoom', zoom_num); /* Other non-webkit browsers */
+		$('body').css('-moz-transform',scale(zoom_num, zoom_num)); /* Moz-browsers */
+	});
+}
+
+function zoom_out() {
+	zoom_num -= .05;
+	
+	$(document).ready(function() {
+		$('body').css('zoom', zoom_num); /* Webkit browsers */
+		$('body').css('zoom', zoom_num); /* Other non-webkit browsers */
+		$('body').css('-moz-transform',scale(zoom_num, zoom_num)); /* Moz-browsers */
+	});
+}
 
 function popup_user() {
 	user = prompt("This is a work in progress. All it does ATM is change -- to whatever you type in this box.");

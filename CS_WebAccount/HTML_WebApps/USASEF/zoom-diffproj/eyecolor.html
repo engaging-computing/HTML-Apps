@@ -15,12 +15,17 @@
 	</head>
 	<body> 
 		<h1>Eye Color Map</h1>
+		
+		<!-- ZOOM IN AND OUT BUTTONS -->
+		<div id="right">
+		<button onClick="zoom_in()">ZOOM IN</button>
+		<button onClick="zoom_out()">ZOOM OUT</button>
+		</div>
+		
 		<p id="center">Please click on the country of your ancestry.</p>
 		
-	<!-- THIS IS THE NON-ZOOM VERSION. IT ONLY DISPLAYS THE IMAGE (BELOW)
-		 AND ONLY LETS THE USER CLICK ON WORLD MAP. THE JAVASCRIPT FILE THEN
-		 WATCHES FOR A CLICK, AND WHEN THE USER CLICKS IT CALCULATES THE X / Y
-		 AND GPS COORDINATES. THEN IT ASKS THE USER IF THEY WANT TO UPLOAD OR NOT.	-->
+	<!-- 	This will be the zoom version. It will allow you to zoom by clicking
+			on a "+" or a "-".	 -->
 		
 		<img id="world" src="world_map_satview.jpg" style="margin: 0px auto; display:block"/>
 		<br/>
