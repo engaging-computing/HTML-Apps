@@ -1,5 +1,3 @@
-document.addEventListener("DOMContentLoaded", check_photo, false);
-
 var zoom_num = 1.0;
 var user = "--";
 var project_title = "Test";
@@ -12,6 +10,9 @@ var USER_URL_TEXT = 'Click here to go to your project!';
 // Google Maps API variables
 var map = null;
 var marker = null;
+
+var lat = 0;
+var long = 0;
 
 var infowindow = new google.maps.InfoWindow(
 { 
@@ -28,10 +29,103 @@ function createMarker(latlng, name, html) {
         zIndex: Math.round(latlng.lat()*-100000)<<5
 	});
 
-    google.maps.event.addListener(marker, 'click', 
-    function() {
-        infowindow.setContent(contentString); 
-        infowindow.open(map,marker);
+//    google.maps.event.addListener(marker, 'click', 
+//    function() {
+//        infowindow.setContent(contentString); 
+//        infowindow.open(map,marker);
+//	});
+    
+    google.maps.event.addListener(map, 'click', function( event ){
+  		lat = event.latLng.lat();
+  		long = event.latLng.lng();
+  		
+  		GPS_LONG.innerHTML = long;
+		GPS_LAT.innerHTML  = lat;
+  		 
+  		console.log("LAT: " + lat + " LONG: " + long);
+	
+		// Make the URL links.	- ALWAYS DOUBLE CHECK THESE... USER_URL WAS WRONG!
+		if(project_id === 567)	{
+			API_URL = 'http://isenseproject.org/api/v1/projects/567/jsonDataUpload';
+			USER_URL = 'http://isenseproject.org/projects/567';
+		}
+		else {
+			API_URL = 'http://isenseproject.org/api/v1/projects/' + project_id +'/jsonDataUpload';
+			USER_URL = 'http://isenseproject.org/projects/' + project_id + '/';
+		}	
+	
+		// Get eye color that user selected.
+		var c = document.getElementById("eye_color");
+		var color = c.options[c.selectedIndex].text;
+	
+		/* Get current time - used for timestamp & 
+		   also to make title different for each data set. */
+		var currentTime = new Date();
+		var timestamp = JSON.stringify(currentTime);
+	
+		/* 	ADDED SUPPORT FOR OTHER PROJECT IDs. This means I will need to GET the 
+			field #s for lat, long and color!!	*/
+		if(project_id == 567 ) {
+			// Data to be uploaded to iSENSE
+			var upload = {
+				'title': [],
+				'email': 'j@j.j',
+				'password': 'j',
+				'data':
+			  	{
+					'2704': [lat],
+					'2705': [long],
+					'2706': [color]
+			 	}
+			}
+		}
+		else{
+			// This part is tricky...
+		
+		}
+	
+		// Just a test to see if I can get contributor key upload supported.
+		if(contributor_key != 0) {
+			// Contributor key upload
+			var upload = {
+				'title': [],
+				'contribution_key': [contributor_key],
+				'contributor_name': 'Eye Color',
+				'data':
+			  	{
+					'2704': [lat],
+					'2705': [long],
+					'2706': [color]
+			 	}
+			}
+		}
+	
+		// Modify this title to be the dataset name
+		upload.title = project_title + " " + timestamp;
+	
+		if(confirm("Do you want to upload this data to iSENSE?")) {
+			// Post to iSENSE
+			var result = $.post(API_URL, upload)
+		
+			// If we were able to upload to iSENSE, then show them the URL to their project!
+			result.done(function() {
+				RES.innerHTML = "Uploaded to iSENSE! " + '<a href="' + USER_URL + '">' + USER_URL_TEXT + '</a> <br/>';
+				console.log("Success");
+			});
+		
+			// If we failed to upload to iSENSE, show an error and why it failed.
+			result.fail(function(textStatus) {
+				RES.innerHTML = "Failed to post to iSENSE!";
+				var resp = JSON.stringify(textStatus);
+				console.log("Failed. Response Text:\n" + resp);
+			});
+
+		}
+		else {
+			// User canceled the upload.
+			RES.innerHTML = "Canceled!";
+		}	
+		
 	});
         
     google.maps.event.trigger(marker, 'click');    
@@ -125,124 +219,5 @@ function popup_projID() {
 		//console.log(id);	
 		//console.log(project_id);
 		//console.log(answer);
-	}
-}
-
-function check_photo()
-{
-	var canvas = document.getElementById("world");
-	canvas.addEventListener("mousedown", getCoords, false);
-}
-
-function getCoords(event)
-{	
-	// Make the URL links.	- ALWAYS DOUBLE CHECK THESE... USER_URL WAS WRONG!
-	if(project_id === 567)	{
-		API_URL = 'http://isenseproject.org/api/v1/projects/567/jsonDataUpload';
-		USER_URL = 'http://isenseproject.org/projects/567';
-	}
-	else {
-		API_URL = 'http://isenseproject.org/api/v1/projects/' + project_id +'/jsonDataUpload';
-		USER_URL = 'http://isenseproject.org/projects/' + project_id + '/';
-	}	
-
-	var canvas = document.getElementById("world");
-	
-	/*  Get x & y coordinates. NOTE: the numbers 500 and 249 are to center
-		the x & y coordinates on the center of the map. I also change the sign
-		of the y coordinate for converting it to lat and long.	*/
-	var x = (event.x - canvas.offsetLeft) - 500;
-	var y = (event.y - canvas.offsetTop)  - 249;
-	y = y * -1;
-	
-	// Update the HTML file.
-	coord_x.innerHTML = x;
-	coord_y.innerHTML = y;
-	
-	/*	Convert x & y to Lat & Long
-		Long = (360 / Map Width)  * X
-		Lat  = (180 / Map Height) * Y		*/
-	var long = (360 / 1000) * x;
-	var lat  = (180 /  500) * y; 
-	
-	// Round the lat & long
-	var long_round, lat_round;
-	long_round = long.toFixed(2);
-	 lat_round = lat.toFixed(2);
-	
-	// Update HTML page to show current Lat/Long
-	GPS_LONG.innerHTML = long_round;
-	GPS_LAT.innerHTML  = lat_round;
-	
-	// Get eye color that user selected.
-	var c = document.getElementById("eye_color");
-	var color = c.options[c.selectedIndex].text;
-	
-	/* Get current time - used for timestamp & 
-	   also to make title different for each data set. */
-	var currentTime = new Date();
-	var timestamp = JSON.stringify(currentTime);
-	
-	/* 	ADDED SUPPORT FOR OTHER PROJECT IDs. This means I will need to GET the 
-		field #s for lat, long and color!!	*/
-	if(project_id == 567 ) {
-		// Data to be uploaded to iSENSE
-		var upload = {
-			'title': [],
-			'email': 'j@j.j',
-			'password': 'j',
-			'data':
-		  	{
-				'2704': [lat],
-				'2705': [long],
-				'2706': [color]
-		 	}
-		}
-	}
-	else{
-		// This part is tricky...
-		
-	}
-	
-	// Just a test to see if I can get contributor key upload supported.
-	if(contributor_key != 0) {
-		// Contributor key upload
-		var upload = {
-			'title': [],
-			'contribution_key': [contributor_key],
-			'contributor_name': 'Eye Color',
-			'data':
-		  	{
-				'2704': [lat],
-				'2705': [long],
-				'2706': [color]
-		 	}
-		}
-	}
-	
-	// Modify this title to be the dataset name
-	upload.title = project_title + " " + timestamp;
-	
-	if(confirm("Do you want to upload this data to iSENSE?")) {
-		// Post to iSENSE
-		var result = $.post(API_URL, upload)
-		
-		// If we were able to upload to iSENSE, then show them the URL to their project!
-		result.done(function() {
-			RES.innerHTML = "Uploaded to iSENSE! " + '<a href="' + USER_URL + '">' + USER_URL_TEXT + '</a> <br/>';
-			console.log("Success");
-		});
-		
-		// If we failed to upload to iSENSE, show an error and why it failed.
-		result.fail(function(textStatus) {
-			RES.innerHTML = "Failed to post to iSENSE!";
-			var resp = JSON.stringify(textStatus);
-			console.log("Failed. Response Text:\n" + resp);
-		});
-
-	}
-	else {
-		// User canceled the upload.
-		RES.innerHTML = "Canceled!";
 	}
 }
