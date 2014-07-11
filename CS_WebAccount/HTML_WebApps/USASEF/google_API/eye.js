@@ -19,6 +19,14 @@ var infowindow = new google.maps.InfoWindow(
 	size: new google.maps.Size(150,50)
 });
 
+/*
+	CURRENTLY BUGGY. BUT WORKS AS A 'PROOF OF CONCEPT'.
+	To fix: 
+	- Not working on the first click
+	- Multiple popups, depending on how many clicks were made before 
+		(ie second marker = 2 clicks, 3rd marker = 3, etc)
+	- Also multiple uploads?
+*/
 
 // A function to create the marker and set up the event window function 
 function createMarker(latlng, name, html) {
@@ -145,10 +153,10 @@ function initialize() {
 	
 	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
  
-	google.maps.event.addListener(map, 'click', 
-	function() {
-    	infowindow.close();
-	});
+//	google.maps.event.addListener(map, 'click', 
+//	function() {
+//    	infowindow.close();
+//	});
 
 	google.maps.event.addListener(map, 'click', 
 	function(event) {
