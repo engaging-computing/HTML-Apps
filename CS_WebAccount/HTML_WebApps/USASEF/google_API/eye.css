@@ -45,3 +45,7 @@ pre{
 	font-weight: bold;
 	text-align: right;
 }
+
+#map_canvas{
+	margin: 0 auto;
+}
