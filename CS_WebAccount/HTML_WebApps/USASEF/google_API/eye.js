@@ -14,11 +14,6 @@ var marker = null;
 var lat = 0;
 var long = 0;
 
-var infowindow = new google.maps.InfoWindow(
-{ 
-	size: new google.maps.Size(150,50)
-});
-
 /*
 	CURRENTLY BUGGY. BUT WORKS AS A 'PROOF OF CONCEPT'.
 	To fix: 
@@ -29,8 +24,8 @@ var infowindow = new google.maps.InfoWindow(
 */
 
 // A function to create the marker and set up the event window function 
-function createMarker(latlng, name, html) {
-    var contentString = html;
+function createMarker(latlng) {
+
     var marker = new google.maps.Marker({
         position: latlng,
         map: map,
@@ -39,19 +34,55 @@ function createMarker(latlng, name, html) {
 
 //    google.maps.event.addListener(marker, 'click', 
 //    function() {
-//        infowindow.setContent(contentString); 
-//        infowindow.open(map,marker);
+
 //	});
     
+    // When the user clicks on the map, get the lat & long of their click!
     google.maps.event.addListener(map, 'click', function( event ){
-  		lat = event.latLng.lat();
+
+	});
+        
+//	google.maps.event.trigger(marker, 'click');
+    return marker;
+}
+
+// Initialize the map.
+function initialize_map() {
+	var options = {
+		zoom: 2,
+		center: new google.maps.LatLng(0, 0),
+		mapTypeControl: true,
+		mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+		navigationControl: true,
+		mapTypeId: google.maps.MapTypeId.HYBRID
+	}
+	
+	map = new google.maps.Map(document.getElementById("map_canvas"), options);
+ 
+//	google.maps.event.addListener(map, 'click', 
+//	function() {
+
+//	});
+
+	google.maps.event.addListener(map, 'click', 
+	function(event) {
+	
+		//call function to create marker
+		if (marker) {
+			marker.setMap(null);
+			marker = null;
+		}
+		
+		lat = event.latLng.lat();
   		long = event.latLng.lng();
   		
   		GPS_LONG.innerHTML = long;
 		GPS_LAT.innerHTML  = lat;
   		 
   		console.log("LAT: " + lat + " LONG: " + long);
-	
+		
+		marker = createMarker(event.latLng);
+		
 		// Make the URL links.	- ALWAYS DOUBLE CHECK THESE... USER_URL WAS WRONG!
 		if(project_id === 567)	{
 			API_URL = 'http://isenseproject.org/api/v1/projects/567/jsonDataUpload';
@@ -133,40 +164,6 @@ function createMarker(latlng, name, html) {
 			// User canceled the upload.
 			RES.innerHTML = "Canceled!";
 		}	
-		
-	});
-        
-    google.maps.event.trigger(marker, 'click');    
-    return marker;
-}
-
-// Initialize the map.
-function initialize() {
-	var myOptions = {
-		zoom: 2,
-		center: new google.maps.LatLng(0, 0),
-		mapTypeControl: true,
-		mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
-		navigationControl: true,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
-	}
-	
-	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
- 
-//	google.maps.event.addListener(map, 'click', 
-//	function() {
-//    	infowindow.close();
-//	});
-
-	google.maps.event.addListener(map, 'click', 
-	function(event) {
-	
-		//call function to create marker
-		if (marker) {
-			marker.setMap(null);
-			marker = null;
-		}
-		marker = createMarker(event.latLng, "name", "<b>Location</b><br>"+event.latLng);
 	});
 
 }
