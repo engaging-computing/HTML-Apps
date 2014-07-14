@@ -6,29 +6,32 @@
 	<!-- CSS file -->
 	<link rel="stylesheet" type="text/css" href="eye.css" />
 	
-	<!-- Javascript files (jQuery + javascript source) -->
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+	<!-- Javascript files (Google Maps API + jQuery + javascript source) -->
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
 	</script>
 	<script src="eye.js"></script>
 	
 	<title>Eye Color & Ancestry</title>
 </head>
-<body style="margin:0px; padding:0px;" onload="initialize_map()">
+<body>
 
 	<h1>Eye Color Map</h1>
 	
 	<p id="center">Please click on the country of your ancestry.</p>
-		
-	<div id="map_canvas" style="width: 1000px; height: 450px"></div> 
+	
+	<!-- This is where the Google Map will appear. -->
+	<div id="map_canvas" style="width: 1200px; height: 525px"></div> 
 	<br/>
 
+	<!-- Warning for people with JavaScript turned off/Disabled. -->
     <noscript><p><b>JavaScript must be enabled in order for you to use Google Maps.</b> 
       However, it seems JavaScript is either disabled or not supported by your browser. 
       To view Google Maps, enable JavaScript by changing your browser options, and then 
       try again.</p>
     </noscript> 
 	
+	<!-- Buttons for changing parts of the WebApp. Currently only Project Title really works well. -->
 	<div id="center">
 	<button onClick="popup_user()">Click here to Login </br>(NOT REALLY DONE)</button>
 	<button onClick="popup_contributor()">Click here to add a Contributor Key <br/>(NOT REALLY DONE)</button>
@@ -36,7 +39,7 @@
 	<button onClick="popup_title()">Click here to change the title <br/>for this submission!</button>
 	</div><br/>
 	
-	<!-- Buttons for changing parts of the WebApp. Currently only Project Title really works well. -->
+	<!-- Current settings. Relates to what the above ^ buttons have changed. -->
 	<div id="center">
 	CURRENT USER: <span id="user_id">--</span> &nbsp;&nbsp;&nbsp;
 	CURRENT CONTRIBUTOR KEY: <span id="contrib_key">--</span> &nbsp;&nbsp;&nbsp;
@@ -58,11 +61,17 @@
 	<p>The GPS coordinates you selected are <span id="GPS_LONG">--</span> 
 	long and <span id="GPS_LAT">--</span> lat!</p>
 	
-	<!-- When the user clicks the button, the data is uploaded to iSENSE. -->
+	<!-- When the user clicks this button, the data is uploaded to iSENSE. -->
 	<p><input type="button" id='sub' onclick="	upload_to_iSENSE()" value="Press here to submit to iSENSE (AFTER clicking on the map & updating your eye color!)"></p>
 	
 	<p>Results: <span id="RES">--</span></p>
 
 	<p><a href="/~jdowning/HTML_WebApps/webapps.html">Return to the WebApps index</a></p>
+	
+	<!-- Loads the Google Map. -->
+	<script type="text/javascript">	
+		initialize_map();	
+	</script>
+	
 </body>
 </html>

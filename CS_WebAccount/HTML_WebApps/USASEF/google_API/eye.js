@@ -24,7 +24,7 @@ function createMarker(latlng) {
     var marker = new google.maps.Marker({
         position: latlng,
         map: map,
-        zIndex: Math.round(latlng.lat()*-100000)<<5
+        //zIndex: Math.round(latlng.lat()*-100000)<<5
 	});
 	
     return marker;
@@ -34,8 +34,8 @@ function createMarker(latlng) {
 function initialize_map() {
 	var options = {
 		zoom: 2,
-		center: new google.maps.LatLng(0, 0),
-		mapTypeControl: true,
+		center: new google.maps.LatLng(20, 0),
+		mapTypeControl: false,
 		mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
 		navigationControl: true,
 		mapTypeId: google.maps.MapTypeId.HYBRID
@@ -129,19 +129,6 @@ function initialize_map() {
 	
 		// Modify the dataset name - use what the user gave us + a timestamp.
 		upload.title = project_title + " " + timestamp;
-
-// ******************************************************************************	
-// BELOW THIS POINT IS NOT CURRENLTY BEING USED.	
-		// Make sure the user wants to upload to iSENSE.
-		
-		// Also - why doesn't the marker show up until AFTER they've uploaded or canceled?		
-		
-//		if(confirm("Do you want to upload this data to iSENSE?")) {
-
-//		else {
-//			// User canceled the upload.
-//			RES.innerHTML = "Canceled!";
-//		}	
 	});
 
 }
@@ -164,8 +151,17 @@ function upload_to_iSENSE() {
 		url: API_URL,
 		data: upload,
 		dataType: "html",
-		success: ,
-		error: 
+		success: function() {
+			RES.innerHTML = "Uploaded to iSENSE! " + '<a href="' +
+						 	USER_URL + '">' + USER_URL_TEXT + '</a> <br/>';
+			console.log("Success");
+		},
+		error:  function(xhr) {
+			RES.innerHTML = "Failed to post to iSENSE!";
+			//var resp = jQuery.parseJSON(textStatus);
+			console.log("Failed. Response Text:\n" + xhr.responseText);
+		}
+	});
 
 
 /*	// WORKING VERSION
