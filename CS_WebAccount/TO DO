@@ -2,13 +2,12 @@
 X	Make dataset searcher link to the dataset you are searching for.
 X	Make BH app + Water Testing app actually ask if you want to submit or not.
 	-> ALL apps should do this from now on!
-X	Rename all the files so they make logical sense!
+X	Rename all the files so they make sense!
 X	Make plinko probability app
+X	Fix Eye Color Zoom app.
 
 	TO DO:
 *	Fix Water Testing app's GPS location...
 *	Add Contributor Key support to all of the apps. 
 *	Add Email/Password support to all of the apps. (Login button?)
-*	Possibly add a "Make a new project" button?
-*	Fix Eye Color Zoom app.
 *	
