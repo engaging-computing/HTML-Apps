@@ -1,20 +1,18 @@
-var zoom_num = 1.0;
+// Variables for uploading to iSENSE
+var upload;
+var color;
+var timestamp;
 var user = "--";
 var project_title = "Test";
 var project_id = 567;
 var contributor_key = 0;
-var API_URL = 'www.google.com';
+var API_URL = 'www.google.com';		// In case the user tries to submit before clicking.
 var USER_URL = 'www.google.com';
 var USER_URL_TEXT = 'Click here to go to your project!';
-
-var upload;
-var color;
-var timestamp;
 
 // Google Maps API variables
 var map = null;
 var marker = null;
-
 var lat = 0;
 var long = 0;
 
@@ -24,7 +22,6 @@ function createMarker(latlng) {
     var marker = new google.maps.Marker({
         position: latlng,
         map: map,
-        //zIndex: Math.round(latlng.lat()*-100000)<<5
 	});
 	
     return marker;
@@ -134,30 +131,20 @@ function initialize_map() {
 }
 
 function upload_to_iSENSE() {
-// Test version.
-/*
-	Known to work - from field_search WebApp
 
-		var response = $.ajax({ type: "GET",
-							url: URL,
-							async: false,
-							dataType: "JSON"
-							}).responseText;
-*/
-
-
+	// Post to iSENSE.
 	var result = $.ajax({
 		type: "POST",
 		url: API_URL,
 		data: upload,
 		dataType: "html",
-		success: function() {
+		success: function() {	// Makes a link to iSENSE for the user to see.
 			RES.innerHTML = "Uploaded to iSENSE! " + '<a href="' +
 						 	USER_URL + '">' + USER_URL_TEXT + '</a> <br/>';
 			console.log("Success");
 		},
-		error:  function(xhr) {
-			RES.innerHTML = "Failed to post to iSENSE!";
+		error:  function(xhr) {	// Should print an error message to the user.
+			RES.innerHTML = "Failed to post to iSENSE! Error: " + xhr.responseText;
 			//var resp = jQuery.parseJSON(textStatus);
 			console.log("Failed. Response Text:\n" + xhr.responseText);
 		}
@@ -216,11 +203,6 @@ function popup_contributor() {
 		
 		// Change the HTML to show that the contributor key has been set.
 		document.getElementById("contrib_key").innerHTML = contributor_key;
-		
-		// DEBUGGING
-		//console.log(contributor_key);
-		//console.log(key);
-		//console.log(answer);
 	}
 }
 
@@ -236,9 +218,5 @@ function popup_projID() {
 		// Update the HTML file to indicate the change.
 		document.getElementById("project_num").innerHTML = project_id;
 	
-		// DEBUGGING
-		//console.log(id);	
-		//console.log(project_id);
-		//console.log(answer);
 	}
 }
