@@ -34,9 +34,9 @@
 	<button onClick="popup_contributor()">Click here to add a Contributor Key <br/>(NOT REALLY DONE)</button>
 	<button onClick="popup_projID()">Click here to change the <br/>Project ID for this App.</button>
 	<button onClick="popup_title()">Click here to change the title <br/>for this submission!</button>
-	</div>
+	</div><br/>
 	
-	<br/>
+	<!-- Buttons for changing parts of the WebApp. Currently only Project Title really works well. -->
 	<div id="center">
 	CURRENT USER: <span id="user_id">--</span> &nbsp;&nbsp;&nbsp;
 	CURRENT CONTRIBUTOR KEY: <span id="contrib_key">--</span> &nbsp;&nbsp;&nbsp;
@@ -55,11 +55,11 @@
 	</select></p>
 	
 	<!-- The span ids here are replaced with variables from the JS file. -->
-	<p>You selected an X of <span id="coord_x">--</span> and a Y of 
-	<span id="coord_y">--</span></p>
-	
-	<p>That translates into GPS coordinates of <span id="GPS_LONG">--</span> 
+	<p>The GPS coordinates you selected are <span id="GPS_LONG">--</span> 
 	long and <span id="GPS_LAT">--</span> lat!</p>
+	
+	<!-- When the user clicks the button, the data is uploaded to iSENSE. -->
+	<p><input type="button" id='sub' onclick="	upload_to_iSENSE()" value="Press here to submit to iSENSE (AFTER clicking on the map & updating your eye color!)"></p>
 	
 	<p>Results: <span id="RES">--</span></p>
 

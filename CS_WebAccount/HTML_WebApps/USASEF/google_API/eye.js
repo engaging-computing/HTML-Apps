@@ -3,9 +3,13 @@ var user = "--";
 var project_title = "Test";
 var project_id = 567;
 var contributor_key = 0;
-var API_URL;
-var USER_URL;
+var API_URL = 'www.google.com';
+var USER_URL = 'www.google.com';
 var USER_URL_TEXT = 'Click here to go to your project!';
+
+var upload;
+var color;
+var timestamp;
 
 // Google Maps API variables
 var map = null;
@@ -14,16 +18,7 @@ var marker = null;
 var lat = 0;
 var long = 0;
 
-/*
-	CURRENTLY BUGGY. BUT WORKS AS A 'PROOF OF CONCEPT'.
-	To fix: 
-	- Not working on the first click
-	- Multiple popups, depending on how many clicks were made before 
-		(ie second marker = 2 clicks, 3rd marker = 3, etc)
-	- Also multiple uploads?
-*/
-
-// A function to create the marker and set up the event window function 
+// Creates the marker on the screen.
 function createMarker(latlng) {
 
     var marker = new google.maps.Marker({
@@ -31,22 +26,11 @@ function createMarker(latlng) {
         map: map,
         zIndex: Math.round(latlng.lat()*-100000)<<5
 	});
-
-//    google.maps.event.addListener(marker, 'click', 
-//    function() {
-
-//	});
-    
-    // When the user clicks on the map, get the lat & long of their click!
-    google.maps.event.addListener(map, 'click', function( event ){
-
-	});
-        
-//	google.maps.event.trigger(marker, 'click');
+	
     return marker;
 }
 
-// Initialize the map.
+// Initializes the map.
 function initialize_map() {
 	var options = {
 		zoom: 2,
@@ -58,29 +42,33 @@ function initialize_map() {
 	}
 	
 	map = new google.maps.Map(document.getElementById("map_canvas"), options);
- 
-//	google.maps.event.addListener(map, 'click', 
-//	function() {
 
-//	});
-
+	/* DOM listener using Google Maps JavaScript API. Whenever the user clicks:
+		A marker is created.
+		The GPS location of the click is recorded.
+		The user is asked if they want to upload the data or cancel.
+	*/
 	google.maps.event.addListener(map, 'click', 
 	function(event) {
 	
-		//call function to create marker
+		// Removes old markers.
 		if (marker) {
 			marker.setMap(null);
 			marker = null;
 		}
 		
+		// Get Lat & Long from the mouse click.
 		lat = event.latLng.lat();
   		long = event.latLng.lng();
   		
+  		// Change the HTML to show updates Lat & Long
   		GPS_LONG.innerHTML = long;
 		GPS_LAT.innerHTML  = lat;
   		 
-  		console.log("LAT: " + lat + " LONG: " + long);
+  		// Debugging.
+  		//console.log("LAT: " + lat + " LONG: " + long);
 		
+		// Call the function that makes the marker.
 		marker = createMarker(event.latLng);
 		
 		// Make the URL links.	- ALWAYS DOUBLE CHECK THESE... USER_URL WAS WRONG!
@@ -95,18 +83,18 @@ function initialize_map() {
 	
 		// Get eye color that user selected.
 		var c = document.getElementById("eye_color");
-		var color = c.options[c.selectedIndex].text;
+		color = c.options[c.selectedIndex].text;
 	
 		/* Get current time - used for timestamp & 
 		   also to make title different for each data set. */
 		var currentTime = new Date();
-		var timestamp = JSON.stringify(currentTime);
+		timestamp = JSON.stringify(currentTime);
 	
 		/* 	ADDED SUPPORT FOR OTHER PROJECT IDs. This means I will need to GET the 
 			field #s for lat, long and color!!	*/
 		if(project_id == 567 ) {
 			// Data to be uploaded to iSENSE
-			var upload = {
+			upload = {
 				'title': [],
 				'email': 'j@j.j',
 				'password': 'j',
@@ -120,13 +108,13 @@ function initialize_map() {
 		}
 		else{
 			// This part is tricky...
-		
+			// (This is where support for other Project IDs would be.)
 		}
 	
 		// Just a test to see if I can get contributor key upload supported.
 		if(contributor_key != 0) {
 			// Contributor key upload
-			var upload = {
+			upload = {
 				'title': [],
 				'contribution_key': [contributor_key],
 				'contributor_name': 'Eye Color',
@@ -139,31 +127,41 @@ function initialize_map() {
 			}
 		}
 	
-		// Modify this title to be the dataset name
+		// Modify the dataset name - use what the user gave us + a timestamp.
 		upload.title = project_title + " " + timestamp;
-	
-		if(confirm("Do you want to upload this data to iSENSE?")) {
-			// Post to iSENSE
-			var result = $.post(API_URL, upload)
-		
-			// If we were able to upload to iSENSE, then show them the URL to their project!
-			result.done(function() {
-				RES.innerHTML = "Uploaded to iSENSE! " + '<a href="' + USER_URL + '">' + USER_URL_TEXT + '</a> <br/>';
-				console.log("Success");
-			});
-		
-			// If we failed to upload to iSENSE, show an error and why it failed.
-			result.fail(function(textStatus) {
-				RES.innerHTML = "Failed to post to iSENSE!";
-				var resp = JSON.stringify(textStatus);
-				console.log("Failed. Response Text:\n" + resp);
-			});
 
-		}
-		else {
-			// User canceled the upload.
-			RES.innerHTML = "Canceled!";
-		}	
+// ******************************************************************************	
+// BELOW THIS POINT IS NOT CURRENLTY BEING USED.	
+		// Make sure the user wants to upload to iSENSE.
+		
+		// Also - why doesn't the marker show up until AFTER they've uploaded or canceled?		
+		
+//		if(confirm("Do you want to upload this data to iSENSE?")) {
+
+//		else {
+//			// User canceled the upload.
+//			RES.innerHTML = "Canceled!";
+//		}	
+	});
+
+}
+
+function upload_to_iSENSE() {
+	// Post to iSENSE
+	var result = $.post(API_URL, upload)
+
+	// If we were able to upload to iSENSE, then show them the URL to their project!
+	result.done(function() {
+		RES.innerHTML = "Uploaded to iSENSE! " + '<a href="' +
+						 USER_URL + '">' + USER_URL_TEXT + '</a> <br/>';
+		console.log("Success");
+	});
+
+	// If we failed to upload to iSENSE, show an error and why it failed.
+	result.fail(function(textStatus) {
+		RES.innerHTML = "Failed to post to iSENSE!";
+		var resp = JSON.stringify(textStatus);
+		console.log("Failed. Response Text:\n" + resp);
 	});
 
 }
