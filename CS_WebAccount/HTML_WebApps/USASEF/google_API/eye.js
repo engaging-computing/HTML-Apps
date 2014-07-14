@@ -147,6 +147,28 @@ function initialize_map() {
 }
 
 function upload_to_iSENSE() {
+// Test version.
+/*
+	Known to work - from field_search WebApp
+
+		var response = $.ajax({ type: "GET",
+							url: URL,
+							async: false,
+							dataType: "JSON"
+							}).responseText;
+*/
+
+
+	var result = $.ajax({
+		type: "POST",
+		url: API_URL,
+		data: upload,
+		dataType: "html",
+		success: ,
+		error: 
+
+
+/*	// WORKING VERSION
 	// Post to iSENSE
 	var result = $.post(API_URL, upload)
 
@@ -160,10 +182,10 @@ function upload_to_iSENSE() {
 	// If we failed to upload to iSENSE, show an error and why it failed.
 	result.fail(function(textStatus) {
 		RES.innerHTML = "Failed to post to iSENSE!";
-		var resp = JSON.stringify(textStatus);
+		var resp = jQuery.parseJSON(textStatus);
 		console.log("Failed. Response Text:\n" + resp);
 	});
-
+*/
 }
 
 function popup_user() {
