@@ -1,4 +1,6 @@
-This Repository contains various HTML 5 Web Apps.
+# HTML-5
+
+This subdirectory contains various HTML 5 Web Apps.
 All connect with the iSENSE website - isenseproject.org.
 
 Current WebApps:
