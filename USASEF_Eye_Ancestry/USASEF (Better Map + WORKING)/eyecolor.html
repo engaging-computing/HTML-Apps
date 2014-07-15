@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<!-- CSS file -->
+		<link rel="stylesheet" type="text/css" href="eye.css" />
+		
+		<!-- Javascript files (jQuery + javascript source) -->
+		<script 
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+		</script>
+		<script src="eye.js"></script>
+		
+		<meta charset="UTF-8">
+		<title>Eye Color & Ancestry</title>
+	</head>
+	<body> 
+		<h1>Eye Color Map</h1>
+		<p>Please click on the country of your ancestry.</p>
+		
+		<img id="world" src="world_map_satview.jpg" style="margin: 0px auto; 
+		display:block; border: 2px solid blue" height="500px" width="1000px""/>
+		<br/>
+		
+		<p>Select your eye color: 
+		
+		<select id="eye_color">
+			<option value="Blue">Blue</option>
+			<option value="Brown">Brown</option>
+			<option value="Hazel">Hazel</option>
+			<option value="Gray">Gray</option>
+		</select></p>
+		
+		<p>You selected an X of <span id="coord_x">--</span> and a Y of 
+		<span id="coord_y">--</span></p>
+		
+		<p>That translates into GPS coordinates of <span id="GPS_LONG">--</span> 
+		long and <span id="GPS_LAT">--</span> lat!</p>
+		
+		<p>Results: <span id="RES">--</span></p>
+		
+	</body>
+</html>

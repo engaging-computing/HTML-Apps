@@ -1,0 +1,70 @@
+These are examples of how to do various things in HTML5/JavaScript that interact
+with the iSENSE API/iSENSE website.
+
+**** URL LINKS ****
+
+	// Make the URL links.
+	var API_URL = 'http://isenseproject.org/api/v1/projects/556/jsonDataUpload';
+	var USER_URL = 'http://isenseproject.org/projects/556';
+	var USER_URL_TEXT = 'Click here to go to your project!';
+
+	// Add a link in the HTML file to the project they contributed to.
+	The_URL.innerHTML = '<br/> <a href="'+ USER_URL +'">' + USER_URL_TEXT + '</a> <br/> <br/>';
+
+**** TIME STAMPS ****
+
+	// Get current time - used for timestamp
+	var currentTime = new Date();
+	var timestamp = JSON.stringify(currentTime);
+
+**** UPLOADING TO iSENSE ****
+
+	// iSENSE
+	var upload = {
+		'email': 'j@j.j',
+		'password': 'j',
+		'title': [],
+		'data':
+	  	{
+	  		'2685': [timestamp],
+			// LAT AND LONG ARE NOT USED FOR THIS WEB APP.
+			'2640': [temp],
+			'2641': [ph],
+			'2642': [dox],
+			'2643': [phos]
+	 	}
+	}
+	
+	// Modify the title
+	upload.title = "Table " + [letter] + " " + [timestamp];
+	
+	// Post to iSENSEPROJECT
+	$.post(API_URL, upload);
+	
+	
+	** alternative way **
+	if(confirm("Do you want to upload this data to iSENSE?")) {
+		// Post to iSENSE
+		$.post(API_URL, upload);
+		
+		// Add a link in the HTML file to the project they contributed to.
+		The_URL.innerHTML = '<a href="'+ USER_URL +'">' + USER_URL_TEXT + '</a>';
+	}
+	else {
+		The_URL.innerHTML = "Canceled!";
+	}
+	
+	** detect if the posting was a success or failure **
+	// Post to iSENSE
+	var result = $.post(API_URL, upload);
+
+	if(result.done) {
+		rev.innerHTML = "Successfully posted to iSENSE!";
+	}
+	else if(result.fail) {
+		rev.innerHTML = "Failed to post to iSENSE!";
+	}
+	
+**** Alert user when they've uploaded their data ****
+
+	alert("Thanks for submitting your data!");

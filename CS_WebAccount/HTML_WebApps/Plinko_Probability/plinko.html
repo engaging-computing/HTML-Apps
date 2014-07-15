@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<link rel="stylesheet" type="text/css" href="plinko.css" />
+		
+		<!-- Below links to a JavaScript file, which will run most of the stuff
+			 needed for this app. -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+		</script>
+		<script src="plinko.js"></script>
+		<meta charset="UTF-8">
+		<title>USASEF Plinko Probability</title>
+	</head>
+	<body> 
+		<h1>Plinko Probability</h1>
+		
+		<span id="paragraph">
+		To play, place a pingpong ball into a spot. Select that letter
+		on this page, <br/> 
+		and then release the pingpong ball. Record the final
+		number position that <br/> 
+		it appears in. Then view the project on iSENSE
+		at the below URL to see <br/> 
+		how your results compare to others!</span>
+
+		<p id="title">Starting Position: (A - I)</p>
+		
+		<!-- MAKE THESE INTO BUTTONS THAT DO SOMETHING... -->
+		<button onClick="start('A')">A</button>
+		
+		<button onClick="start('B')">B</button>
+		
+		<button onClick="start('C')">C</button> 
+		
+		<button onClick="start('D')">D</button> 
+		
+		<button onClick="start('E')">E</button> 
+		
+		<button onClick="start('F')">F</button> 
+		
+		<button onClick="start('G')">G</button> 
+		
+		<button onClick="start('H')">H</button> 
+		
+		<button onClick="start('I')">I</button>
+		
+		
+		<p id="title">Ending Position: (1 - 9)</p> 
+		<button onClick="end('1')">1</button>
+		
+		<button onClick="end('2')">2</button>
+		 
+		<button onClick="end('3')">3</button>
+		
+		<button onClick="end('4')">4</button> 
+		
+		<button onClick="end('5')">5</button> 
+		
+		<button onClick="end('6')">6</button> 
+		
+		<button onClick="end('7')">7</button> 
+		
+		<button onClick="end('8')">8</button> 
+		
+		<button onClick="end('9')">9</button>
+		
+		<br/>
+		Start: <span id="START">--</span> | End: <span id="END">--</span>
+		
+		<br/>
+		<input type="button" id='sub' onclick="submitter()" value="Submit to iSENSE & rSENSE.">
+		<br/>
+		
+		<span id="The_URL"><p>The URL to the project that you contributed to will appear here!</p></span>
+		
+		<a href="/~jdowning/HTML_WebApps/webapps.html">Return to the WebApps index</a>
+
+	</body>
+</html>

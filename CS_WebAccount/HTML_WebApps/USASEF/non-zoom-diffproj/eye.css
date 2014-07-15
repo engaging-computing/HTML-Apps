@@ -1,0 +1,40 @@
+h1{
+	color: blue;
+	size: 20px;
+	text-align: center;
+}
+
+p{
+	color: black;
+	font-weight: bold;
+	text-align: center;
+}
+
+pre{
+	color: black;
+	font-weight: bold;
+	text-align: center;
+	font-size: 15px;
+}
+
+#large{
+	width: 200%;
+	height: auto;
+}
+
+#zoom{
+	width: auto;
+	height: auto;
+}
+
+#center{
+	color: black;
+	font-weight: bold;
+	text-align: center;
+}
+
+#left{
+	color: blue;
+	font-weight: bold;
+	text-align: left;
+}
