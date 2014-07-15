@@ -1,0 +1,19 @@
+/home/tylerpuleo/Documents/HTML-Apps/Phonegap/Apps/camera/platforms/android/ant-build/classes.dex : \
+/home/tylerpuleo/Documents/HTML-Apps/Phonegap/Apps/camera/platforms/android/ant-build/classes/org/apache/cordova/camera/ExifHelper.class \
+/home/tylerpuleo/Documents/HTML-Apps/Phonegap/Apps/camera/platforms/android/ant-build/classes/org/apache/cordova/camera/FileHelper.class \
+/home/tylerpuleo/Documents/HTML-Apps/Phonegap/Apps/camera/platforms/android/ant-build/classes/org/apache/cordova/camera/CameraLauncher.class \
+/home/tylerpuleo/Documents/HTML-Apps/Phonegap/Apps/camera/platforms/android/ant-build/classes/com/phonegap/helloworld/BuildConfig.class \
+/home/tylerpuleo/Documents/HTML-Apps/Phonegap/Apps/camera/platforms/android/ant-build/classes/com/phonegap/helloworld/R$xml.class \
+/home/tylerpuleo/Documents/HTML-Apps/Phonegap/Apps/camera/platforms/android/ant-build/classes/com/phonegap/helloworld/HelloWorld.class \
+/home/tylerpuleo/Documents/HTML-Apps/Phonegap/Apps/camera/platforms/android/ant-build/classes/com/phonegap/helloworld/R$attr.class \
+/home/tylerpuleo/Documents/HTML-Apps/Phonegap/Apps/camera/platforms/android/ant-build/classes/com/phonegap/helloworld/R$drawable.class \
+/home/tylerpuleo/Documents/HTML-Apps/Phonegap/Apps/camera/platforms/android/ant-build/classes/com/phonegap/helloworld/R$string.class \
+/home/tylerpuleo/Documents/HTML-Apps/Phonegap/Apps/camera/platforms/android/ant-build/classes/com/phonegap/helloworld/R.class \
+/home/tylerpuleo/Documents/HTML-Apps/Phonegap/Apps/camera/platforms/android/ant-build/classes/com/phonegap/hello_world/BuildConfig.class \
+/home/tylerpuleo/Documents/HTML-Apps/Phonegap/Apps/camera/platforms/android/ant-build/classes/com/phonegap/hello_world/R$xml.class \
+/home/tylerpuleo/Documents/HTML-Apps/Phonegap/Apps/camera/platforms/android/ant-build/classes/com/phonegap/hello_world/HelloWorld.class \
+/home/tylerpuleo/Documents/HTML-Apps/Phonegap/Apps/camera/platforms/android/ant-build/classes/com/phonegap/hello_world/R$attr.class \
+/home/tylerpuleo/Documents/HTML-Apps/Phonegap/Apps/camera/platforms/android/ant-build/classes/com/phonegap/hello_world/R$drawable.class \
+/home/tylerpuleo/Documents/HTML-Apps/Phonegap/Apps/camera/platforms/android/ant-build/classes/com/phonegap/hello_world/R$string.class \
+/home/tylerpuleo/Documents/HTML-Apps/Phonegap/Apps/camera/platforms/android/ant-build/classes/com/phonegap/hello_world/R.class \
+/home/tylerpuleo/Documents/HTML-Apps/Phonegap/Apps/camera/platforms/android/ant-build/dexedLibs/classes-cc0e856866b7ff9596b21eb3ad0b3288.jar \
