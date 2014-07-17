@@ -1,6 +1,16 @@
-/* This all works. */
-h1{
-	color: blue;
+body {
+  color: #333333;
+  background-color: #dddddd; 
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+}
+
+h1 {
+	color: #a7d0ff;
+	background: #113;
+	font: Times;
+	font-size: 70px;
+	margin: 0px;
 	size: 20px;
 	text-align: center;
 }
@@ -17,6 +27,7 @@ pre{
 	text-align: center;
 	font-size: 15px;
 }
+
 
 #large{
 	width: 200%;
