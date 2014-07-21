@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<!-- CSS file -->
+		<link rel="stylesheet" type="text/css" href="uploader.css" />
+		
+		<!-- Javascript files (jQuery + javascript source) -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+		</script>
+		<script src="uploader.js"></script>
+		
+		<meta charset="UTF-8">
+		<title>iSENSE Uploader</title>
+	</head>
+	<body> 
+		<h1>iSENSE Generic Uploader</h1>
+		<p>This page will contain a generic way of uploading to an iSENSE project
+		on the isenseproject.org website</p>
+		
+		<table align="center">
+			<tr>
+				<th align="right">Enter an email: </th>
+				<th align="left"><input type="letter" name="table" id="email"></th>
+			</tr>
+			
+			<tr>
+				<th align="right">Enter a password: </th>
+				<th align="left"><input type="password" name="table" id="password"></th>
+			</tr>
+			
+			<tr>
+				<th align="right">Enter a contributor key: </th>
+				<th align="left"><input type="letter" name="table" id="contributor_key"></th>
+			</tr>
+			
+			<tr>
+				<th align="right">Enter a project ID: </th>
+				<th align="left"><input type="number" name="table" id="project_ID"></th> 
+			</tr>
+		</table>
+		
+		<br/>
+		<button get_fields()>Click here to pull information from iSENSE</button>
+		
+		<p>NOTE: required at a mininium is a username/password or a contributor key,
+		as well as a project ID for the project you'd like to contribute to. </p>
+		
+	</body>
+</html>
