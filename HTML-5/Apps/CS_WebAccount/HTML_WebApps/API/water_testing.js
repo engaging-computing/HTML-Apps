@@ -1,35 +1,11 @@
+var lat, long;
+
 function submitter() 
 {
 	// Make the URL links.
 	var API_URL = 'http://isenseproject.org/api/v1/projects/556/jsonDataUpload';
 	var USER_URL = 'http://isenseproject.org/projects/556';
 	var USER_URL_TEXT = 'Click here to go to your project!';
-
-	// Get location - lat & long
-	var location = document.getElementById("loc");
-	var lat, long;
-	
-	// THIS WAS MISSPELLED FOR SOME REASON!
-	if(navigator.geolocation) 
-	{
-		// We can get the location!
-		navigator.geolocation.getCurrentPosition(successCallback,errorCallback,{timeout:10000});
-		function successCallback() {
-			lat = position.coords.latitude;
-			long = position.coords.longitude;
-			location.innerHTML = "Latitude: " + position.coords.latitude + 								 
-							 "<br>Longitude: " + position.coords.longitude;
-		}
-	}
-	else {
-		function errorCallback() {
-			// Location isn't available.
-			location.innerHTML = "Geolocation is not supported by this browser.<br/>";
-		}
-	}
-	
-	console.log("Latitude is: " + lat);
-	console.log("Longitude is: " + long);
 
 	// Get current time - used for timestamp
 	var currentTime = new Date();
