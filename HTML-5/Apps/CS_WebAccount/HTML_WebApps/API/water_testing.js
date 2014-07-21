@@ -9,7 +9,8 @@ function submitter()
 	var location = document.getElementById("loc");
 	var lat, long;
 	
-	if(navigator.gelocation) 
+	// THIS WAS MISSPELLED FOR SOME REASON!
+	if(navigator.geolocation) 
 	{
 		// We can get the location!
 		navigator.geolocation.getCurrentPosition(successCallback,errorCallback,{timeout:10000});
@@ -23,7 +24,7 @@ function submitter()
 	else {
 		function errorCallback() {
 			// Location isn't available.
-			location.innerHTML = "Geolocation is not supported by this browser.";
+			location.innerHTML = "Geolocation is not supported by this browser.<br/>";
 		}
 	}
 	
