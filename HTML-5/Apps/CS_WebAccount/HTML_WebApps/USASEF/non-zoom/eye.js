@@ -73,7 +73,7 @@ function getCoords(event)
 		$.post(API_URL, upload);
 		
 		// Add a link in the HTML file to the project they contributed to.
-		reply = "Uploaded to iSENSE <br/><br/>" + '<a href="' + USER_URL + '">' + USER_URL_TEXT + '</a> <br/>';
+		reply = "Uploaded to iSENSE " + '<a href="' + USER_URL + '">' + USER_URL_TEXT + '</a>';
 	}
 	else {
 		reply = "Canceled!";
