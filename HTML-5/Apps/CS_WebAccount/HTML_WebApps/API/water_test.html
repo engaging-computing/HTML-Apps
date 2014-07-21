@@ -81,9 +81,34 @@
 		<script>
 		function get_GPS() {
 			var location = document.getElementById("loc");
+			
+			function success(position) {
+				// We can get the location!
+				lat = position.coords.latitude;
+				long = position.coords.longitude;
+				location.innerHTML = "Latitude: " + position.coords.latitude + 								 
+									 "   Longitude: " + position.coords.longitude;
+			}
+			
+			function error(msg) {
+				// Location isn't available.
+				location.innerHTML = typeof msg == 'string' ? msg : "Failed.";
+			}
+			
+			if(navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(success, error);
+			}
+			else {
+				location.innerHTML = "Geolocation is not supported by this browser.";
+			}
+		}
+		
+		/*
+		function get_GPS() {
+			var location = document.getElementById("loc");
 		
 			var options = {
-				enableHighAccuracy: true,
+				enableHighAccuracy: false,
 				timeout: 5000,
 				maximumAge: 0
 			};
@@ -108,7 +133,7 @@
 			};
 
 			navigator.geolocation.getCurrentPosition(success, error, options);
-		}
+		}*/
 		/*
 		function get_GPS() {
 			var location = document.getElementById("loc");
