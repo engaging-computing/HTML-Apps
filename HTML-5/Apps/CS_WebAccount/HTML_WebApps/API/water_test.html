@@ -79,51 +79,7 @@
 		
 		<!-- This script will get the GPS coordinates of the user. -->
 		<script>
-		function get_GPS() {
-			var location = document.getElementById("loc");
-			
-			var options = {
-				enableHighAccuracy: true,
-				timeout: 5000,
-				maximumAge: 0
-			};
-			
-			if(navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(showSuccess, showError, options);
-			}
-			else {
-				location.innerHTML = "Geolocation is not supported by this browser.";
-			}
-			
-			function showSuccess(position) {
-				// We can get the location!
-				lat = position.coords.latitude;
-				long = position.coords.longitude;
-				location.innerHTML = "Latitude: " + position.coords.latitude + 								 		 "   Longitude: " + position.coords.longitude;
 
-				console.log("Success?");
-				console.log("LAT: " + position.coords.latitude + "LONG: " + position.coords.longitude);
-			}
-			
-			function showError(error) {
-				// Location isn't available.
-				switch(error.code) {
-					case error.PERMISSION_DENIED:
-						location.innerHTML = "User denied the request for Geolocation.";
-						break;
-					case error.POSITION_UNAVAILABLE:
-						location.innerHTML = "Location information is unavailable.";
-						break;
-					case error.TIMEOUT:
-						location.innerHTML = "The request to get user location timed out.";
-						break;
-					case error.UNKNOWN_ERROR:
-						location.innerHTML = "An unknown error occurred.";
-						break;
-				}
-			}
-
-		}
 		
 		/*
 		function get_GPS() {
