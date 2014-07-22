@@ -9,12 +9,11 @@ var USER_URL_TEXT = null;
 
 function get_fields() {
 	// Get information that the user entered.
-	          email = document.getElementById("email").value;
-	       password = document.getElementById("password").value;
-	contributor_key = document.getElementById("contributor_key").value;
-	     PROJECT_ID = document.getElementById("project_ID").value;
+	PROJECT_ID = document.getElementById("project_ID").value;
 
 	console.log("Proj ID = " + PROJECT_ID);
+	
+	user_input.innerHTML = " ";
 	
 	/* 	Now pull the fields off iSENSE.
 		We will need to do a GET request.
@@ -102,80 +101,3 @@ function get_fields() {
 	}
 
 }
-// Some of this is probably needed.
-
-
-	/* STUFF FROM THE FIELD SEARCHER API TEST CAN BE USED HERE */
-	/*
-	
-	console.log(response);
-	
-	if(response === undefined)
-	{
-		rev.innerHTML = "That field ID could not be found!";
-	}
-	else{
-	
-	// Now we should have some information about the project.
-	var arg = JSON.parse(response);
-	var array = [];
-	array[0] = arg['name'];
-	array[1] = arg['type'];
-	array[2] = arg['unit'];
-	array[3] = arg['restrictions'];
-	
-	rev.innerHTML = "Information about this field: <br/>Name: "+ array[0] +
-	 "<br/>Type: "+ array[1] + "<br/> Unit: "+ array[2] + 
-	 "<br/>Restrictions: " + array[3];
-	console.log(arg);
-	}
-	
-	*/
-
-
-
-//function submitter() 
-//{
-//	if(start_choice == 0 || end_choice == 0)
-//	{
-//		alert("ERROR - select a letter AND a number!");
-//		return;
-//	}
-//	
-//	// Make the URL links.
-
-
-//	/* 	Get current time - used for making the title different 
-//		every time the user uploads data. 	*/
-//	var currentTime = new Date();
-//	var timestamp = JSON.stringify(currentTime);
-
-//	/*  In the future: allow different projects, contributor keys and username
-//		and passwords. 	*/
-//	
-//	// Data to be uploaded to iSENSE
-//	var upload = {
-//		'email': 'j@j.j',
-//		'password': 'j',
-//		'title': [],
-//		'data':
-//	  	{
-//	  		'2878': [end_choice],
-//	  		'2879': [start_choice]
-//	 	}
-//	}
-//	
-//	// Modify the title to be either A, B or C
-//	upload.title = "Plinko " + [timestamp];
-//	
-//	if(confirm("Do you want to upload this data to iSENSE?")) {
-//		// Post to iSENSE
-//		$.post(API_URL, upload);
-//		
-//		// Add a link in the HTML file to the project they contributed to.
-//		The_URL.innerHTML = '<a href="'+ USER_URL +'">' + USER_URL_TEXT + '</a>';
-//	}
-//	else {
-//		The_URL.innerHTML = "Canceled!";
-//	}
-//}
