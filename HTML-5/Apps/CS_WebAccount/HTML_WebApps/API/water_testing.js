@@ -3,9 +3,9 @@ function get_GPS() {
 	var location = document.getElementById("loc");
 	
 	var options = {
-		enableHighAccuracy: false,
-		timeout: 5000,
-		maximumAge: 0
+		enableHighAccuracy: true,
+		maximumAge: 30000,
+		timeout: 27000
 	};
 	
 	if(navigator.geolocation) {
