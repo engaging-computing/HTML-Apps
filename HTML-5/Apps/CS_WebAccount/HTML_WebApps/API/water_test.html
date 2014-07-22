@@ -86,8 +86,10 @@
 				// We can get the location!
 				lat = position.coords.latitude;
 				long = position.coords.longitude;
-				location.innerHTML = "Latitude: " + position.coords.latitude + 								 
-									 "   Longitude: " + position.coords.longitude;
+				location.innerHTML = "Latitude: " + position.coords.latitude + 								 		 "   Longitude: " + position.coords.longitude;
+
+				console.log("Success?");
+				console.log("LAT: " + position.coords.latitude + "LONG: " + position.coords.longitude);
 			}
 			
 			function error(msg) {
@@ -96,7 +98,7 @@
 			}
 			
 			if(navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(success, error);
+				navigator.geolocation.getCurrentPosition(success, error, 5000);
 			}
 			else {
 				location.innerHTML = "Geolocation is not supported by this browser.";
