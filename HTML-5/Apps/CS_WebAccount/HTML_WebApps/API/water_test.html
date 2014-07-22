@@ -82,7 +82,20 @@
 		function get_GPS() {
 			var location = document.getElementById("loc");
 			
-			function success(position) {
+			var options = {
+				enableHighAccuracy: true,
+				timeout: 5000,
+				maximumAge: 0
+			};
+			
+			if(navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(showSuccess, showError, options);
+			}
+			else {
+				location.innerHTML = "Geolocation is not supported by this browser.";
+			}
+			
+			function showSuccess(position) {
 				// We can get the location!
 				lat = position.coords.latitude;
 				long = position.coords.longitude;
@@ -92,17 +105,24 @@
 				console.log("LAT: " + position.coords.latitude + "LONG: " + position.coords.longitude);
 			}
 			
-			function error(msg) {
+			function showError(error) {
 				// Location isn't available.
-				location.innerHTML = typeof msg == 'string' ? msg : "Failed.";
+				switch(error.code) {
+					case error.PERMISSION_DENIED:
+						location.innerHTML = "User denied the request for Geolocation.";
+						break;
+					case error.POSITION_UNAVAILABLE:
+						location.innerHTML = "Location information is unavailable.";
+						break;
+					case error.TIMEOUT:
+						location.innerHTML = "The request to get user location timed out.";
+						break;
+					case error.UNKNOWN_ERROR:
+						location.innerHTML = "An unknown error occurred.";
+						break;
+				}
 			}
-			
-			if(navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(success, error, 5000);
-			}
-			else {
-				location.innerHTML = "Geolocation is not supported by this browser.";
-			}
+
 		}
 		
 		/*
