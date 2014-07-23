@@ -7,6 +7,8 @@ var API_URL = null;
 var USER_URL = null;
 var USER_URL_TEXT = null;
 
+var timestamp = null;
+
 function get_fields() {
 	// Get information that the user entered.
 	          email = document.getElementById("email").value;
@@ -74,6 +76,7 @@ function get_fields() {
 		var obj;
 		
 		// Let's try to make our generic uploader...
+		// This will display the field IDs, Names, etc.
 		for(i = 0; i < arrayLength; i++){
 			// This array will push a bunch of HTML input type stuff to the HTML file.
 			// &nbsp; -> insert tab
@@ -81,24 +84,76 @@ function get_fields() {
 			// Get field ID
 			obj = fields[i]
 			id = obj["id"];
-			$("#user_input").append("Field ID: " + id + "<br/>");
+//			$("#user_input").append("Field ID: " + id + "<br/>");
 			
 			// Get field Name
 			obj = fields[i]
 			name = obj["name"];
-			$("#user_input").append("Field Name: " + name + "<br/>");
+//			$("#user_input").append("Field Name: " + name + "<br/>");
 			
 			// Get field Type
 			obj = fields[i]
 			type = obj["type"];
-			$("#user_input").append("Field Type: " + type + "<br/>");
+//			$("#user_input").append("Field Type: " + type + "<br/>");
 			
 			// Get field Units
 			obj = fields[i]
 			unit = obj["unit"];
-			$("#user_input").append("Field Unit: " + unit + "<br/><br/>");
+//			$("#user_input").append("Field Unit: " + unit + "<br/><br/>");
+			
+			if(type == 2 || type == 3) {
+			// This will actually display the input part.
+			$("#user_input").append(
+			"<tr>" + 
+				"<td align="+'right'+">"+name+": "+"</td"+
+				"<td align=\'left\'>");
+				
+				// Here we need to see what type of input it is.
+				switch(type) {
+					case 2:
+						$("#user_input").append("<input type=\'number\'" + 
+										"id=\'uploader_input" + i + "\'>");
+						break; 
+					case 3:
+						$("#user_input").append("<input type=\'text\'" + 
+										"id=\'uploader_input" + i + "\'>");
+						break;
+				}
+				
+			$("#user_input").append(
+				// Makes a unique id for each input box.
+				"</td> </tr>");
+			}
+			
+			/*
+			<tr>
+				<td align='right'>name: </td>
+				<td align='left'> <input type="number" id="uploader_input1">
+				</td>
+			</tr><br/> 
+			*/
+			
+			// Add TIMESTAMPs, Lat & Long (if HTML 5 Geolocation feels like working...)
+			switch(type) {
+				case 1:
+					/* 	Get current time - used for making the title different 
+						every time the user uploads data. 	*/
+					var currentTime = new Date();
+					timestamp = JSON.stringify(currentTime);
+					
+					break;
+				case 4:
+					// GET HTML 5 Geolocation to work!
+					break;
+				case 5:
+					// Same as above.
+					break;
+			}
 		}
-		
+		/*
+		<input  type="number" name="Temperature" id='tp' 
+								min="0" max="35" step=".5" value="5">
+		*/
 	}
 
 }
@@ -145,10 +200,7 @@ function get_fields() {
 //	// Make the URL links.
 
 
-//	/* 	Get current time - used for making the title different 
-//		every time the user uploads data. 	*/
-//	var currentTime = new Date();
-//	var timestamp = JSON.stringify(currentTime);
+
 
 //	/*  In the future: allow different projects, contributor keys and username
 //		and passwords. 	*/
