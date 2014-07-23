@@ -1,32 +1,31 @@
 var email = null;
 var password = null;
+
+var project_title = "Test";
+var project_id = 0;
 var contributor_key = null;
-var PROJECT_ID = null;
 
 var API_URL = null;
 var USER_URL = null;
 var USER_URL_TEXT = null;
 
+var fields = [];
+var count = 0;
 var timestamp = null;
 
 function get_fields() {
-	// Get information that the user entered.
-	          email = document.getElementById("email").value;
-	       password = document.getElementById("password").value;
-	contributor_key = document.getElementById("contributor_key").value;
-	     PROJECT_ID = document.getElementById("project_ID").value;
-
-	console.log("Proj ID = " + PROJECT_ID);
+	console.log("Proj ID = " + project_id);
 	
-	/* 	Now pull the fields off iSENSE.
+	/* 	
+		Now pull the fields off iSENSE.
 		We will need to do a GET request.
 		Use the "Projects" address - /api/v1/projects/XX
-		which XX will be replaced by the project_ID variable we got.
+		which XX will be replaced by the project_id variable we got.
 	*/
 	
 	// Set the URLs needed for later.
-	      API_URL = 'http://rsense-dev.cs.uml.edu/api/v1/projects/' + PROJECT_ID;
-	     USER_URL = 'http://rsense-dev.cs.uml.edu/projects/' + PROJECT_ID;
+	      API_URL = 'http://rsense-dev.cs.uml.edu/api/v1/projects/' + project_id;
+	     USER_URL = 'http://rsense-dev.cs.uml.edu/projects/' + project_id;
 	USER_URL_TEXT = 'Click here to go to your project!';
 	
 	console.log("API_URL = " + API_URL);
@@ -38,11 +37,17 @@ function get_fields() {
 					    dataType: "JSON"
 	}).responseText;
 	
+	// debugging.
 	console.log(response);
 	
 	if(response === undefined)
 	{
 		resp.innerHTML = "That Project ID could not be found!";
+		
+		// This warns the user when they don't bother entering a project ID.
+		if(project_id === 0) {
+			resp.innerHTML = "You haven't entered a PROJECT ID yet! :(";
+		}
 	}
 	else{
 		resp.innerHTML = "Found the Project ID, here are all the fields for it: <br/>";
@@ -53,7 +58,6 @@ function get_fields() {
 		console.log(arg);
 		
 		var js_Obj = arg["fields"];
-		var fields = [];
 		var i = 0;
 		
 		// Console.log all the fields.
@@ -77,157 +81,189 @@ function get_fields() {
 		
 		// Let's try to make our generic uploader...
 		// This will display the field IDs, Names, etc.
-		for(i = 0; i < arrayLength; i++){
+		for(i = 0; i < arrayLength; i++) {
 			// This array will push a bunch of HTML input type stuff to the HTML file.
-			// &nbsp; -> insert tab
-			
+
 			// Get field ID
 			obj = fields[i]
 			id = obj["id"];
-//			$("#user_input").append("Field ID: " + id + "<br/>");
 			
 			// Get field Name
 			obj = fields[i]
 			name = obj["name"];
-//			$("#user_input").append("Field Name: " + name + "<br/>");
 			
 			// Get field Type
 			obj = fields[i]
 			type = obj["type"];
-//			$("#user_input").append("Field Type: " + type + "<br/>");
 			
 			// Get field Units
 			obj = fields[i]
 			unit = obj["unit"];
-//			$("#user_input").append("Field Unit: " + unit + "<br/><br/>");
 			
 			if(type == 2 || type == 3) {
-			// This will actually display the input part.
-			$("#user_input").append(
-			"<tr>" + 
-				"<td align="+'right'+">"+name+": "+"</td"+
-				"<td align=\'left\'>");
-				
+				// This will actually display the input part.
 				// Here we need to see what type of input it is.
 				switch(type) {
 					case 2:
-						$("#user_input").append("<input type=\'number\'" + 
-										"id=\'uploader_input" + i + "\'>");
+						$("#user_input").append("<tr><td align=\'right\'>" + name + ": </td" +
+										"<td align=\'left\'><input type=\'number\'" + 
+										"id=\'uploader_input" + i + "\'></td></tr>");
+						count = count + 1;
 						break; 
 					case 3:
-						$("#user_input").append("<input type=\'text\'" + 
-										"id=\'uploader_input" + i + "\'>");
+						$("#user_input").append("<tr><td align=\'right\'>" + name + ": </td" +
+										"<td align=\'left\'><input type=\'text\'" + 
+										"id=\'uploader_input" + i + "\'></td></tr>");
+						count = count + 1;
 						break;
 				}
 				
-			$("#user_input").append(
-				// Makes a unique id for each input box.
-				"</td> </tr>");
-			}
-			
-			/*
-			<tr>
-				<td align='right'>name: </td>
-				<td align='left'> <input type="number" id="uploader_input1">
-				</td>
-			</tr><br/> 
-			*/
-			
-			// Add TIMESTAMPs, Lat & Long (if HTML 5 Geolocation feels like working...)
-			switch(type) {
-				case 1:
-					/* 	Get current time - used for making the title different 
-						every time the user uploads data. 	*/
-					var currentTime = new Date();
-					timestamp = JSON.stringify(currentTime);
+				// Add TIMESTAMPs, Lat & Long (if HTML 5 Geolocation feels like working...)
+				switch(type) {
+					case 1:
+						/* 	Get current time - used for making the title different 
+							every time the user uploads data. 	*/
+						var currentTime = new Date();
+						timestamp = JSON.stringify(currentTime);
 					
-					break;
-				case 4:
-					// GET HTML 5 Geolocation to work!
-					break;
-				case 5:
-					// Same as above.
-					break;
+						break;
+					case 4:
+						// GET HTML 5 Geolocation to work!
+						break;
+					case 5:
+						// Same as above.
+						break;
+				}
 			}
+			
+			// Now update the "Pull information" button to a "Submit to rSENSE" button
+			change_me.innerHTML = "<button id=\"rSENSE\" onclick=\"submitter()\">" +
+				"Click here to submit to rSENSE" + "</button>";
 		}
-		/*
-		<input  type="number" name="Temperature" id='tp' 
-								min="0" max="35" step=".5" value="5">
-		*/
 	}
 
 }
 // Some of this is probably needed.
 
-
-	/* STUFF FROM THE FIELD SEARCHER API TEST CAN BE USED HERE */
-	/*
+function submitter() 
+{
+	// Data to be uploaded to iSENSE
+	var upload;
 	
-	console.log(response);
+//	if(email != null && password != null) {
+//		// Use contributor key
+//		upload = {
+//			'email': [email],
+//			'password': [password],
+//			'title': [],
+//			'data':
+//		  	{
+//		  		// we have fields, and user input.
+//		 	}
+//		}
+//	}
 	
-	if(response === undefined)
-	{
-		rev.innerHTML = "That field ID could not be found!";
+	if(contributor_key != null) {
+		// Use email/password
+		upload = {
+			'contribution_key': [contributor_key],
+			'title': [],
+			'data': []
+		}		
 	}
-	else{
 	
-	// Now we should have some information about the project.
-	var arg = JSON.parse(response);
-	var array = [];
-	array[0] = arg['name'];
-	array[1] = arg['type'];
-	array[2] = arg['unit'];
-	array[3] = arg['restrictions'];
-	
-	rev.innerHTML = "Information about this field: <br/>Name: "+ array[0] +
-	 "<br/>Type: "+ array[1] + "<br/> Unit: "+ array[2] + 
-	 "<br/>Restrictions: " + array[3];
-	console.log(arg);
+	for(var i = 0; i < count; i++) {
+		data[fields[i]] = [document.getElementById("uploader_input"+i).value];	  			
 	}
 	
-	*/
-
-
-
-//function submitter() 
-//{
-//	if(start_choice == 0 || end_choice == 0)
-//	{
-//		alert("ERROR - select a letter AND a number!");
+	// If everything is null, we've got a problem...
+	if(email === null && password === null && contributor_key === null) {
+		The_URL.innerHTML = "Please enter either an EMAIL/PASSWORD or a CONTRIBUTOR KEY.";
+		return;
+	}
+	
+//	if( (email === null || password === null) || contributor_key != null) {
+//		The_URL.innerHTML = "You need to enter BOTH an email & a password.";
+//		console.log("the key is: " + contributor_key);
 //		return;
 //	}
-//	
-//	// Make the URL links.
+	
+	// Modify the title to be w/e the user entered.
+	upload.title = [project_title] + [timestamp];
+	
+	if(confirm("Do you want to upload this data to iSENSE?")) {
+		// Post to iSENSE
+		$.post(API_URL, upload);
+		
+		// Add a link in the HTML file to the project they contributed to.
+		The_URL.innerHTML = '<a href="'+ USER_URL +'">' + USER_URL_TEXT + '</a>';
+	}
+	else {
+		The_URL.innerHTML = "Canceled!";
+	}
+}
 
+function popup_user() {
+	user_prompt.innerHTML = "<br/> <th align=\"right\">Enter an email: </th>" + 
+	"<th align=\"left\"><input type=\"letter\" name=\"table\" id=\"email\"></th>";
+	
+	password_prompt.innerHTML = "<th align=\"right\">Enter a password: </th>" +
+	"<th align=\"left\"><input type=\"password\" name=\"table\" id=\"password\"></th>"
+	
+	submit_user.innerHTML = "<button id=\"rSENSE\" onClick=\"change_User()\">" +
+							"Click here to submit email/password</button> <br/><br/>";
+}
 
+function change_User() {
+	   email = document.getElementById("email").value;
+	password = document.getElementById("password").value;
 
+	if(email != null && password != null)
+	{
+		document.getElementById("user_id").innerHTML = email;
+		document.getElementById("user_prompt").innerHTML = " ";
+		document.getElementById("password_prompt").innerHTML = " ";
+		document.getElementById("submit_user").innerHTML = " ";
+	}
+}
 
-//	/*  In the future: allow different projects, contributor keys and username
-//		and passwords. 	*/
-//	
-//	// Data to be uploaded to iSENSE
-//	var upload = {
-//		'email': 'j@j.j',
-//		'password': 'j',
-//		'title': [],
-//		'data':
-//	  	{
-//	  		'2878': [end_choice],
-//	  		'2879': [start_choice]
-//	 	}
-//	}
-//	
-//	// Modify the title to be either A, B or C
-//	upload.title = "Plinko " + [timestamp];
-//	
-//	if(confirm("Do you want to upload this data to iSENSE?")) {
-//		// Post to iSENSE
-//		$.post(API_URL, upload);
-//		
-//		// Add a link in the HTML file to the project they contributed to.
-//		The_URL.innerHTML = '<a href="'+ USER_URL +'">' + USER_URL_TEXT + '</a>';
-//	}
-//	else {
-//		The_URL.innerHTML = "Canceled!";
-//	}
-//}
+function popup_title() {
+	var title = prompt("Please enter the title\nfor this submission: ");
+	
+	// If they didn't enter anything, "Test" will be the title.
+	if(title != "Test")
+	{
+		project_title = title;
+		
+		// Change the HTML to show the title changed.
+		document.getElementById("project_title").innerHTML = project_title;
+	}
+}
+
+function popup_contributor() {
+	var key = prompt("Please enter the contributor key that you want to use for this WebApp: ");
+	
+	// Only do the following if the user enters something!
+	if(key != null)
+	{
+		contributor_key = key;
+		
+		// Change the HTML to show that the contributor key has been set.
+		document.getElementById("contrib_key").innerHTML = contributor_key;
+	}
+}
+
+function popup_projID() {
+	// Prompt to get PROJECT ID from user
+	var id = prompt("Please enter the project ID \nthat you want to use for this WebApp: ");
+
+	// Only do the following if the user enters something!
+	if(id != null)
+	{
+		project_id = id;
+	
+		// Update the HTML file to indicate the change.
+		document.getElementById("project_num").innerHTML = project_id;
+	
+	}
+}

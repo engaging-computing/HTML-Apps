@@ -7,16 +7,6 @@ body {
 	text-align: center;
 }
 
-button {
-
-    font-size: 20px;    
-    margin: 0px;	
-    padding: 0;
-        
-	height: 70px;
-	width: 300px;
-}
-
 h1 {
 	background: #113;
 	color: #a7d0ff;
@@ -37,6 +27,28 @@ input {
   	
     height: 22px;
 	width: 200px;
+}
+
+#buttonz {
+    font-size: 15px;    
+    margin: 0px;	
+    padding: 0;
+        
+	height: 70px;
+	width: 150px;
+}
+
+#rSENSE {
+    font-size: 20px;    
+    margin: 0px;	
+    padding: 0;
+        
+	height: 70px;
+	width: 300px;
+}
+
+#The_URL {
+	font: bold 20px Helvetica Neue;
 }
 
 #justify {

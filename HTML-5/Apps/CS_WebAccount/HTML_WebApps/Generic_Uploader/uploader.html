@@ -14,34 +14,35 @@
 	</head>
 	<body> 
 		<h1>iSENSE Generic Uploader</h1>
-		<p>This page will contain a generic way of uploading to an iSENSE project
-		on the isenseproject.org website</p>
 		
 		<table align="center">
 			<tr>
-				<th align="right">Enter an email: </th>
-				<th align="left"><input type="letter" name="table" id="email"></th>
+				<div id="user_prompt"></div>
 			</tr>
 			
 			<tr>
-				<th align="right">Enter a password: </th>
-				<th align="left"><input type="password" name="table" id="password"></th>
+				<div id="password_prompt"></div>
 			</tr>
-			
-			<tr>
-				<th align="right">Enter a contributor key: </th>
-				<th align="left"><input type="letter" name="table" id="contributor_key"></th>
-			</tr>
-			
-			<tr>
-				<th align="right">Enter a project ID: </th>
-				<th align="left"><input type="number" name="table" id="project_ID"></th> 
-			</tr>
+
+			<div id="submit_user"></div>
 		</table>
+		
+		<!-- Buttons for changing parts of the WebApp. Currently only Project Title really works well. -->
+		<button id="buttonz" onClick="popup_user()">Click here <br/>to Login</button>
+		<button id="buttonz" onClick="popup_contributor()">Click here to add a Contributor Key</button>
+		<button id="buttonz" onClick="popup_projID()">Click here to change <br/> the Project ID</button>
+		<button id="buttonz" onClick="popup_title()">Click here to change <br/> the title</button>
+		
+		<br/><br/>
+
+		CURRENT USER: <span id="user_id">--</span> <br/>
+		CURRENT CONTRIBUTOR KEY: <span id="contrib_key">--</span> <br/>
+		CURRENT PROJECT ID: <span id="project_num">--</span> <br/>
+		CURRENT PROJECT TITLE: <span id=project_title>--</span> <br/>
 		
 		<br/>
 		
-		<p>Results will show up below this line.</p>
+		Results will show up below this line.
 		
 		<div id="left">
 			<p><div id="resp"></div></p>
@@ -52,9 +53,17 @@
 			<div id="Upload"></div>
 		</table>
 		
+		<div id="The_URL">
+			The URL to the project that you contributed to will appear here!
+		</div>
+		
 		<br/>
 		<!-- snippets = shift space -->
-		<button onclick="get_fields()">Click here to pull information from rSENSE</button>
+		<div id="change_me">
+			<button id="rSENSE" onclick="get_fields()">
+				Click here to pull information from rSENSE
+			</button>
+		</div>
 		
 		<p>NOTE: required at a mininium is a username/password or a contributor key,
 		as well as a project ID for the project you'd like to contribute to. </p>
