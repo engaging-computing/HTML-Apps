@@ -2,15 +2,18 @@ var email = null;
 var password = null;
 
 var project_title = "Test";
-var project_id = 0;
-var contributor_key = null;
+var project_id = 593;			// RESET THESE TO 0 & NULL.
+var contributor_key = "MIT";
 
 var API_URL = null;
+var POST_URL = null;
 var USER_URL = null;
 var USER_URL_TEXT = null;
 
 var fields = [];
-var count = 0;
+var field_id = [];		// Contains all the FIELD IDs for uploading to iSENSE.
+var data = [];			// Contains all the DATA to be uploaded to iSENSE.
+var arrayLength = 0;
 var timestamp = null;
 
 function get_fields() {
@@ -25,6 +28,7 @@ function get_fields() {
 	
 	// Set the URLs needed for later.
 	      API_URL = 'http://rsense-dev.cs.uml.edu/api/v1/projects/' + project_id;
+	     POST_URL = 'http://rsense-dev.cs.uml.edu/api/v1/projects/' + project_id + '/jsonDataUpload';
 	     USER_URL = 'http://rsense-dev.cs.uml.edu/projects/' + project_id;
 	USER_URL_TEXT = 'Click here to go to your project!';
 	
@@ -50,7 +54,7 @@ function get_fields() {
 		}
 	}
 	else{
-		resp.innerHTML = "Found the Project ID, here are all the fields for it: <br/>";
+		resp.innerHTML = "Found the Project ID. Enter data for the following fields: <br/>";
 		
 		// Let's try printing all the fields to the HTML doc!
 
@@ -71,7 +75,7 @@ function get_fields() {
 		
 		// Now the fields array should have all the fields, contained within objects.
 		// Test this:
-		var arrayLength = fields.length;
+		arrayLength = fields.length;
 		for(i = 0; i < arrayLength; i++) {
 			console.log(fields[i]);
 		}
@@ -87,6 +91,7 @@ function get_fields() {
 			// Get field ID
 			obj = fields[i]
 			id = obj["id"];
+			field_id[i] = obj["id"];
 			
 			// Get field Name
 			obj = fields[i]
@@ -99,41 +104,40 @@ function get_fields() {
 			// Get field Units
 			obj = fields[i]
 			unit = obj["unit"];
-			
-			if(type == 2 || type == 3) {
-				// This will actually display the input part.
-				// Here we need to see what type of input it is.
-				switch(type) {
-					case 2:
-						$("#user_input").append("<tr><td align=\'right\'>" + name + ": </td" +
-										"<td align=\'left\'><input type=\'number\'" + 
-										"id=\'uploader_input" + i + "\'></td></tr>");
-						count = count + 1;
-						break; 
-					case 3:
-						$("#user_input").append("<tr><td align=\'right\'>" + name + ": </td" +
-										"<td align=\'left\'><input type=\'text\'" + 
-										"id=\'uploader_input" + i + "\'></td></tr>");
-						count = count + 1;
-						break;
-				}
 				
-				// Add TIMESTAMPs, Lat & Long (if HTML 5 Geolocation feels like working...)
-				switch(type) {
-					case 1:
-						/* 	Get current time - used for making the title different 
-							every time the user uploads data. 	*/
-						var currentTime = new Date();
-						timestamp = JSON.stringify(currentTime);
+			// Add TIMESTAMPs, Lat & Long (if HTML 5 Geolocation feels like working...)
+			switch(type) {
+				case 1:
+					/* 	Get current time - used for making the title different 
+						every time the user uploads data. 	*/
+					var currentTime = new Date();
+					timestamp = JSON.stringify(currentTime);
+					data[i] = timestamp;
+					break;
 					
-						break;
-					case 4:
-						// GET HTML 5 Geolocation to work!
-						break;
-					case 5:
-						// Same as above.
-						break;
-				}
+				case 2:
+					$("#user_input").append("<tr><td align=\'right\'>" + name + ": </td" +
+									"<td align=\'left\'><input type=\'number\'" + 
+									"id=\'uploader_input" + i + "\'></td></tr>");
+					data[i] = "uploader_input" + i;
+					break; 	
+					
+				case 3:
+					$("#user_input").append("<tr><td align=\'right\'>" + name + ": </td" +
+									"<td align=\'left\'><input type=\'text\'" + 
+									"id=\'uploader_input" + i + "\'></td></tr>");
+					data[i] = "uploader_input" + i;
+					break;	
+					
+				case 4:
+					// GET HTML 5 Geolocation to work! For now it says 0, 0...
+					data[i] = 0;
+					break;
+					
+				case 5:
+					// Same as above.
+					data[i] = 0;
+					break;
 			}
 			
 			// Now update the "Pull information" button to a "Submit to rSENSE" button
@@ -162,18 +166,40 @@ function submitter()
 //		 	}
 //		}
 //	}
+
+
+// Making sure that field IDs are correct.
+console.log("FIELDS: ");
+for(var i = 0; i < arrayLength; i++) {
+	console.log(field_id[i]);		
+	
+}
+
+// Set up the data array.
+console.log("DATA: ");
+for(var i = 0; i < arrayLength; i++) {
+	if(data[i] === "uploader_input" + i) {
+		data[i] = document.getElementById("uploader_input"+i).value;
+	}
+}
+
+// Making sure input is correct.
+for(var i = 0; i < arrayLength; i++) {
+	console.log(data[i]);
+}
+
 	
 	if(contributor_key != null) {
 		// Use email/password
 		upload = {
 			'contribution_key': [contributor_key],
+			'contributor_name': "HTML5 WEBAPP",
 			'title': [],
-			'data': []
+			'data': {
+				'2743' : [data[0]],
+				'2741' : [data[1]]
+			}
 		}		
-	}
-	
-	for(var i = 0; i < count; i++) {
-		data[fields[i]] = [document.getElementById("uploader_input"+i).value];	  			
 	}
 	
 	// If everything is null, we've got a problem...
@@ -193,7 +219,7 @@ function submitter()
 	
 	if(confirm("Do you want to upload this data to iSENSE?")) {
 		// Post to iSENSE
-		$.post(API_URL, upload);
+		$.post(POST_URL, upload);
 		
 		// Add a link in the HTML file to the project they contributed to.
 		The_URL.innerHTML = '<a href="'+ USER_URL +'">' + USER_URL_TEXT + '</a>';
