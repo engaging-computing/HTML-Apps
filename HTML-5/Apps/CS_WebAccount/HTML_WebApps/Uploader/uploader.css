@@ -2,7 +2,7 @@ body {
 	background-color: #dddddd;
 	color: #333333; 
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 20px;
+	font-size: 30px;
 	
 	text-align: center;
 }
@@ -11,7 +11,7 @@ h1 {
 	background: #113;
 	color: #a7d0ff;
 	font: Times;
-	font-size: 70px;
+	font-size: 85px;
 	margin: 0px;
 	size: 20px;
 	text-align: center;
@@ -39,16 +39,16 @@ input {
 }
 
 #rSENSE {
-    font-size: 20px;    
+    font-size: 25px;    
     margin: 0px;	
     padding: 0;
         
-	height: 70px;
-	width: 300px;
+	height: 90px;
+	width: 500px;
 }
 
 #The_URL {
-	font: bold 20px Helvetica Neue;
+	font: bold 25px Helvetica Neue;
 }
 
 #justify {
