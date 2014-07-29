@@ -12,7 +12,7 @@ var USER_URL_TEXT = null;
 
 var fields = [];
 var field_id = [];		// Contains all the FIELD IDs for uploading to iSENSE.
-var data = [];			// Contains all the DATA to be uploaded to iSENSE.
+var proj_data = [];			// Contains all the DATA to be uploaded to iSENSE.
 var arrayLength = 0;
 var timestamp = null;
 
@@ -112,31 +112,31 @@ function get_fields() {
 						every time the user uploads data. 	*/
 					var currentTime = new Date();
 					timestamp = JSON.stringify(currentTime);
-					data[i] = timestamp;
+					proj_data[i] = timestamp;
 					break;
 					
 				case 2:
 					$("#user_input").append("<tr><td align=\'right\'>" + name + ": </td" +
 									"<td align=\'left\'><input type=\'number\'" + 
 									"id=\'uploader_input" + i + "\'></td></tr>");
-					data[i] = "uploader_input" + i;
+					proj_data[i] = "uploader_input" + i;
 					break; 	
 					
 				case 3:
 					$("#user_input").append("<tr><td align=\'right\'>" + name + ": </td" +
 									"<td align=\'left\'><input type=\'text\'" + 
 									"id=\'uploader_input" + i + "\'></td></tr>");
-					data[i] = "uploader_input" + i;
+					proj_data[i] = "uploader_input" + i;
 					break;	
 					
 				case 4:
 					// GET HTML 5 Geolocation to work! For now it says 0, 0...
-					data[i] = 0;
+					proj_data[i] = 0;
 					break;
 					
 				case 5:
 					// Same as above.
-					data[i] = 0;
+					proj_data[i] = 0;
 					break;
 			}
 			
@@ -153,52 +153,33 @@ function submitter()
 {
 	// Data to be uploaded to iSENSE
 	var upload;
+	var jsonData = {};
+	
+	// Set up the data array.
+	for(var i = 0; i < arrayLength; i++) {
+		if(proj_data[i] === "uploader_input" + i) {
+			proj_data[i] = document.getElementById("uploader_input"+i).value;
+	}
+}
+	// Need to add email support.
 	
 //	if(email != null && password != null) {
 //		// Use contributor key
 //		upload = {
-//			'email': [email],
-//			'password': [password],
+//			'email': email,
+//			'password': password,
 //			'title': [],
-//			'data':
-//		  	{
-//		  		// we have fields, and user input.
-//		 	}
+//			'data': {}
 //		}
 //	}
 
-
-// Making sure that field IDs are correct.
-console.log("FIELDS: ");
-for(var i = 0; i < arrayLength; i++) {
-	console.log(field_id[i]);		
-	
-}
-
-// Set up the data array.
-console.log("DATA: ");
-for(var i = 0; i < arrayLength; i++) {
-	if(data[i] === "uploader_input" + i) {
-		data[i] = document.getElementById("uploader_input"+i).value;
-	}
-}
-
-// Making sure input is correct.
-for(var i = 0; i < arrayLength; i++) {
-	console.log(data[i]);
-}
-
-	
 	if(contributor_key != null) {
 		// Use email/password
 		upload = {
-			'contribution_key': [contributor_key],
+			'contribution_key': contributor_key,
 			'contributor_name': "HTML5 WEBAPP",
 			'title': [],
-			'data': {
-				'2743' : [data[0]],
-				'2741' : [data[1]]
-			}
+			'data': {}
 		}		
 	}
 	
@@ -208,6 +189,8 @@ for(var i = 0; i < arrayLength; i++) {
 		return;
 	}
 	
+	// This needs to be figured out.
+	
 //	if( (email === null || password === null) || contributor_key != null) {
 //		The_URL.innerHTML = "You need to enter BOTH an email & a password.";
 //		console.log("the key is: " + contributor_key);
@@ -215,18 +198,46 @@ for(var i = 0; i < arrayLength; i++) {
 //	}
 	
 	// Modify the title to be w/e the user entered.
-	upload.title = [project_title] + [timestamp];
+	upload.title = [project_title] + " " + [timestamp];
+	
+//  This kinda worked.
+//	upload.data[field_id] = proj_data;
+	
+	// Modify the data variable to actually contain the field IDs and the data.
+	for(var i = 0; i < arrayLength; i++) {
+		upload.data[field_id[i]] = [proj_data[i]];	// REMEMBER BRACKETS.
+		console.log(upload.data[field_id[i]]);
+	}
+	console.log(upload.data);
 	
 	if(confirm("Do you want to upload this data to iSENSE?")) {
 		// Post to iSENSE
+		console.log(JSON.stringify(upload));
 		$.post(POST_URL, upload);
 		
 		// Add a link in the HTML file to the project they contributed to.
 		The_URL.innerHTML = '<a href="'+ USER_URL +'">' + USER_URL_TEXT + '</a>';
+		
+		// Should add support for error codes in case it doesn't submit correctly.
 	}
 	else {
 		The_URL.innerHTML = "Canceled!";
 	}
+	
+	
+	/******** The following is some debugging stuff. **********/
+	//// Making sure that field IDs are correct.
+	//console.log("FIELDS: ");
+	//for(var i = 0; i < arrayLength; i++) {
+	//	console.log(field_id[i]);		
+	//	
+	//}
+
+	//// Making sure input is correct.
+	//console.log("DATA: ");
+	//for(var i = 0; i < arrayLength; i++) {
+	//	console.log(data[i]);
+	//}
 }
 
 function popup_user() {

@@ -48,6 +48,8 @@ function submitter()
 	 	}
 	}
 	
+	console.log(upload.data);
+	
 	// Modify the title to be either A, B or C
 	upload.title = "Plinko " + [timestamp];
 	
