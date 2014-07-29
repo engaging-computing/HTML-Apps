@@ -1,9 +1,8 @@
-var email = null;
-var password = null;
-
-var project_title = "Test";
-var project_id = 593;			// RESET THESE TO 0 & NULL.
-var contributor_key = "MIT";
+var email = null;			// EMAIL, PASSWORD, PROJECT TITLE, PROJECT ID AND
+var password = null;		// CONTRIBUTOR KEY are all set to null/0 at the beginning.
+var project_title = null;	
+var project_id = 0;			
+var contributor_key = null;
 
 var API_URL = null;
 var POST_URL = null;
@@ -11,10 +10,11 @@ var USER_URL = null;
 var USER_URL_TEXT = null;
 
 var fields = [];
-var field_id = [];		// Contains all the FIELD IDs for uploading to iSENSE.
+var field_id = [];			// Contains all the FIELD IDs for uploading to iSENSE.
 var proj_data = [];			// Contains all the DATA to be uploaded to iSENSE.
 var arrayLength = 0;
 var timestamp = null;
+
 
 function get_fields() {
 	console.log("Proj ID = " + project_id);
@@ -147,7 +147,7 @@ function get_fields() {
 	}
 
 }
-// Some of this is probably needed.
+
 
 function submitter() 
 {
@@ -163,15 +163,15 @@ function submitter()
 }
 	// Need to add email support.
 	
-//	if(email != null && password != null) {
-//		// Use contributor key
-//		upload = {
-//			'email': email,
-//			'password': password,
-//			'title': [],
-//			'data': {}
-//		}
-//	}
+	if(email != null && password != null) {
+		// Use contributor key
+		upload = {
+			'email': email,
+			'password': password,
+			'title': [],
+			'data': {}
+		}
+	}
 
 	if(contributor_key != null) {
 		// Use email/password
@@ -182,26 +182,24 @@ function submitter()
 			'data': {}
 		}		
 	}
-	
+
+
 	// If everything is null, we've got a problem...
 	if(email === null && password === null && contributor_key === null) {
 		The_URL.innerHTML = "Please enter either an EMAIL/PASSWORD or a CONTRIBUTOR KEY.";
 		return;
 	}
 	
-	// This needs to be figured out.
-	
-//	if( (email === null || password === null) || contributor_key != null) {
+//	// If just one of the email/password fields is NULL, they need to enter the other field!
+//	if(email === null || password === null) {
 //		The_URL.innerHTML = "You need to enter BOTH an email & a password.";
 //		console.log("the key is: " + contributor_key);
 //		return;
 //	}
 	
+	
 	// Modify the title to be w/e the user entered.
 	upload.title = [project_title] + " " + [timestamp];
-	
-//  This kinda worked.
-//	upload.data[field_id] = proj_data;
 	
 	// Modify the data variable to actually contain the field IDs and the data.
 	for(var i = 0; i < arrayLength; i++) {
@@ -240,16 +238,18 @@ function submitter()
 	//}
 }
 
+
 function popup_user() {
-	user_prompt.innerHTML = "<br/> <th align=\"right\">Enter an email: </th>" + 
-	"<th align=\"left\"><input type=\"letter\" name=\"table\" id=\"email\"></th>";
+	$("#user_prompt").append("<br/> <table><tr><td align=\"right\">Enter an email:" +
+	"</td><td align=\"left\"><input type=\"letter\" name=\"table\" id=\"email\">" +
+	"</td></tr> <tr><td align=\"right\">Enter a password: </td>" +
+	"<td align=\"left\"><input type=\"password\" name=\"table\" id=\"password\">" +
+	"</td></tr></table>");
 	
-	password_prompt.innerHTML = "<th align=\"right\">Enter a password: </th>" +
-	"<th align=\"left\"><input type=\"password\" name=\"table\" id=\"password\"></th>"
-	
-	submit_user.innerHTML = "<button id=\"rSENSE\" onClick=\"change_User()\">" +
+	submit_user.innerHTML = "<br/><button id=\"rSENSE\" onClick=\"change_User()\">" +
 							"Click here to submit email/password</button> <br/><br/>";
 }
+
 
 function change_User() {
 	   email = document.getElementById("email").value;
@@ -259,10 +259,10 @@ function change_User() {
 	{
 		document.getElementById("user_id").innerHTML = email;
 		document.getElementById("user_prompt").innerHTML = " ";
-		document.getElementById("password_prompt").innerHTML = " ";
 		document.getElementById("submit_user").innerHTML = " ";
 	}
 }
+
 
 function popup_title() {
 	var title = prompt("Please enter the title\nfor this submission: ");
@@ -289,6 +289,7 @@ function popup_contributor() {
 		document.getElementById("contrib_key").innerHTML = contributor_key;
 	}
 }
+
 
 function popup_projID() {
 	// Prompt to get PROJECT ID from user

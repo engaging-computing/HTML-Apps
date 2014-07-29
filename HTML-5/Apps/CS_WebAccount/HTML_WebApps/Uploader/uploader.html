@@ -13,36 +13,49 @@
 		<title>iSENSE Uploader</title>
 	</head>
 	<body> 
-		<h1>iSENSE Generic Uploader</h1>
+		<h1>iSENSE Uploader</h1>
 		
-		<table align="center">
-			<tr>
-				<div id="user_prompt"></div>
-			</tr>
-			
-			<tr>
-				<div id="password_prompt"></div>
-			</tr>
-
-			<div id="submit_user"></div>
-		</table>
+		<!-- When the user wants to enter an email/password, these divs are populated. -->
+		<div id="user_prompt"></div>
+		<div align="left" id="submit_user"></div>
 		
 		<!-- Buttons for changing parts of the WebApp. Currently only Project Title really works well. -->
+		<br/>
 		<button id="buttonz" onClick="popup_user()">Click here <br/>to Login</button>
 		<button id="buttonz" onClick="popup_contributor()">Click here to add a Contributor Key</button>
 		<button id="buttonz" onClick="popup_projID()">Click here to change <br/> the Project ID</button>
 		<button id="buttonz" onClick="popup_title()">Click here to change <br/> the title</button>
 		
 		<br/><br/>
-
-		CURRENT USER: <span id="user_id">--</span> <br/>
-		CURRENT CONTRIBUTOR KEY: <span id="contrib_key">MIT</span> <br/>
-		CURRENT PROJECT ID: <span id="project_num">593</span> <br/>
-		CURRENT PROJECT TITLE: <span id=project_title>Test</span> <br/>
+		
+		<!-- Left aligned & in a table to make it off to the left and look pretty. -->
+		<div id="left">
+			<table>
+				<tr>
+					<td align="right">CURRENT USER:</td> 
+					<td align="left"><span id="user_id">--</span></td>
+				</tr>
+		
+				<tr>
+					<td align="right">CONTRIBUTOR KEY:</td> 
+					<td align="left"><span id="contrib_key">--</span></td>
+				</tr>
+		
+				<tr>
+					<td align="right">PROJECT ID:</td> 
+					<td align="left"><span id="project_num">--</span></td>
+				</tr>
+		
+				<tr>
+					<td align="right">PROJECT TITLE:</td> 
+					<td align="left"><span id=project_title>--</span></td>
+				</tr>
+			</table>
+		</div>
 		
 		<br/>
 		
-		Results will show up below this line.
+		Results/Fields will show up below this line.
 		
 		<div id="left">
 			<p><div id="resp"></div></p>
