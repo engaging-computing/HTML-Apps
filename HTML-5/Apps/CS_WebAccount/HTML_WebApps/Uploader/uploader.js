@@ -190,14 +190,6 @@ function submitter()
 		return;
 	}
 	
-//	// If just one of the email/password fields is NULL, they need to enter the other field!
-//	if(email === null || password === null) {
-//		The_URL.innerHTML = "You need to enter BOTH an email & a password.";
-//		console.log("the key is: " + contributor_key);
-//		return;
-//	}
-	
-	
 	// Modify the title to be w/e the user entered.
 	upload.title = [project_title] + " " + [timestamp];
 	
