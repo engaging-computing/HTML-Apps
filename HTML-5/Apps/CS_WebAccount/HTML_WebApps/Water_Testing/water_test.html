@@ -77,64 +77,75 @@
 		
 		<article>
       		<p>Trying to find your location: <span id="status">checking...</span></p>
-      		NOTE: the HTML5 geolocation feature is not as accurate as GPS. <br/>
-      		As a result the location may be off slightly. <br/>
+      		
 		</article>
 		
-		<!-- the following is from: http://html5demos.com/geo -->
+		<!-- 	The following was originally from: http://html5demos.com/geo 
+				I've since modified it for the Water Testing App				-->
 		<script>
+			// IF we can get the user's location, this function goes off.
 			function success(position) {
-			  var s = document.querySelector('#status');
+			  	var s = document.querySelector('#status');
 			  
-			  if (s.className == 'success') {
-				// not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back    
-				return;
-			  }
+			  	if (s.className == 'success') {
+					// not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back    
+					return;
+			  	}
 			  
-			  s.innerHTML = "found you!";
-			  s.className = 'success';
+			  	s.innerHTML = "found you!";
+			  	s.className = 'success';
 			  
-			  var mapcanvas = document.createElement('div');
-			  mapcanvas.id = 'mapcanvas';
-			  mapcanvas.style.height = '400px';
-			  mapcanvas.style.width = '560px';
+			 	// Makes a map canvas
+			  	var mapcanvas = document.createElement('div');
+			  	mapcanvas.id = 'mapcanvas';
+			  	mapcanvas.style.height = '400px';
+			  	mapcanvas.style.width  = '700px';
 		
-			  document.querySelector('article').appendChild(mapcanvas);
+				// Adds the map canvas to the HTML
+			  	document.querySelector('article').appendChild(mapcanvas);
 			  
-			   lat = position.coords.latitude;
-			  long = position.coords.longitude;
+			   	 lat = position.coords.latitude;
+			  	long = position.coords.longitude;
+							  
+			   	document.getElementById("accurate").innerHTML = 
+			   	"You are here! (at least within a " 
+			   	+ position.coords.accuracy + " meter radius)";
 			  
-			  var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-			  var myOptions = {
-				zoom: 15,
-				center: latlng,
-				mapTypeControl: false,
-				navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-				mapTypeId: google.maps.MapTypeId.ROADMAP
-			  };
-			  var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+			   	var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+			  	var myOptions = {
+					zoom: 15,
+					center: latlng,
+					mapTypeControl: false,
+					navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+					navigationControl: true,
+					mapTypeId: google.maps.MapTypeId.HYBRID
+			  	};
+			  	var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
 			  
-			  var marker = new google.maps.Marker({
-				  position: latlng, 
-				  map: map, 
-				  title:"You are here! (at least within a "+position.coords.accuracy+" meter radius)"
-			  });
+			  	var marker = new google.maps.Marker({
+					position: latlng, 
+				  	map: map, 
+				  	title: "YOU ARE HERE"
+			  	});
 			}
 
+			// We couldn't get the user's location
 			function error(msg) {
-			  var s = document.querySelector('#status');
-			  s.innerHTML = typeof msg == 'string' ? msg : "failed";
-			  s.className = 'fail';
-			  
-			  // console.log(arguments);
+			  	var s = document.querySelector('#status');
+			  	s.innerHTML = typeof msg == 'string' ? msg : "failed";
+			  	s.className = 'fail'; 
 			}
 
 			if (navigator.geolocation) {
-			  navigator.geolocation.getCurrentPosition(success, error);
+			  	navigator.geolocation.getCurrentPosition(success, error);
 			} else {
-			  error('not supported');
+			  	error('not supported');
 			}
 		</script>	
+		
+		<div id="accurate"></div>
+		NOTE: the HTML5 geolocation feature is not as accurate as GPS. <br/>
+    	As a result the location may be off slightly. <br/>
 		
 		<p><span id="The_URL">
 			The URL to the project that you contributed to will appear here!
