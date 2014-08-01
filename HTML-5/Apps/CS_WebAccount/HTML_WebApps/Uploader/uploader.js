@@ -15,8 +15,7 @@ var proj_data = [];			// Contains all the DATA to be uploaded to iSENSE.
 var arrayLength = 0;
 var timestamp = null;
 
-var  lat = 0;
-var long = 0;
+var  lat = 0, long = 0;
 
 function get_fields() {
 	console.log("Proj ID = " + project_id);
@@ -133,6 +132,7 @@ function get_fields() {
 					
 				case 4:
 					proj_data[i] = lat;
+					console.log("LAT IS: " + lat);
 //					// IF we can get the user's location, this function goes off.
 //					function success(position) {
 //					   	 proj_data[i] = position.coords.latitude;
@@ -152,6 +152,7 @@ function get_fields() {
 					
 				case 5:
 					proj_data[i] = long;
+					console.log("LONG IS: " + long);
 //					// IF we can get the user's location, this function goes off.
 //					function success(position) {
 //					   	 proj_data[i] = position.coords.longitude;
