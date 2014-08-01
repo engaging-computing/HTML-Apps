@@ -77,6 +77,8 @@
 		
 		<article>
       		<p>Trying to find your location: <span id="status">checking...</span></p>
+      		NOTE: the HTML5 geolocation feature is not as accurate as GPS. <br/>
+      		As a result the location may be off slightly. <br/>
 		</article>
 		
 		<!-- the following is from: http://html5demos.com/geo -->
@@ -98,6 +100,9 @@
 			  mapcanvas.style.width = '560px';
 		
 			  document.querySelector('article').appendChild(mapcanvas);
+			  
+			   lat = position.coords.latitude;
+			  long = position.coords.longitude;
 			  
 			  var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 			  var myOptions = {
@@ -134,66 +139,6 @@
 		<p><span id="The_URL">
 			The URL to the project that you contributed to will appear here!
 		</span></p>
-		
-		<!-- This script will get the GPS coordinates of the user. -->
-		<script>
-
-		
-		/*
-		function get_GPS() {
-			var location = document.getElementById("loc");
-		
-			var options = {
-				enableHighAccuracy: false,
-				timeout: 5000,
-				maximumAge: 0
-			};
-
-			function success(pos) {
-				var crd = pos.coords;
-				
-				lat = position.coords.latitude;
-				long = position.coords.longitude;
-				location.innerHTML = "Latitude: " + position.coords.latitude + 								 
-									 "   Longitude: " + position.coords.longitude;
-
-				console.log('Your current position is:');
-				console.log('Latitude : ' + crd.latitude);
-				console.log('Longitude: ' + crd.longitude);
-				console.log('More or less ' + crd.accuracy + ' meters.');
-			};
-
-			function error(err) {
-				location.innerHTML = "ERROR: " + err.code + " - " + err.message;
-				console.warn('ERROR(' + err.code + '): ' + err.message);
-			};
-
-			navigator.geolocation.getCurrentPosition(success, error, options);
-		}*/
-		/*
-		function get_GPS() {
-			var location = document.getElementById("loc");
-		
-			if("geolocation" in navigator) {
-				// We can get the location!
-				navigator.geolocation.getCurrentPosition(function(position) { 
-					lat = position.coords.latitude;
-					long = position.coords.longitude;
-					location.innerHTML = "Latitude: " + position.coords.latitude + 								 
-									 "   Longitude: " + position.coords.longitude;
-				}, function(error) {
-				// Location isn't available.
-				location.innerHTML = "Geolocation is not supported by this browser.";
-				});
-			} else {
-				// Location isn't available.
-				location.innerHTML = "Geolocation is not supported by this browser.";
-			}
-		
-			console.log("Latitude is: " + lat);
-			console.log("Longitude is: " + long);
-		}*/
-		</script>
 		
 		<p><a href="API_Index.html">
 			Return to the previous page</a></p>
