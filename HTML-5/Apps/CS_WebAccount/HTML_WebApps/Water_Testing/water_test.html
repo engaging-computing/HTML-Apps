@@ -113,9 +113,9 @@
 			  
 			   	var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 			  	var myOptions = {
-					zoom: 15,
+					zoom: 25,
 					center: latlng,
-					mapTypeControl: false,
+					mapTypeControl: true,
 					navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
 					navigationControl: true,
 					mapTypeId: google.maps.MapTypeId.HYBRID
@@ -143,7 +143,7 @@
 			}
 		</script>	
 		
-		<div id="accurate"></div>
+		<div id="accurate"></div> <br/>
 		NOTE: the HTML5 geolocation feature is not as accurate as GPS. <br/>
     	As a result the location may be off slightly. <br/>
 		
