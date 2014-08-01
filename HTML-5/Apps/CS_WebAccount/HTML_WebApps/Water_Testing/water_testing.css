@@ -3,7 +3,7 @@ body {
   color: #333333;
   background-color: #dddddd; 
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 h1{
@@ -20,6 +20,7 @@ input{
    	border: 1px solid #000;
    	padding: 0;
 	text-indent: 25px;
+	font-size: 20px;
 
     height: 22px;
     width: 200px;
