@@ -15,6 +15,8 @@ var proj_data = [];			// Contains all the DATA to be uploaded to iSENSE.
 var arrayLength = 0;
 var timestamp = null;
 
+var  lat = 0;
+var long = 0;
 
 function get_fields() {
 	console.log("Proj ID = " + project_id);
@@ -130,39 +132,41 @@ function get_fields() {
 					break;	
 					
 				case 4:
-					// IF we can get the user's location, this function goes off.
-					function success(position) {
-					   	 proj_data[i] = position.coords.latitude;
-					}
+					proj_data[i] = lat;
+//					// IF we can get the user's location, this function goes off.
+//					function success(position) {
+//					   	 proj_data[i] = position.coords.latitude;
+//					}
 
-					// We couldn't get the user's location
-					function error(msg) {
-					  	proj_data[i] = 0;	// 0,0 will signal an error.
-					}
-					
-					if (navigator.geolocation) {
-					  	navigator.geolocation.getCurrentPosition(success, error);
-					} else {
-					  	error('not supported');
-					}
+//					// We couldn't get the user's location
+//					function error(msg) {
+//					  	proj_data[i] = 0;	// 0,0 will signal an error.
+//					}
+//					
+//					if (navigator.geolocation) {
+//					  	navigator.geolocation.getCurrentPosition(success, error);
+//					} else {
+//					  	error('not supported');
+//					}
 					break;
 					
 				case 5:
-					// IF we can get the user's location, this function goes off.
-					function success(position) {
-					   	 proj_data[i] = position.coords.longitude;
-					}
+					proj_data[i] = long;
+//					// IF we can get the user's location, this function goes off.
+//					function success(position) {
+//					   	 proj_data[i] = position.coords.longitude;
+//					}
 
-					// We couldn't get the user's location
-					function error(msg) {
-					  	proj_data[i] = 0;	// 0,0 will signal an error.
-					}
-					
-					if (navigator.geolocation) {
-					  	navigator.geolocation.getCurrentPosition(success, error);
-					} else {
-					  	error('not supported');
-					}
+//					// We couldn't get the user's location
+//					function error(msg) {
+//					  	proj_data[i] = 0;	// 0,0 will signal an error.
+//					}
+//					
+//					if (navigator.geolocation) {
+//					  	navigator.geolocation.getCurrentPosition(success, error);
+//					} else {
+//					  	error('not supported');
+//					}
 					break;
 			}
 			
