@@ -130,13 +130,39 @@ function get_fields() {
 					break;	
 					
 				case 4:
-					// GET HTML 5 Geolocation to work! For now it says 0, 0...
-					proj_data[i] = 0;
+					// IF we can get the user's location, this function goes off.
+					function success(position) {
+					   	 proj_data[i] = position.coords.latitude;
+					}
+
+					// We couldn't get the user's location
+					function error(msg) {
+					  	proj_data[i] = 0;	// 0,0 will signal an error.
+					}
+					
+					if (navigator.geolocation) {
+					  	navigator.geolocation.getCurrentPosition(success, error);
+					} else {
+					  	error('not supported');
+					}
 					break;
 					
 				case 5:
-					// Same as above.
-					proj_data[i] = 0;
+					// IF we can get the user's location, this function goes off.
+					function success(position) {
+					   	 proj_data[i] = position.coords.longitude;
+					}
+
+					// We couldn't get the user's location
+					function error(msg) {
+					  	proj_data[i] = 0;	// 0,0 will signal an error.
+					}
+					
+					if (navigator.geolocation) {
+					  	navigator.geolocation.getCurrentPosition(success, error);
+					} else {
+					  	error('not supported');
+					}
 					break;
 			}
 			
