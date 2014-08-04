@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title></title>
+    </head>
+    <body>
+        <p></p>
+        <div></div>
+        <div>
+	        <div id="divID">Enter Project ID</div>
+	        <input type="text" id="Project_ID" name="field">
+	        <div id="user_email_div">Enter User Email</div>
+	        <input type="text" id="user_email" name="field">
+	        <div id="user_password_div">Enter User Password</div>
+	        <input type="text" id="user_password" name="field">
+	    </div>
+        <button id="create" onclick="ID_from_user();">Create Fields</button>
+        <button id="post" onclick="post();">Post</button>
+        <button id="refresh" onclick="refresh();">Refresh</button>
+        <p id="geolocation">Finding geolocation...</p>
+    </body>
+</html>
