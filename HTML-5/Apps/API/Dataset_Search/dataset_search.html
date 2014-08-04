@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../api.css"/>
+
+		<!-- Below links to a JavaScript file, which will run most of the stuff
+			 needed for this app. -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+		</script>
+		<script src="dataset_search.js"></script>
+		<meta charset="UTF-8">
+		<title>Dataset Searcher</title>
+	</head>
+	<body>
+		<h1>iSENSE Dataset Searcher</h1>
+		<p> This app lets you grab a data set from the iSENSE website.</p>
+
+		<span id = "data">Data set name: </span>
+		<input type="letter" name="dataset" id="dataset_name">
+		<br/>
+
+		<input type="button" id='rec' onclick="submitter()" value="Click here to Search iSENSE.">
+		<br/><br/>
+
+		<span id="rev">RESULTS will appear here.</span>
+
+		<p><a href="../API_Index.html">
+			Return to the previous page</a></p>
+	</body>
+</html>

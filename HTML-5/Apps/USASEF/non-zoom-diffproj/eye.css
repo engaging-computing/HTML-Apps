@@ -1,0 +1,52 @@
+/* General styling */
+body {
+  color: #333333;
+  background-color: #dddddd;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+}
+
+h1 {
+	color: #a7d0ff;
+	background: #113;
+	font: Times;
+	font-size: 70px;
+	margin: 0px;
+	text-indent: 20px;
+	text-align: center;
+}
+
+p{
+	color: black;
+	font-weight: bold;
+	text-align: center;
+}
+
+pre{
+	color: black;
+	font-weight: bold;
+	text-align: center;
+	font-size: 15px;
+}
+
+#large{
+	width: 200%;
+	height: auto;
+}
+
+#zoom{
+	width: auto;
+	height: auto;
+}
+
+#center{
+	color: black;
+	font-weight: bold;
+	text-align: center;
+}
+
+#left{
+	color: blue;
+	font-weight: bold;
+	text-align: left;
+}
