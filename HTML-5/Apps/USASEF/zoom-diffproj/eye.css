@@ -29,20 +29,15 @@ pre{
 	font-size: 15px;
 }
 
-#large{
-	height: auto;
-	width: 200%;
-}
-
-#zoom{
-	height: auto;
-	width: auto;
-}
-
 #center{
 	color: black;
 	font-weight: bold;
 	text-align: center;
+}
+
+#large{
+	height: auto;
+	width: 200%;
 }
 
 #left{
@@ -51,8 +46,7 @@ pre{
 	text-align: left;
 }
 
-#right{
-	color: blue;
-	font-weight: bold;
-	text-align: right;
+#zoom{
+	height: auto;
+	width: auto;
 }

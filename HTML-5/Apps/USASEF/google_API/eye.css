@@ -28,21 +28,15 @@ pre{
 	font-size: 15px;
 }
 
-
-#large{
-	height: auto;
-	width: 200%;
-}
-
-#zoom{
-	height: auto;
-	width: auto;
-}
-
 #center{
 	color: black;
 	font-weight: bold;
 	text-align: center;
+}
+
+#large{
+	height: auto;
+	width: 200%;
 }
 
 #left{
@@ -51,12 +45,17 @@ pre{
 	text-align: left;
 }
 
+#map_canvas{
+	margin: 0 auto;
+}
+
 #right{
 	color: blue;
 	font-weight: bold;
 	text-align: right;
 }
 
-#map_canvas{
-	margin: 0 auto;
+#zoom{
+	height: auto;
+	width: auto;
 }

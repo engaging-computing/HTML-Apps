@@ -22,6 +22,12 @@ p{
 	text-align: center;
 }
 
+#center{
+	color: black;
+	font-weight: bold;
+	text-align: center;
+}
+
 #large{
 	height: auto;
 	width: 200%;
@@ -30,10 +36,4 @@ p{
 #zoom{
 	height: auto;
 	width: auto;
-};
-
-#center{
-	color: black;
-	font-weight: bold;
-	text-align: center;
-};
+}

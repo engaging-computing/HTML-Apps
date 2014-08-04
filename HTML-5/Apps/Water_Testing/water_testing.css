@@ -36,17 +36,12 @@ input{
 	width: 5em;
 }
 
-#tp{
+#o2{
 	height: 3em;
 	width: 5em;
 }
 
 #ph{
-	height: 3em;
-	width: 5em;
-}
-
-#o2{
 	height: 3em;
 	width: 5em;
 }
@@ -59,4 +54,9 @@ input{
 #sub{
 	height: 3em;
 	width: 40em;
+}
+
+#tp{
+	height: 3em;
+	width: 5em;
 }

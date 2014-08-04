@@ -29,24 +29,24 @@ pre{
 	font-size: 15px;
 }
 
-#large{
-	height: auto;
-	width: 200%;
-}
-
-#zoom{
-	height: auto;
-	width: auto;
-}
-
 #center{
 	color: black;
 	font-weight: bold;
 	text-align: center;
 }
 
+#large{
+	height: auto;
+	width: 200%;
+}
+
 #left{
 	color: blue;
 	font-weight: bold;
 	text-align: left;
+}
+
+#zoom{
+	height: auto;
+	width: auto;
 }
