@@ -1,14 +1,14 @@
 /* General styling */
 body {
-  color: #333333;
-  background-color: #dddddd; 
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 52px;
+	background-color: #dddddd;
+	color: #333333;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 52px;
 }
 
 h1{
-	color: #a7d0ff;
 	background: #113;
+	color: #a7d0ff;
 	font: Times;
 	font-size: 1em;
 	margin: 0px;
@@ -18,19 +18,17 @@ h1{
 input{
    	background: white;
    	border: 1px solid #000;
+    height: 22px;
    	padding: 0;
 	text-indent: 25px;
-
-    height: 22px;
     width: 200px;
 }
 
 select{
     background: white;
 	border: 1px solid #000;
-    padding: 0;
-
     height: 42px;
+    padding: 0;
 }
 
 /* Specific styling */
@@ -62,31 +60,31 @@ select{
 
 /* BUTTONS */
 #table2{
-	width: 5em;
 	height: 3em;
+	width: 5em;
 }
 
 #tp{
-	width: 5em;
 	height: 3em;
+	width: 5em;
 }
 
 #ph{
-	width: 5em;
 	height: 3em;
+	width: 5em;
 }
 
 #o2{
-	width: 5em;
 	height: 3em;
+	width: 5em;
 }
 
 #phos{
-	width: 5em;
 	height: 3em;
+	width: 5em;
 }
 
 #sub{
-	width: 40em;
 	height: 3em;
+	width: 40em;
 }

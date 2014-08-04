@@ -15,27 +15,27 @@ function end(choice) {
 	//console.log(end_choice);		// DEBUGGING
 }
 
-function submitter() 
+function submitter()
 {
 	if(start_choice == 0 || end_choice == 0)
 	{
 		alert("ERROR - select a letter AND a number!");
 		return;
 	}
-	
+
 	// Make the URL links.
 	var API_URL = 'http://isenseproject.org/api/v1/projects/598/jsonDataUpload';
 	var USER_URL = 'http://isenseproject.org/projects/598';
 	var USER_URL_TEXT = 'Click here to go to your project!';
 
-	/* 	Get current time - used for making the title different 
+	/* 	Get current time - used for making the title different
 		every time the user uploads data. 	*/
 	var currentTime = new Date();
 	var timestamp = JSON.stringify(currentTime);
 
 	/*  In the future: allow different projects, contributor keys and username
 		and passwords. 	*/
-	
+
 	// Data to be uploaded to iSENSE
 	var upload = {
 		'email': 'j@j.j',
@@ -47,16 +47,16 @@ function submitter()
 	  		'2879': [start_choice]
 	 	}
 	}
-	
+
 	console.log(upload.data);
-	
+
 	// Modify the title to be either A, B or C
 	upload.title = "Plinko " + [timestamp];
-	
+
 	if(confirm("Do you want to upload this data to iSENSE?")) {
 		// Post to iSENSE
 		$.post(API_URL, upload);
-		
+
 		// Add a link in the HTML file to the project they contributed to.
 		The_URL.innerHTML = '<a href="'+ USER_URL +'">' + USER_URL_TEXT + '</a>';
 	}

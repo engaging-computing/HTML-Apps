@@ -2,10 +2,10 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-	 
+
 		<!-- CSS files -->
 		<link rel="stylesheet" type="text/css" href="boathouse.css"/>
-		
+
 		<!-- Javascript files-->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
 		</script>
@@ -13,9 +13,9 @@
 
 		<title>Boat House App</title>
 	</head>
-	<body> 
+	<body>
 		<h1>Boat House App</h1>
-		
+
 		<form name="boathouse">
 			<!-- The table keeps all the input buttons lined up nicely. -->
 			<table>
@@ -31,48 +31,48 @@
 						</select>
 					</td>
 				</tr>
-		
+
 				<tr>
 					<td align="right">Temperature:</td>
-					<td align="left"> 
-						<input  type="number" name="Temperature" id='tp' 
+					<td align="left">
+						<input  type="number" name="Temperature" id='tp'
 								min="0" max="35" step=".5" value="5">
 					</td>
 				</tr>
-				
+
 				<tr>
 					<td align="right">pH:</td>
 					<td align="left">
-						<input 	type="number" name="pH" id ='ph' 
+						<input 	type="number" name="pH" id ='ph'
 								min="0" max="10" step=".1" value="5">
 					</td>
 				</tr>
-				
+
 				<tr>
 					<td align="right">Dissolved Oxygen:</td>
 					<td align="left">
-						<input 	type="number" name="Oxygen" id='o2' 
+						<input 	type="number" name="Oxygen" id='o2'
 								min="0" max="10" step=".1" value="5">
 					</td>
 				</tr>
-		
+
 				<tr>
 					<td align="right">Phosphates: </td>
 					<td align="left">
-						<input  type="number" name="Phosphates" id='phos' 
+						<input  type="number" name="Phosphates" id='phos'
 								min="0" max="10" step=".1" value="5">
 					</td>
 				</tr>
 			</table>
 		</form>
-		
-		<input 	type="button" id='sub' onclick="submitter()" 
+
+		<input 	type="button" id='sub' onclick="submitter()"
 				value="Submit to iSENSE.">
-		
+
 		<span id="The_URL"><p>
 			The URL to the project that you contributed to will appear here!
 		</p></span>
-		
+
 		<p><a href="../webapps.html">
 			Return to the WebApps index</a></p>
 

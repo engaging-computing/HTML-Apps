@@ -1,9 +1,8 @@
 body {
 	background-color: #dddddd;
-	color: #333333; 
+	color: #333333;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 30px;
-	
 	text-align: center;
 }
 
@@ -28,31 +27,27 @@ h1 {
 input {
 	background: white;
     border: 1px solid #000;
+	height: 22px;
 	margin: 0px;
     padding: 0;
   	text-indent: 25px;
-  	
-  	
-    height: 22px;
 	width: 200px;
 }
 
 #buttonz {
-    font-size: 15px;    
-    margin: 0px;	
-    padding: 0;
-        
+    font-size: 15px;
 	height: 70px;
+    margin: 0px;
+    padding: 0;
 	width: 150px;
 }
 
 #rSENSE {
-    font-size: 25px;    
-    margin: 0px;	
-    padding: 0;
-        
+    font-size: 25px;
 	height: 90px;
-	width: 500px;
+    margin: 0px;
+    padding: 0;
+    width: 500px;
 }
 
 #The_URL {
@@ -77,7 +72,7 @@ input {
 	text-align: center;
 }
 
-#paragraph { 
+#paragraph {
 	font-weight: bold;
 }
 
@@ -93,7 +88,6 @@ input {
 }
 
 #sub {
-	width: 40em;
 	height: 3em;
+	width: 40em;
 }
-

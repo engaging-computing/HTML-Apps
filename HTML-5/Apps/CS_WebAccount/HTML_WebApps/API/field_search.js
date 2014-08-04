@@ -9,13 +9,13 @@ function submitter()
 							dataType: "JSON"
 							}).responseText;
 	console.log(response);
-	
+
 	if(response === undefined)
 	{
 		rev.innerHTML = "That field ID could not be found!";
 	}
 	else{
-	
+
 	// Now we should have some information about the project.
 	var arg = JSON.parse(response);
 	var array = [];
@@ -23,7 +23,7 @@ function submitter()
 	array[1] = arg['type'];
 	array[2] = arg['unit'];
 	array[3] = arg['restrictions'];
-	
+
 	rev.innerHTML = "Information about this field: <br/>Name: "+ array[0] + "<br/>Type: "+ array[1] + "<br/> Unit: "+ array[2] + "<br/>Restrictions: " + array[3];
 	console.log(arg);
 	}
