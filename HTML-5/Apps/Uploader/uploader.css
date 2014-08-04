@@ -3,16 +3,7 @@ body {
 	color: #333333;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 30px;
-
 	text-align: center;
-}
-
-mapcanvas {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-	padding-left: 0;
-    padding-right: 0;
 }
 
 h1 {
@@ -28,35 +19,37 @@ h1 {
 input {
 	background: white;
     border: 1px solid #000;
+	height: 22px;
 	margin: 0px;
     padding: 0;
   	text-indent: 25px;
-
-
-    height: 22px;
 	width: 200px;
+}
+
+mapcanvas {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+	padding-left: 0;
+    padding-right: 0;
 }
 
 #buttonz {
     font-size: 15px;
+	height: 70px;
     margin: 0px;
     padding: 0;
-
-	height: 70px;
 	width: 150px;
 }
 
-#rSENSE {
-    font-size: 25px;
-    margin: 0px;
-    padding: 0;
-
-	height: 90px;
-	width: 500px;
+#center {
+	color: black;
+	font-weight: bold;
+	text-align: center;
 }
 
-#The_URL {
-	font: bold 25px Helvetica Neue;
+#js {
+	color: red;
 }
 
 #justify {
@@ -67,18 +60,29 @@ input {
 	text-align: left;
 }
 
+#paragraph {
+	font-weight: bold;
+}
+
+#rSENSE {
+    font-size: 25px;
+	height: 90px;
+    margin: 0px;
+    padding: 0;
+	width: 500px;
+}
+
+#sub {
+	height: 3em;
+	width: 40em;
+}
+
 #tab {
 	margin-left: 5em;
 }
 
-#center {
-	color: black;
-	font-weight: bold;
-	text-align: center;
-}
-
-#paragraph {
-	font-weight: bold;
+#The_URL {
+	font: bold 25px Helvetica Neue;
 }
 
 #title {
@@ -87,13 +91,3 @@ input {
 	font-weight: bold;
 	text-decoration: underline;
 }
-
-#js {
-	color: red;
-}
-
-#sub {
-	width: 40em;
-	height: 3em;
-}
-

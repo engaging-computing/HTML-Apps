@@ -1,16 +1,16 @@
 /* General styling */
 body {
-	color: #333333;
 	background-color: #dddddd;
+	color: #333333;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 52px;
 }
 
 h1{
-	color: #a7d0ff;
 	background: #113;
-	font: Times;
+	color: #a7d0ff;
 	font-size: 1em;
+	font: Times;
 	margin: 0px;
 	text-indent: 20px;
 }
@@ -18,19 +18,17 @@ h1{
 input{
    	background: white;
    	border: 1px solid #000;
+	height: 22px;
    	padding: 0;
 	text-indent: 25px;
-
-    height: 22px;
     width: 200px;
 }
 
 select{
     background: white;
 	border: 1px solid #000;
+	height: 42px;
     padding: 0;
-
-    height: 42px;
 }
 
 /* Specific styling */
@@ -39,6 +37,18 @@ select{
 }
 
 /* Margins for the buttons */
+#oxygen{
+	margin: 0em -.1em 0em 0em;
+}
+
+#PH{
+	margin: 0em 6.15em 0em 0em;
+}
+
+#phosp{
+	margin: 0em 2.8em 0em 0em;
+}
+
 
 #table{
 	margin: 0em 2.5em 0em 0em;
@@ -48,45 +58,33 @@ select{
 	margin: 0em 2.3em 0em 0em;
 }
 
-#PH{
-	margin: 0em 6.15em 0em 0em;
-}
-
-#oxygen{
-	margin: 0em -.1em 0em 0em;
-}
-
-#phosp{
-	margin: 0em 2.8em 0em 0em;
-}
-
 /* BUTTONS */
-#table2{
-	width: 5em;
+#o2{
 	height: 3em;
-}
-
-#tp{
 	width: 5em;
-	height: 3em;
 }
 
 #ph{
-	width: 5em;
 	height: 3em;
-}
-
-#o2{
 	width: 5em;
-	height: 3em;
 }
 
 #phos{
-	width: 5em;
 	height: 3em;
+	width: 5em;
 }
 
 #sub{
-	width: 40em;
 	height: 3em;
+	width: 40em;
+}
+
+#table2{
+	height: 3em;
+	width: 5em;
+}
+
+#tp{
+	height: 3em;
+	width: 5em;
 }

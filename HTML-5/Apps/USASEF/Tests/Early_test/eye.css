@@ -11,11 +11,11 @@ p{
 }
 
 #large{
-	width: 200%;
 	height: auto;
+	width: 200%;
 }
 
 #zoom{
-	width: auto;
 	height: auto;
+	width: auto;
 };

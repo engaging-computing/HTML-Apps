@@ -34,6 +34,16 @@ input {
 	width: 200px;
 }
 
+#center {
+	color: black;
+	font-weight: bold;
+	text-align: center;
+}
+
+#js {
+	color: red;
+}
+
 #justify {
 	text-align: justify;
 }
@@ -42,18 +52,17 @@ input {
 	text-align: left;
 }
 
-#tab {
-	margin-left: 5em;
-}
-
-#center {
-	color: black;
-	font-weight: bold;
-	text-align: center;
-}
-
 #paragraph {
 	font-weight: bold;
+}
+
+#sub {
+	width: 40em;
+	height: 3em;
+}
+
+#tab {
+	margin-left: 5em;
 }
 
 #title {
@@ -62,13 +71,3 @@ input {
 	font-weight: bold;
 	text-decoration: underline;
 }
-
-#js {
-	color: red;
-}
-
-#sub {
-	width: 40em;
-	height: 3em;
-}
-

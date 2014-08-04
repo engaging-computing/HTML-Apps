@@ -1,19 +1,19 @@
 /* General styling */
 body {
-  color: #333333;
-  background-color: #dddddd;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
+	background-color: #dddddd;
+	color: #333333;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
 }
 
 h1 {
-	color: #a7d0ff;
 	background: #113;
-	font: Times;
+	color: #a7d0ff;
 	font-size: 70px;
+	font: Times;
 	margin: 0px;
-	text-indent: 20px;
 	text-align: center;
+	text-indent: 20px;
 }
 
 p{
@@ -23,6 +23,6 @@ p{
 }
 
 #large{
-	width: 200%;
 	height: auto;
+	width: 200%;
 }

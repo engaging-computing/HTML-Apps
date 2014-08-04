@@ -1,13 +1,13 @@
 body {
-  color: #333333;
-  background-color: #dddddd;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 15px;
+	background-color: #dddddd;
+	color: #333333;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 15px;
 }
 
 h1 {
-	color: #a7d0ff;
 	background: #113;
+	color: #a7d0ff;
 	font: Times;
 	font-size: 70px;
 	margin: 0px;
@@ -30,13 +30,13 @@ pre{
 
 
 #large{
-	width: 200%;
 	height: auto;
+	width: 200%;
 }
 
 #zoom{
-	width: auto;
 	height: auto;
+	width: auto;
 }
 
 #center{

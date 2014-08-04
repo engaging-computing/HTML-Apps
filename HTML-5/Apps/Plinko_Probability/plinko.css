@@ -3,7 +3,6 @@ body {
 	color: #333333;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 20px;
-
 	text-align: center;
 }
 
@@ -11,10 +10,9 @@ button {
 	background: white;
     border: 1px solid #000;
     font-size: 20px;
+    height: 90px;
     margin: 0px;
     padding: 0;
-
-	height: 90px;
 	width: 80px;
 }
 
@@ -31,18 +29,24 @@ h1 {
 input {
 	background: white;
     border: 1px solid #000;
+	height: 22px;
 	margin: 0px;
     padding: 0;
   	text-indent: 25px;
-
-
-    height: 22px;
 	width: 200px;
 }
 
+#js{
+	color: red;
+}
 
 #paragraph{
 	font-weight: bold;
+}
+
+#sub{
+	height: 3em;
+	width: 40em;
 }
 
 #title{
@@ -51,13 +55,3 @@ input {
 	font-weight: bold;
 	text-decoration: underline;
 }
-
-#js{
-	color: red;
-}
-
-#sub{
-	width: 40em;
-	height: 3em;
-}
-
