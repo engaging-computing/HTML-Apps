@@ -4,24 +4,20 @@ This subdirectory contains various HTML 5 Web Apps.
 All connect with the iSENSE website - isenseproject.org.
 
 Current WebApps:
-1. Boat House Test App
 
-2. Water Testing App
+1. Boat House Test App - Copy of the Boat House App
 
-3. Contributor Key Test
+2. Water Testing App - Also a copy of the Boat House App, but uses HTML5 Geolocation
+to get the location of the user,
 
-4. Dataset Searcher
+3. API Tests Web Apps - a few simple apps that were built to try out the iSENSE API
 
-5. Dataset Info Searcher
+4. USASEF Eye Ancestry Test WebApps - test apps that predate the Eye Color App
 
-6. Field Searcher
+5. USASEF Eye Color Ancestry - finished Eye Color app that Uses the Google Maps API
 
-7. USASEF Eye Color Ancestry (Uses Google Maps API)
+6. USASEF Plinko Probability App
 
-8. Plinko Probability
+7. Project Fields App
 
-Future WebApps / Plans:
-1. Customization of current apps (Different Project IDs, Contributor key support 
-for all projects, Username/Password support, etc.)
-
-2. Generic iSENSE Uploader?
+8. HTML5 Uploader App  - app that can upload to almost any iSENSE project
