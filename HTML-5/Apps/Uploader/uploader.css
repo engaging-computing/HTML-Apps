@@ -18,27 +18,27 @@ h1 {
 
 input {
 	background: white;
-    border: 1px solid #000;
+	border: 1px solid #000;
 	height: 22px;
 	margin: 0px;
-    padding: 0;
+	padding: 0;
   	text-indent: 25px;
 	width: 200px;
 }
 
 mapcanvas {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 	padding-left: 0;
-    padding-right: 0;
+	padding-right: 0;
 }
 
 #buttonz {
-    font-size: 15px;
+	font-size: 15px;
 	height: 70px;
-    margin: 0px;
-    padding: 0;
+	margin: 0px;
+	padding: 0;
 	width: 150px;
 }
 
@@ -65,10 +65,10 @@ mapcanvas {
 }
 
 #rSENSE {
-    font-size: 25px;
+	font-size: 25px;
 	height: 90px;
-    margin: 0px;
-    padding: 0;
+	margin: 0px;
+	padding: 0;
 	width: 500px;
 }
 
