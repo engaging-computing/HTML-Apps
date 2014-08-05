@@ -168,7 +168,7 @@ function getCoords(event)
 		
 		// If we were able to upload to iSENSE, then show them the URL to their project!
 		result.done(function() {
-			RES.innerHTML = "Uploaded to iSENSE! " + '<a href="' + USER_URL + '">' + USER_URL_TEXT + '</a> <br/>';
+			RES.innerHTML = "Uploaded to iSENSE! " + '<a href="' + USER_URL + '">' + USER_URL_TEXT + '</a>';
 			console.log("Success");
 		});
 		
