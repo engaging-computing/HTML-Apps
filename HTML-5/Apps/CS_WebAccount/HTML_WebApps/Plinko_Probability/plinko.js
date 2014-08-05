@@ -48,6 +48,8 @@ function submitter()
 	 	}
 	}
 	
+	console.log(upload.data);
+	
 	// Modify the title to be either A, B or C
 	upload.title = "Plinko " + [timestamp];
 	
@@ -56,9 +58,9 @@ function submitter()
 		$.post(API_URL, upload);
 		
 		// Add a link in the HTML file to the project they contributed to.
-		The_URL.innerHTML = '<br/><a href="'+ USER_URL +'">' + USER_URL_TEXT + '</a> <br/> <br/>';
+		The_URL.innerHTML = '<a href="'+ USER_URL +'">' + USER_URL_TEXT + '</a>';
 	}
 	else {
-		The_URL.innerHTML = "<br/>Canceled!<br/><br/>";
+		The_URL.innerHTML = "Canceled!";
 	}
 }

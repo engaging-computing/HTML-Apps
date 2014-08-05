@@ -1,51 +1,77 @@
 <!DOCTYPE html>
 <html>
-	<head> 
-		<link rel="stylesheet" type="text/css" href="boathouse.css" />
+	<head>
+		<meta charset="UTF-8">
+	 
+		<!-- CSS files -->
+		<link rel="stylesheet" type="text/css" href="boathouse.css"/>
 		
-		<!-- Below links to a JavaScript file, which will run most of the stuff
-			 needed for this app. -->
+		<!-- Javascript files-->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
 		</script>
 		<script src="boathouse.js"></script>
-		<meta charset="UTF-8">
-		<title>Boat House Test App</title>
+
+		<title>Boat House App</title>
 	</head>
 	<body> 
 		<h1>Boat House App</h1>
 		
 		<form name="boathouse">
-
-<!-- 	Probably the best way of doing table value - uses a drop down menu	-->
-		<span id = "table">Table Letter: </span>
-		<select id="table_val">
-			<option value="A">Table A</option>
-			<option value="B">Table B</option>
-			<option value="C">Table C</option>
-		</select>
-		<br/>
+			<!-- The table keeps all the input buttons lined up nicely. -->
+			<table>
+				<!-- Probably the best way of doing table letter:
+					uses a drop down menu	-->
+				<tr>
+					<td align="right">Table Letter:</td>
+					<td align="left">
+						<select id="table_val">
+							<option value="A">Table A</option>
+							<option value="B">Table B</option>
+							<option value="C">Table C</option>
+						</select>
+					</td>
+				</tr>
 		
-		<span id = "temp">Temperature: </span>
-		<input  type="number" name="Temperature" id='tp' min="0" max="35" step=".5" value="5">
-		<br/>
+				<tr>
+					<td align="right">Temperature:</td>
+					<td align="left"> 
+						<input  type="number" name="Temperature" id='tp' 
+								min="0" max="35" step=".5" value="5">
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="right">pH:</td>
+					<td align="left">
+						<input 	type="number" name="pH" id ='ph' 
+								min="0" max="10" step=".1" value="5">
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="right">Dissolved Oxygen:</td>
+					<td align="left">
+						<input 	type="number" name="Oxygen" id='o2' 
+								min="0" max="10" step=".1" value="5">
+					</td>
+				</tr>
 		
-		<span id = "PH">pH: </span>
-		<input type="number" name="pH" id ='ph' min="0" max="10" step=".1" value="5">
-		<br/>
-		
-		<span id = "oxygen">Dissolved Oxygen: </span>
-		<input type="number" name="Oxygen" id='o2' min="0" max="10" step=".1" value="5">
-		<br/>
-		
-		<span id = "phosp">Phosphates: </span>
-		<input  type="number" name="Phosphates" id='phos' min="0" max="10" step=".1" value="5">
-		<br/>
+				<tr>
+					<td align="right">Phosphates: </td>
+					<td align="left">
+						<input  type="number" name="Phosphates" id='phos' 
+								min="0" max="10" step=".1" value="5">
+					</td>
+				</tr>
+			</table>
 		</form>
 		
-		<input type="button" id='sub' onclick="submitter()" value="Submit to iSENSE & rSENSE.">
-		<br/>
+		<input 	type="button" id='sub' onclick="submitter()" 
+				value="Submit to iSENSE.">
 		
-		<span id="The_URL"><p>The URL to the project that you contributed to will appear here!</p></span>
+		<span id="The_URL"><p>
+			The URL to the project that you contributed to will appear here!
+		</p></span>
 		
 		<p><a href="../webapps.html">
 			Return to the WebApps index</a></p>

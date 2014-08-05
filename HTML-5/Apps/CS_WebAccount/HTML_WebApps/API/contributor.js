@@ -33,16 +33,16 @@ function submitter()
 		var result = $.post(API_URL, upload);
 		
 		if(result.done) {
-			rev.innerHTML = "Successfully posted to iSENSE!";
+			rev.innerHTML = "<p>Successfully posted to iSENSE!</p>";
 		}
 		else if(result.fail) {
-			rev.innerHTML = "Failed to post to iSENSE!";
+			rev.innerHTML = "<p>Failed to post to iSENSE!</p>";
 		}
 		
 		// Add a link in the HTML file to the project they contributed to.
-		The_URL.innerHTML = '<a href="'+ USER_URL +'">' + USER_URL_TEXT + '</a>';
+		The_URL.innerHTML = '<p><a href="'+ USER_URL +'">' + USER_URL_TEXT + '</a></p>';
 	}
 	else {
-		The_URL.innerHTML = "Canceled!";
+		The_URL.innerHTML = "<p>Canceled!</p>";
 	}
 }
