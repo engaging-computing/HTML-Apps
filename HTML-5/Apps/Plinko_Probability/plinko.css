@@ -8,11 +8,11 @@ body {
 
 button {
 	background: white;
-    border: 1px solid #000;
-    font-size: 20px;
-    height: 90px;
-    margin: 0px;
-    padding: 0;
+	border: 1px solid #000;
+	font-size: 20px;
+	height: 90px;
+	margin: 0px;
+	padding: 0;
 	width: 80px;
 }
 
@@ -28,10 +28,10 @@ h1 {
 
 input {
 	background: white;
-    border: 1px solid #000;
+	border: 1px solid #000;
 	height: 22px;
 	margin: 0px;
-    padding: 0;
+	padding: 0;
   	text-indent: 25px;
 	width: 200px;
 }

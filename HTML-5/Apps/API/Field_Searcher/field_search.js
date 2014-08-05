@@ -3,11 +3,13 @@ function submitter()
 	var ID = document.getElementById("dataset_name").value;
 	var URL = "http://isenseproject.org/api/v1/fields/"+ID;
 
-	var response = $.ajax({ type: "GET",
-							url: URL,
-							async: false,
-							dataType: "JSON"
-							}).responseText;
+	var response = $.ajax(
+	{ 	type: "GET",
+		url: URL,
+		async: false,
+		dataType: "JSON"
+	}).responseText;	// Getting response text from this ajax request.
+	
 	console.log(response);
 
 	if(response === undefined)
@@ -24,7 +26,12 @@ function submitter()
 	array[2] = arg['unit'];
 	array[3] = arg['restrictions'];
 
-	rev.innerHTML = "Information about this field: <br/>Name: "+ array[0] + "<br/>Type: "+ array[1] + "<br/> Unit: "+ array[2] + "<br/>Restrictions: " + array[3];
+	rev.innerHTML = "Information about this field: " 
+	+ "<br/>Name: " + array[0] 
+	+ "<br/>Type: " + array[1] 
+	+ "<br/>Unit: " + array[2] 
+	+ "<br/>Restrictions: " + array[3];
+	 
 	console.log(arg);
 	}
 }
