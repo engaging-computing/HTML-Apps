@@ -1,0 +1,101 @@
+body {
+	background-color: #dddddd;
+	color: #333333;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 20px;
+	text-align: center;
+}
+
+button {
+    font-size: 20px;
+<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/Fields_Getter/fields_getter.css
+	height: 70px;
+    margin: 0px;
+    padding: 0;
+  	width: 300px;
+=======
+    height: 70px;
+    margin: 0px;
+    padding: 0;
+	width: 300px;
+>>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/Fields_Getter/fields_getter.css
+}
+
+h1 {
+	background: #113;
+	color: #a7d0ff;
+	font: Times;
+	font-size: 70px;
+	margin: 0px;
+	size: 20px;
+	text-align: center;
+}
+
+input {
+	background: white;
+    border: 1px solid #000;
+<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/Fields_Getter/fields_getter.css
+	height: 22px;
+=======
+    height: 22px;
+>>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/Fields_Getter/fields_getter.css
+	margin: 0px;
+    padding: 0;
+  	text-indent: 25px;
+	width: 200px;
+}
+
+#center {
+	color: black;
+	font-weight: bold;
+	text-align: center;
+}
+
+#js {
+	color: red;
+}
+
+#justify {
+	text-align: justify;
+}
+
+#left {
+	text-align: left;
+}
+
+#paragraph {
+	font-weight: bold;
+}
+
+#sub {
+	width: 40em;
+	height: 3em;
+}
+
+<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/Fields_Getter/fields_getter.css
+#paragraph {
+	font-weight: bold;
+=======
+#tab {
+	margin-left: 5em;
+>>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/Fields_Getter/fields_getter.css
+}
+
+#title {
+	color: red;
+	font-size: 35px;
+	font-weight: bold;
+	text-decoration: underline;
+}
+<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/Fields_Getter/fields_getter.css
+
+#js {
+	color: red;
+}
+
+#sub {
+	height: 3em;
+	width: 40em;
+}
+=======
+>>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/Fields_Getter/fields_getter.css

@@ -1,0 +1,119 @@
+body {
+	background-color: #dddddd;
+	color: #333333;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 30px;
+	text-align: center;
+}
+
+h1 {
+	background: #113;
+	color: #a7d0ff;
+	font: Times;
+	font-size: 85px;
+	margin: 0px;
+	size: 20px;
+	text-align: center;
+}
+
+input {
+	background: white;
+    border: 1px solid #000;
+	height: 22px;
+	margin: 0px;
+    padding: 0;
+  	text-indent: 25px;
+	width: 200px;
+}
+
+mapcanvas {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+	padding-left: 0;
+    padding-right: 0;
+}
+
+#buttonz {
+    font-size: 15px;
+	height: 70px;
+    margin: 0px;
+    padding: 0;
+	width: 150px;
+}
+
+<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/Uploader/uploader.css
+#rSENSE {
+    font-size: 25px;
+	height: 90px;
+    margin: 0px;
+    padding: 0;
+    width: 500px;
+=======
+#center {
+	color: black;
+	font-weight: bold;
+	text-align: center;
+>>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/Uploader/uploader.css
+}
+
+#js {
+	color: red;
+}
+
+#justify {
+	text-align: justify;
+}
+
+#left {
+	text-align: left;
+}
+
+#paragraph {
+	font-weight: bold;
+}
+
+#rSENSE {
+    font-size: 25px;
+	height: 90px;
+    margin: 0px;
+    padding: 0;
+	width: 500px;
+}
+
+<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/Uploader/uploader.css
+#paragraph {
+	font-weight: bold;
+=======
+#sub {
+	height: 3em;
+	width: 40em;
+}
+
+#tab {
+	margin-left: 5em;
+}
+
+#The_URL {
+	font: bold 25px Helvetica Neue;
+>>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/Uploader/uploader.css
+}
+
+#title {
+	color: red;
+	font-size: 35px;
+	font-weight: bold;
+	text-decoration: underline;
+}
+<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/Uploader/uploader.css
+
+#js {
+	color: red;
+}
+
+#sub {
+	height: 3em;
+	width: 40em;
+}
+=======
+>>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/Uploader/uploader.css

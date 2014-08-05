@@ -1,0 +1,62 @@
+/* General styling */
+body {
+	background-color: #dddddd;
+	color: #333333;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 40px;
+}
+
+h1{
+	background: #113;
+	color: #a7d0ff;
+	font-size: 70px;
+	font: Times;
+	margin: 0px;
+	text-indent: 20px;
+}
+
+input{
+   	background: white;
+   	border: 1px solid #000;
+	font-size: 20px;
+    height: 22px;
+   	padding: 0;
+	text-indent: 25px;
+    width: 200px;
+}
+
+/* Specific styling */
+#js{
+	color: red;
+}
+
+/* BUTTONS */
+#datset_name{
+	height: 3em;
+	width: 5em;
+}
+
+#o2{
+	height: 3em;
+	width: 5em;
+}
+
+#ph{
+	height: 3em;
+	width: 5em;
+}
+
+#phos{
+	height: 3em;
+	width: 5em;
+}
+
+#sub{
+	height: 3em;
+	width: 40em;
+}
+
+#tp{
+	height: 3em;
+	width: 5em;
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- CSS file -->
+		<link rel="stylesheet" type="text/css" href="uploader.css" />
+
+		<!-- Javascript files (jQuery + javascript source) -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+		</script>
+		<script src="uploader.js"></script>
+
+		<!-- Google Maps API script -->
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+		<meta charset="UTF-8">
+		<title>iSENSE Uploader</title>
+	</head>
+	<body>
+<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/Uploader/uploader.html
+		<h1><img src="http://isenseproject.org/assets/isense-logo-b120a92cc483e0cf3b6ab1cb6750287d.png"
+		alt="iSENSE" height="65" width="300"></a> Uploader</h1>
+=======
+		<h1>iSENSE Uploader</h1>
+>>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/Uploader/uploader.html
+
+		<!-- When the user wants to enter an email/password, these divs are populated. -->
+		<div id="user_prompt"></div>
+		<div align="left" id="submit_user"></div>
+
+		<!-- Buttons for changing parts of the WebApp. Currently only Project Title really works well. -->
+		<br/>
+		<button id="buttonz" onClick="popup_user()">Click here <br/>to Login</button>
+		<button id="buttonz" onClick="popup_contributor()">Click here to add a Contributor Key</button>
+		<button id="buttonz" onClick="popup_projID()">Click here to change <br/> the Project ID</button>
+		<button id="buttonz" onClick="popup_title()">Click here to change <br/> the title</button>
+
+		<br/><br/>
+
+		<!-- Left aligned & in a table to make it off to the left and look pretty. -->
+		<div id="left">
+			<table>
+				<tr>
+					<td align="right">CURRENT USER:</td>
+					<td align="left"><span id="user_id">--</span></td>
+				</tr>
+
+				<tr>
+					<td align="right">CONTRIBUTOR KEY:</td>
+					<td align="left"><span id="contrib_key">--</span></td>
+				</tr>
+
+				<tr>
+					<td align="right">PROJECT ID:</td>
+					<td align="left"><span id="project_num">--</span></td>
+				</tr>
+
+				<tr>
+					<td align="right">PROJECT TITLE:</td>
+					<td align="left"><span id=project_title>--</span></td>
+				</tr>
+			</table>
+		</div>
+
+		<br/>
+
+		Results/Fields will show up below this line.
+
+		<div id="left">
+			<p><div id="resp"></div></p>
+			<p><div id="user_input"></div></p>
+		</div>
+
+		<table>
+			<div id="Upload"></div>
+		</table>
+
+		<div id="The_URL">
+			The URL to the project that you contributed to will appear here!
+		</div>
+
+		<br/>
+		<!-- snippets = shift space -->
+		<div id="change_me">
+			<button id="rSENSE" onclick="get_fields()">
+				Click here to pull information from rSENSE
+			</button>
+		</div>
+
+		<!-- Forces the Google Maps canvas to the center -->
+		<style type="text/css">
+			div#mapcanvas { margin: 0 auto 0 auto; }
+		</style>
+
+		<article>
+		  	<p>Trying to find your location: <span id="status">checking...</span></p>
+		</article>
+
+		<!-- 	The following was originally from: http://html5demos.com/geo
+				I've since modified it for the Water Testing App
+				And now for the iSENSE Uploader App					-->
+		<script>
+			// IF we can get the user's location, this function goes off.
+			function success(position) {
+			  	var s = document.querySelector('#status');
+
+			  	if (s.className == 'success') {
+					// not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back
+					return;
+			  	}
+
+			  	s.innerHTML = "found you!";
+			  	s.className = 'success';
+
+			 	// Makes a map canvas
+			  	var mapcanvas = document.createElement('div');
+			  	mapcanvas.id = 'mapcanvas';
+			  	mapcanvas.style.height = '600px';
+			  	mapcanvas.style.width  = '1200px';
+
+				// Adds the map canvas to the HTML
+			  	document.querySelector('article').appendChild(mapcanvas);
+
+			   	 lat = position.coords.latitude;
+			  	long = position.coords.longitude;
+
+			   	document.getElementById("accurate").innerHTML =
+			   	"You are here! (at least within a "
+			   	+ position.coords.accuracy + " meter radius)";
+
+			   	var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+			  	var myOptions = {
+					zoom: 18,
+					center: latlng,
+					mapTypeControl: true,
+					navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+					navigationControl: true,
+					mapTypeId: google.maps.MapTypeId.HYBRID
+			  	};
+			  	var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+
+			  	var marker = new google.maps.Marker({
+					position: latlng,
+				  	map: map,
+				  	title: "YOU ARE HERE!"
+			  	});
+			}
+
+			// We couldn't get the user's location
+			function error(msg) {
+			  	var s = document.querySelector('#status');
+			  	s.innerHTML = typeof msg == 'string' ? msg : "failed";
+			  	s.className = 'fail';
+			}
+
+			if (navigator.geolocation) {
+			  	navigator.geolocation.getCurrentPosition(success, error);
+			} else {
+			  	error('not supported');
+			}
+		</script>
+
+		<div id="accurate"></div> <br/>
+		NOTE: the HTML5 geolocation feature is not as accurate as GPS. <br/>
+    	As a result the location may be off slightly. <br/>
+
+		<p>NOTE: required at a mininium is a username/password or a contributor key, <br/>
+		as well as a project ID for the project you'd like to contribute to. </p>
+
+		<p><a href="../webapps.html">
+			Return to the WebApps index</a></p>
+
+	</body>
+</html>

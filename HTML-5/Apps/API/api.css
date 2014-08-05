@@ -1,0 +1,39 @@
+/* General styling */
+body {
+	background-color: #dddddd;
+	color: #333333;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 50px;
+}
+
+h1{
+	background: #113;
+	color: #a7d0ff;
+<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/API/api.css
+	font: Times;
+=======
+>>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/API/api.css
+	font-size: 90px;
+	font: Times;
+	margin: 0px;
+	text-indent: 20px;
+}
+
+input{
+   	background: white;
+   	border: 1px solid #000;
+<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/API/api.css
+	height: 22px;
+=======
+    height: 22px;
+>>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/API/api.css
+   	padding: 0;
+	text-indent: 25px;
+    width: 200px;
+}
+
+/* Specific styling */
+#rec{
+	height: 3em;
+	width: 40em;
+}
