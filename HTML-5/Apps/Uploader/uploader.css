@@ -42,19 +42,10 @@ mapcanvas {
 	width: 150px;
 }
 
-<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/Uploader/uploader.css
-#rSENSE {
-    font-size: 25px;
-	height: 90px;
-    margin: 0px;
-    padding: 0;
-    width: 500px;
-=======
 #center {
 	color: black;
 	font-weight: bold;
 	text-align: center;
->>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/Uploader/uploader.css
 }
 
 #js {
@@ -81,10 +72,6 @@ mapcanvas {
 	width: 500px;
 }
 
-<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/Uploader/uploader.css
-#paragraph {
-	font-weight: bold;
-=======
 #sub {
 	height: 3em;
 	width: 40em;
@@ -96,7 +83,6 @@ mapcanvas {
 
 #The_URL {
 	font: bold 25px Helvetica Neue;
->>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/Uploader/uploader.css
 }
 
 #title {
@@ -105,15 +91,3 @@ mapcanvas {
 	font-weight: bold;
 	text-decoration: underline;
 }
-<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/Uploader/uploader.css
-
-#js {
-	color: red;
-}
-
-#sub {
-	height: 3em;
-	width: 40em;
-}
-=======
->>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/Uploader/uploader.css

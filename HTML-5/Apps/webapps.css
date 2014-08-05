@@ -1,16 +1,9 @@
 /* General styling */
 body {
-<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/webapps.css
-  color: #333333;
-  background-color: #dddddd;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 50px;
-=======
 	background-color: #dddddd;
 	color: #333333;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 50px;
->>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/webapps.css
 }
 
 h1 {

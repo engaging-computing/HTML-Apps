@@ -1,25 +1,14 @@
 /* General styling */
 body {
-<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/API/API_Index.css
-  	background-color: #dddddd;
-  	color: #333333;
-  	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  	font-size: 30px;
-=======
 	background-color: #dddddd;
 	color: #333333;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 30px;
->>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/API/API_Index.css
 }
 
 h1 {
 	background: #113;
 	color: #a7d0ff;
-<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/API/API_Index.css
-	font: Times;
-=======
->>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/API/API_Index.css
 	font-size: 70px;
 	font: Times;
 	margin: 0px;

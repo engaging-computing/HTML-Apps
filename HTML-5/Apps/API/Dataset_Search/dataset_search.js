@@ -3,14 +3,11 @@ function submitter()
 	var letter = document.getElementById("dataset_name").value;
 	var URL = "http://isenseproject.org/api/v1/projects/?search="+letter+"&sort=updated_at&order=DESC";
 
-	// Get the dataset's name from iSENSE
 	var response = $.ajax({ type: "GET",
 							url: URL,
 							async: false,
 							dataType: "JSON"
 							}).responseText;
-<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/API/dataset_search.js
-=======
 
 	// This should be cleaned up at some point.
 /*
@@ -29,7 +26,6 @@ function submitter()
 	rev.innerHTML = response['responseText'];
 	console.log(response);
 */
->>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/API/Dataset_Search/dataset_search.js
 
 	// Now that we have the response text from the server, we can show the user
 	// a name of a project that matches what they typed. (Hopefully)

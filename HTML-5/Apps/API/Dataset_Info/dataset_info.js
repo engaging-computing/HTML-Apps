@@ -4,10 +4,6 @@ function submitter()
 	var URL = "http://isenseproject.org/api/v1/projects/"+ID;
 	var USER_URL_TEXT = "Click here to view project #" + ID + "!";
 
-<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/API/dataset_info.js
-	// Get dataset info from iSENSE
-=======
->>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/API/Dataset_Info/dataset_info.js
 	var response = $.ajax({ type: "GET",
 							url: URL,
 							async: false,
@@ -15,10 +11,6 @@ function submitter()
 							}).responseText;
 	console.log(response);
 
-<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/API/dataset_info.js
-	// When response is NULL that means we found nothing for the project.
-=======
->>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/API/Dataset_Info/dataset_info.js
 	if(response === undefined)
 	{
 		rev.innerHTML = "That project ID could not be found!";

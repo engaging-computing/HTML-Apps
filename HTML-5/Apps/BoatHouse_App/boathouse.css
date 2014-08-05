@@ -9,10 +9,6 @@ body {
 h1{
 	background: #113;
 	color: #a7d0ff;
-<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/BoatHouse_App/boathouse.css
-	font: Times;
-=======
->>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/BoatHouse_App/boathouse.css
 	font-size: 1em;
 	font: Times;
 	margin: 0px;
@@ -22,11 +18,7 @@ h1{
 input{
    	background: white;
    	border: 1px solid #000;
-<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/BoatHouse_App/boathouse.css
-    height: 22px;
-=======
 	height: 22px;
->>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/BoatHouse_App/boathouse.css
    	padding: 0;
 	text-indent: 25px;
     width: 200px;
@@ -35,11 +27,7 @@ input{
 select{
     background: white;
 	border: 1px solid #000;
-<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/BoatHouse_App/boathouse.css
-    height: 42px;
-=======
 	height: 42px;
->>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/BoatHouse_App/boathouse.css
     padding: 0;
 }
 
@@ -61,22 +49,6 @@ select{
 	margin: 0em 2.8em 0em 0em;
 }
 
-<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/BoatHouse_App/boathouse.css
-/* BUTTONS */
-#table2{
-	height: 3em;
-	width: 5em;
-}
-
-#tp{
-	height: 3em;
-	width: 5em;
-}
-
-#ph{
-	height: 3em;
-	width: 5em;
-=======
 
 #table{
 	margin: 0em 2.5em 0em 0em;
@@ -84,19 +56,15 @@ select{
 
 #temp{
 	margin: 0em 2.3em 0em 0em;
->>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/BoatHouse_App/boathouse.css
 }
 
 /* BUTTONS */
 #o2{
-<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/BoatHouse_App/boathouse.css
-=======
 	height: 3em;
 	width: 5em;
 }
 
 #ph{
->>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/BoatHouse_App/boathouse.css
 	height: 3em;
 	width: 5em;
 }
@@ -107,10 +75,6 @@ select{
 }
 
 #sub{
-<<<<<<< HEAD:HTML-5/Apps/CS_WebAccount/HTML_WebApps/BoatHouse_App/boathouse.css
-	height: 3em;
-	width: 40em;
-=======
 	height: 3em;
 	width: 40em;
 }
@@ -123,5 +87,4 @@ select{
 #tp{
 	height: 3em;
 	width: 5em;
->>>>>>> b41c603f1d78667302de0fdb745599dcf7c9c4a8:HTML-5/Apps/BoatHouse_App/boathouse.css
 }
