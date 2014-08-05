@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- CSS files -->
+		<link rel="stylesheet" type="text/css" href="../api.css"/>
+
+		<!-- JavaScript files-->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+		</script>
+		<script src="contributor.js"></script>
+		<meta charset="UTF-8">
+		<title>Contributor Key Test</title>
+	</head>
+	<body>
+		<h1>Contributor Key Test</h1>
+		<p> This app is a test of contributor keys in iSENSE
+		<br/><i>NOTE: this WebApp posts to a project called
+		<b>"<u>Grade Scores</u>"</b> on isenseproject.org</i></p>
+
+		<table>
+			<tr>
+				<td align="right">Data set name:</td>
+				<td align="left">
+					<input type="letter" name="dataset" id="dataset_name">
+				</td>
+			</tr>
+
+			<tr>
+				<td align="right">Enter a test score:</td>
+				<td align="left">
+					<input type="number" name="score" id="scores">
+				</td>
+			</tr>
+		</table>
+
+		<input 	type="button" id='rec' onclick="submitter()"
+				value="Click here to publish to iSENSE.">
+
+		<span id="rev"><p>RESULTS will appear here.</p></span>
+
+		<span id="The_URL">
+			<p>	The URL to the project that you contributed
+				to will appear here! </p>
+		</span>
+
+		<p><a href="../API_Index.html">
+			Return to the previous index</a></p>
+	</body>
+</html>
