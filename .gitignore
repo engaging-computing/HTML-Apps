@@ -28,6 +28,10 @@ proguard/
 #Phonegap
 ant-build/
 ant-gen/
+cordova/
+CordovaLib/
+*org*
+
 
 *.orig
 # Merge Files
