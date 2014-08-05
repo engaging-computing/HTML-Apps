@@ -1,0 +1,180 @@
+﻿How to make HTML5 Web Apps that interact with iSENSE
+
+Index
+HTML5 - What it is
+HTML
+CSS
+JavaScript
+HTML5 - Hello World
+HTML 5 - More information
+iSENSE overview
+Visualizations
+Datasets
+Projects
+Users - Email/Password
+Contributor Key
+iSENSE API
+Interacting with iSENSE
+Posting to an iSENSE Project
+Getting info from an iSENSE Project
+?
+
+HTML5 - WHAT IS IT?
+
+HTML5 is a group of web technologies, consisting of HTML, CSS and JavaScript. HTML5 is the 5th version of HTML, a markup language which originated when the Internet was first created. HTML5 is used to create Internet web apps, web games and web pages. 
+
+HTML consists of the following web technologies:
+
+HTML - Hyper Text Markup Language. This is the main document of an HTML5 web page/app/etc. It is what makes web sites possible, as web browsers are able to take an HTML document and turn it into a viewable website. The HTML document defines what images, objects, links, and so forth will appear on the screen. The document also refers to CSS and JavaScript files for certain things,  which will be explained next.
+
+CSS - Cascading Style Sheets. CSS files define what the web page should look like - what its style should be. This includes the colors of the text, background, the size of images, text, and objects and also the general positioning of anything on the web page. Objects can be centered, moved to the left or right margin or moved to certain coordinates on the screen. The HTML document can also do some of these things using <style> tags, but it is highly recommended to have all the style properties of a document in a separate CSS file.
+
+JavaScript - JavaScript is a dynamic programming language, used to make web sites interactive. JavaScript can change the HTML document at various times - on page load, it can make a map appear or if another site fails to load it can print an error to the document. JavaScript can also interact with a web user, by detecting when a button on the screen is pressed or when any part of the screen is clicked on. JavaScript is the key to making an interactive web page.
+
+
+
+“Hello World” HTML5 Page
+
+The best way to learn HTML5 is to dive right into it. Here's an example of a Hello, World! HTML5 Web Page. I suggest copying and pasting this code into a new document, giving it a name (“Hello”) and a .html file extension. That is, you should name this new document “hello.html”. The .html is how computers and web browsers identify HTML files from other files. 
+
+NOTE: You make need to right click the file and open it with a text editor to change it/view your code. Simply clicking on a file with a .html extension will probably load that file on a web browser. 
+
+Take a look at this file, and make some changes to it. Play around with it - see what breaks it, try some things if you know any HTML and if not continue on to the next section!
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Hello, World</title>
+	</head>
+	<body>
+		<h1>Hello, World!<h1>
+		<p>Hello again!</p>
+	</body>
+</html>
+
+
+HTML5 - More Information
+Let's take another look at the “Hello, World” web page:
+
+<!-- This is how to make a comment in HTML. -->
+<!-- DOCTYPE defines the document as an html file type. -->
+<!DOCTYPE html>
+
+<!-- These are called TAGS. Tags typically look like this:
+<tag>SOMETHING IN BETWEEN</tag> 
+The “in between” is usually text - text that can be formatted differently, or linked to another page.-->
+<html>
+	<!-- 	The head is where the title, scripts and the charset attribute goes -->
+	<head>
+		<!-- The charset attribute tells the web browser what character encoding the document uses.  -->
+		<meta charset="UTF-8">
+
+		<!-- The title changes what the title in the tab shows -->
+		<title>Hello, World</title>
+	</head>
+	<body>
+		<!-- 	<h1> and <p> are tags which change how the text looks.
+			Notice how <h1> is larger than <p> ? -->
+		<h1>Hello, World!<h1>
+		<p>Hello again!</p>
+	</body> <!-- These are called ending tags. -->
+</html> <!-- Always include the ending tag if the type of tag you are using requires it. -->
+
+
+Try putting this version into another document. Notice how the comments do not appear when the document is displayed in a browser? Those familar with other programming languages will reconize this. Comments are very useful for marking what parts of a document/function/etc do. For example, say I have the following:
+
+<script>
+	var letter = document.getElementById("table_val").value;
+	var temp = formData[0];
+	var ph = formData[1];
+	var dox = formData[2];
+	var phos = formData[3];
+
+	$.post(API_URL, upload);
+</script>
+
+Do you have any idea what this script does? Now if I include some comments:
+
+
+
+<!-- This script processes the user's input and submits it to the iSENSE website -->
+<script>
+// These variables all will contain information from the HTML document
+	var letter = document.getElementById("table_val").value;
+	var temp = formData[0];
+	var ph = formData[1];
+	var dox = formData[2];
+	var phos = formData[3];
+
+// This command submits the data to iSENSE
+	$.post(API_URL, upload);
+</script>
+
+See how you now have somewhat of an understanding of the above code? That's the point of  comments  - to let other people who may look at your code know what you were thinking. Or even  to remind your self of what certain parts of program do, in case you go back to an older project after a few months.
+
+NOTE: notice how in the script tags the comments were different? Those are JavaScript comments. We'll talk about those later on. For now, just note they do the same thing as HTML comments - they hide whatever is between them/on that line. 
+
+
+More Information
+
+The scope of this tutorial is mainly for using and interacting with the iSENSE website. As a result, if you do not fully understand HTML5 or any part of it (HTML, CSS or JavaScript) I highly recommend checking out the codecademy website. They have tutorials on many popular programming languages, and glossaries outlining the various parts of each language. Signing up is free, and is extremely easy if you have a Facebook or Google account.
+
+Programming Languages codecademy has:
+HTML & CSS
+Javascript
+jQuery (extremely useful!)
+Python
+Ruby
+PHP
+APIs
+
+Click here for the codecademy website: http://www.codecademy.com/
+
+I would suggest going through the following:
+
+HTML & CSS - for using HTML5
+JavaScript - this is also for HTML5 and it is the main way you send data/get data from iSENSE
+jQuery - useful as it is a JavaScript library and can make your life easier.
+APIs - there are other APIs, such as Twitter, Youtube, Google Maps, etc that can be useful to look at if you get stuck, or cannot seem to get something working. Also Google Maps can be very useful with iSENSE for dynamically making maps / showing a location on a map / etc.
+
+
+iSENSE Overview
+
+One of the best ways to learn about something to just explore it on your own. I suggest doing so now, by going to isenseproject.org and taking a look at iSENSE.
+
+...
+
+The iSENSE project is a web system for collecting, sharing and visualizing scientific data. The web site is built to be used by middle school and high school students and teachers. Science and math classes benefit the most from iSENSE, as the site is data oriented, and these classes use data often in experiments and in homework examples. 
+
+The data on iSENSE is stored in projects and datasets. A project is a collection of datasets, and datasets are collections of data, such as numbers, text, pictures, and so on. Datasets themselves are classified by fields, which define what types of data are submitted to a project. Fields can be anything from timestamps, numbers and text to GPS coordinates such as latitude and longitude. 
+
+Here is an example of a project:
+
+
+
+
+
+
+
+
+
+Here is an overview of the iSENSE web page:
+
+“Projects” shows all the current projects on iSENSE. Projects are viewable by anyone, including people not logged in. Only people logged in or who have a contributor key may add to a project. The “Projects” page is also where you should go to make a new project - just log in, and then click the big green “create project” button.
+
+“Visualizations” shows all the saved visualizations that people have saved. Visualizations are ways of viewing the data on iSENSE. Currently there is:
+
+Map - A Google Map of all the locations in the project or of all the datasets you have selected.
+Timeline - 
+Scatter - 
+Bar - 
+Histogram - 
+Table - 
+Summary - 
+Photos - 
+
+“Tutorials” are helpful guides to how to do different things on iSENSE. Kinda like this page! 
+
+iSENSE is an open source project, and all of the source code for the site is hosted on GitHub under the “isenseDev” repository.
+
