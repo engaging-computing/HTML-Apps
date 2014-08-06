@@ -1,0 +1,20 @@
+/* General styling */
+body {
+	background-color: #dddddd;
+	color: #333333;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 50px;
+}
+
+h1 {
+	background: #113;
+	color: #a7d0ff;
+	font-size: 70px;
+	font: Times;
+	margin: 0px;
+	text-indent: 30px;
+}
+
+ol {
+	margin: 15px 0px -10px 65px;
+}
