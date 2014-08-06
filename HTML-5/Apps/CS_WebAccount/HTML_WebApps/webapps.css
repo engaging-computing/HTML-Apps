@@ -18,3 +18,8 @@ h1 {
 ol {
 	margin: 15px 0px -10px 65px;
 }
+
+p {
+	text-indent: 40px;
+	margin: 0;
+}
