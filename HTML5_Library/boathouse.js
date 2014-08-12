@@ -48,46 +48,36 @@ function submitter()
 		The right side must be in quotes, and set up as it is in order to do
 		a post to the iSENSE dataset jsonDataUpload API. The iSENSE API 
 		documentation can be found at http://isenseproject.org/api/v1/docs
-	
-		Email, Password, Title and data are all
-		Required. Email/Password/Title must be strings.
-		To use variables instead of text, put the variables inside brackets.
-		If you want to hardcode the email or any other variable, put the text 
-		in quotes like so:
-		'generic_email@gmail.com'
-		The full line would look like this:
-		'email': 'generic_email@gmail.com'
-		You could also just set the email variable to generic_email@gmail.com.
 	*/
-	
 	var upload = {
-		'email': [email],			
-		'password': [password],		
-		'title': [],				 
-		'data':						
-	  	{							 
-	  								 
-	  		'2685': [timestamp],	 
-			'2640': [temp],			 
-			'2641': [ph],			 
-			'2642': [dox],			
-			'2643': [phos]			 
+		'email': [email],			// Email, Password, Title and data are all
+		'password': [password],		// Required. Email/Password/Title must be strings.
+		'title': [],				// To use variables instead of text, put the variables
+		'data':						// inside brackets.
+	  	{							// If you want to hardcode the email or any other
+	  								// variable, put the text in quotes like so:
+	  		'2685': [timestamp],	// 'generic_email@gmail.com'
+			'2640': [temp],			// the full line would look like this:
+			'2641': [ph],			// 'email': 'generic_email@gmail.com'
+			'2642': [dox],			// You could also just set the email variable
+			'2643': [phos]			// to generic_email@gmail.com.
+
+			/*
+				One other note about fields - they are UNIQUE to each project ID.
+				If you decide to make your own project, you WILL need to change these
+				fields - that is, the field IDs, which are the numbers in quotes on the
+				left hand side. To find the field IDs for your project, you can go
+				to the folllowing address, making sure to replace "--PROJECT ID--"
+				with your own project ID:
+				http://isenseproject.org/api/v1/projects/--PROJECT ID--/
+				
+				The field IDs are listed at the end. An example of one field ID from
+				project 556 is this:
+				
+				{"id":2685,"name":"Timestamp","type":1,"unit":null,"restrictions":null}
+			*/
 	 	}
 	}
-	/*
-		One other note about fields - they are UNIQUE to each project ID.
-		If you decide to make your own project, you WILL need to change these
-		fields - that is, the field IDs, which are the numbers in quotes on the
-		left hand side. To find the field IDs for your project, you can go
-		to the folllowing address, making sure to replace "--PROJECT ID--"
-		with your own project ID:
-		http://isenseproject.org/api/v1/projects/--PROJECT ID--/
-		
-		The field IDs are listed at the end. An example of one field ID from
-		project 556 is this:
-		
-		{"id":2685,"name":"Timestamp","type":1,"unit":null,"restrictions":null}
-	*/
 
 	/*
 		This portion modifies the title to include the letter of the table,
