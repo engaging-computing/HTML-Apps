@@ -42,6 +42,9 @@ function submitter()
 	var ph = document.getElementById("ph").value;
 	var dox = document.getElementById("o2").value;
 	var phos = document.getElementById("phos").value;
+	
+	// Console.log sometimes helps to find bugs! 
+	console.log(letter + temp + ph + dox + phos);
 
 	/*
 		This is the main data that will be uploaded to iSENSE.
@@ -51,7 +54,14 @@ function submitter()
 	
 		Email, Password, Title and data are all
 		Required. Email/Password/Title must be strings.
-		To use variables instead of text, put the variables inside brackets.
+		To use variables instead of text, put the variables name where the text
+		would be.
+		Note: brackets are required for the FIELDS. You can also put empty brackets
+		if you will be doing a complex title, like I did for the title. Empty 
+		brackets as in []. 
+		(	For the title, I could have also just used a variable like the email
+			and password.)
+		
 		If you want to hardcode the email or any other variable, put the text 
 		in quotes like so:
 		'generic_email@gmail.com'
@@ -61,12 +71,11 @@ function submitter()
 	*/
 	
 	var upload = {
-		'email': [email],			
-		'password': [password],		
+		'email': email,			
+		'password': password,		
 		'title': [],				 
 		'data':						
-	  	{							 
-	  								 
+	  	{							 			 
 	  		'2685': [timestamp],	 
 			'2640': [temp],			 
 			'2641': [ph],			 
