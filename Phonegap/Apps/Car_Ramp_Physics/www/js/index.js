@@ -42,7 +42,6 @@ function success(accel)
 
 function post()
 {
-
 	var post_data =  {
 		email: 'tyler.puleo22@gmail.com',
 		password: '414991@Westland',
@@ -54,16 +53,9 @@ function post()
 			'2507': post_array_z,
 		}};
 	alert(JSON.stringify(post_data));
-
 	$.post('http://rsense-dev.cs.uml.edu/api/v1/projects/547/jsonDataUpload', post_data
 	);
 }
-
-function failure()
-{
-	alert("Error");
-}
-
 function myfunction()
 {
 	var currentTime = new Date();

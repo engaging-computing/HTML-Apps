@@ -2,7 +2,6 @@
     // Wait for Cordova to load
     //
     document.addEventListener("deviceready", onDeviceReady, false);
-
     // Cordova is ready
     //
     function onDeviceReady() {
@@ -11,7 +10,6 @@
 
     // onSuccess Geolocation
     //
-
 	    function onSuccess(position) {
 	        var element = document.getElementById('geolocation');
 	        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
@@ -30,36 +28,3 @@
         alert('code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n');
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
