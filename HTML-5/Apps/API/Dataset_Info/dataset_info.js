@@ -27,7 +27,7 @@ function submitter()
 							async: false,
 							dataType: "JSON"
 							}).responseText;
-	console.log(response);	// This is for debugging purposes
+	//console.log(response);	// This is for debugging purposes
 
 	/*
 		If the response text ends up being undefined, we weren't able to find
@@ -58,9 +58,11 @@ function submitter()
 					out more information about a given project. There are other
 					properties you can display to the user.
 		*/
-		rev.innerHTML = "Information about this project: <br/>Name: "+ array[0]
-		+ "<br/>Created at: "+ array[1] + "<br/> Owner: "+ array[2]
-		+ '<br/>URL: <a href="' + array[3] + '">' + USER_URL_TEXT + '</a>';
-
+		rev.innerHTML = "Information about this project: " +
+						"<br/>Name: "	    	+ array[0] + 
+						"<br/>Created at: "	 	+ array[1] + 
+						"<br/> Owner: "			+ array[2] + 
+						'<br/>URL: <a href="' 	+ array[3] + '">' + 
+						USER_URL_TEXT + '</a>';
 	}
 }
