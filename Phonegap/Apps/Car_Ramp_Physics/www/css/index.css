@@ -1,0 +1,26 @@
+body {
+	margin: 0px;
+}
+button{
+	height:200px;
+	width:200px;
+}
+footer {
+	position:absolute;
+	bottom:0;
+	width:100%;
+	height:40px;
+	background:#ccc;
+}
+#footerTable {
+	width: 100%;
+}
+#POST{
+	background-color:yellow;
+}
+#START{
+	background-color:green;
+}
+#STOP{
+	background-color:red;
+}
