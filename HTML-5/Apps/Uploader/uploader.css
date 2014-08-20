@@ -1,3 +1,4 @@
+/* General Styling */
 body {
 	background-color: #dddddd;
 	color: #333333;
@@ -34,6 +35,7 @@ mapcanvas {
 	padding-right: 0;
 }
 
+/* Specific Styling */
 #buttonz {
 	font-size: 15px;
 	height: 70px;

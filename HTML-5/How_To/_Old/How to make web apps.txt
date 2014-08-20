@@ -21,7 +21,7 @@ Getting info from an iSENSE Project
 
 HTML5 - WHAT IS IT?
 
-HTML5 is a group of web technologies, consisting of HTML, CSS and JavaScript. HTML5 is the 5th version of HTML, a markup language which originated when the Internet was first created. HTML5 is used to create Internet web apps, web games and web pages. 
+HTML5 is a group of web technologies, consisting of HTML, CSS and JavaScript. HTML5 is the 5th version of HTML, a markup language which originated when the Internet was first created. HTML5 is used to create Internet web apps, web games and web pages.
 
 HTML consists of the following web technologies:
 
@@ -35,9 +35,9 @@ JavaScript - JavaScript is a dynamic programming language, used to make web site
 
 “Hello World” HTML5 Page
 
-The best way to learn HTML5 is to dive right into it. Here's an example of a Hello, World! HTML5 Web Page. I suggest copying and pasting this code into a new document, giving it a name (“Hello”) and a .html file extension. That is, you should name this new document “hello.html”. The .html is how computers and web browsers identify HTML files from other files. 
+The best way to learn HTML5 is to dive right into it. Here's an example of a Hello, World! HTML5 Web Page. I suggest copying and pasting this code into a new document, giving it a name (“Hello”) and a .html file extension. That is, you should name this new document “hello.html”. The .html is how computers and web browsers identify HTML files from other files.
 
-NOTE: You make need to right click the file and open it with a text editor to change it/view your code. Simply clicking on a file with a .html extension will probably load that file on a web browser. 
+NOTE: You make need to right click the file and open it with a text editor to change it/view your code. Simply clicking on a file with a .html extension will probably load that file on a web browser.
 
 Take a look at this file, and make some changes to it. Play around with it - see what breaks it, try some things if you know any HTML and if not continue on to the next section!
 
@@ -62,7 +62,7 @@ Let's take another look at the “Hello, World” web page:
 <!DOCTYPE html>
 
 <!-- These are called TAGS. Tags typically look like this:
-<tag>SOMETHING IN BETWEEN</tag> 
+<tag>SOMETHING IN BETWEEN</tag>
 The “in between” is usually text - text that can be formatted differently, or linked to another page.-->
 <html>
 	<!-- 	The head is where the title, scripts and the charset attribute goes -->
@@ -113,7 +113,7 @@ Do you have any idea what this script does? Now if I include some comments:
 
 See how you now have somewhat of an understanding of the above code? That's the point of  comments  - to let other people who may look at your code know what you were thinking. Or even  to remind your self of what certain parts of program do, in case you go back to an older project after a few months.
 
-NOTE: notice how in the script tags the comments were different? Those are JavaScript comments. We'll talk about those later on. For now, just note they do the same thing as HTML comments - they hide whatever is between them/on that line. 
+NOTE: notice how in the script tags the comments were different? Those are JavaScript comments. We'll talk about those later on. For now, just note they do the same thing as HTML comments - they hide whatever is between them/on that line.
 
 
 More Information
@@ -145,9 +145,9 @@ One of the best ways to learn about something to just explore it on your own. I 
 
 ...
 
-The iSENSE project is a web system for collecting, sharing and visualizing scientific data. The web site is built to be used by middle school and high school students and teachers. Science and math classes benefit the most from iSENSE, as the site is data oriented, and these classes use data often in experiments and in homework examples. 
+The iSENSE project is a web system for collecting, sharing and visualizing scientific data. The web site is built to be used by middle school and high school students and teachers. Science and math classes benefit the most from iSENSE, as the site is data oriented, and these classes use data often in experiments and in homework examples.
 
-The data on iSENSE is stored in projects and datasets. A project is a collection of datasets, and datasets are collections of data, such as numbers, text, pictures, and so on. Datasets themselves are classified by fields, which define what types of data are submitted to a project. Fields can be anything from timestamps, numbers and text to GPS coordinates such as latitude and longitude. 
+The data on iSENSE is stored in projects and datasets. A project is a collection of datasets, and datasets are collections of data, such as numbers, text, pictures, and so on. Datasets themselves are classified by fields, which define what types of data are submitted to a project. Fields can be anything from timestamps, numbers and text to GPS coordinates such as latitude and longitude.
 
 Here is an example of a project:
 
@@ -166,15 +166,15 @@ Here is an overview of the iSENSE web page:
 “Visualizations” shows all the saved visualizations that people have saved. Visualizations are ways of viewing the data on iSENSE. Currently there is:
 
 Map - A Google Map of all the locations in the project or of all the datasets you have selected.
-Timeline - 
-Scatter - 
-Bar - 
-Histogram - 
-Table - 
-Summary - 
-Photos - 
+Timeline -
+Scatter -
+Bar -
+Histogram -
+Table -
+Summary -
+Photos -
 
-“Tutorials” are helpful guides to how to do different things on iSENSE. Kinda like this page! 
+“Tutorials” are helpful guides to how to do different things on iSENSE. Kinda like this page!
 
 iSENSE is an open source project, and all of the source code for the site is hosted on GitHub under the “isenseDev” repository.
 

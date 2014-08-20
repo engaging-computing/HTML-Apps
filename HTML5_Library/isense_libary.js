@@ -1,13 +1,13 @@
 /*
 	Collection of JavaScript functions for connecting with the iSENSE website.
-	
+
 	These are all taken from the HTML5 directory on GitHub, comments shortened
 	and/or removed and made for easily copy/pasting this code into your own
 	HTML5 project.
-	
+
 	As a result, if anything is confusing or not explained well, please look on
 	GitHub for a more information. See the below link:
-	
+
 	 Source code: https://github.com/isenseDev/HTML-Apps
 	Example Apps: http://jasond94.github.io/HTML-Apps/index.html
 */
@@ -16,26 +16,26 @@ function POST_jsonDataUpload_Email()
 	var API_URL;		// EX: 'http://isenseproject.org/api/v1/projects/556/jsonDataUpload';
 	var USER_URL; 		// EX: 'http://isenseproject.org/projects/556';
 	var USER_URL_TEXT;	// EX: 'Click here to go to your project!';
-	
+
 	var currentTime = new Date();
 	var timestamp = JSON.stringify(currentTime);
 
 	var    email;	// EX: a@a.a
 	var password;	// EX: a
 	var title;		// EX: Table A's Awesome Lab Data
-	
+
 	var upload = {
-		'email': email,			
-		'password': password,		
-		'title': title,				 
-		'data':						
-	  	{							 			 
+		'email': email,
+		'password': password,
+		'title': title,
+		'data':
+	  	{
 	  		// 	Fill in the fields for your project here.
 	  		// 	use the following URL to find this:
-	  		//	http://isenseproject.org/api/v1/projects/PROJECT_ID/		 
+	  		//	http://isenseproject.org/api/v1/projects/PROJECT_ID/
 	 	}
 	}
-	
+
 	// POST the data to iSENSE
 	if(confirm("Do you want to upload this data to iSENSE?")) {
 		$.post(API_URL, upload);
@@ -61,8 +61,8 @@ function POST_jsonDataUpload_ContributorKey()
 	var   key;		// EX: '12345';
 	var  name;		// EX: 'WebApp';
 	var title;		// EX: 'My awesome WebApp!'
-	
-	/* 	You probably want to use some JavaScript functions here, such as 
+
+	/* 	You probably want to use some JavaScript functions here, such as
 		document.getElementById("PUT ID HERE").value;
 		This way you can get user input and then submit that data to iSENSE.
 	*/
@@ -105,7 +105,7 @@ function GET_Projects_ByProjectID()
 	var ID; 				// EX: = document.getElementById("dataset_name").value;
 	var URL;				// EX: "http://isenseproject.org/api/v1/projects/"+ID;
 	var USER_URL_TEXT;		// EX: "Click here to view project #" + ID + "!";
-	
+
 	/*	type: 	Must be either "POST" or "GET" for iSENSE - in this case it MUST be
 				a "GET" request because we aren't posting anything to iSENSE.
 		url: use the URL variable at the top. You could also hardcode this in.
@@ -118,7 +118,7 @@ function GET_Projects_ByProjectID()
 							}).responseText;
 
 	/*	If the response text ends up being undefined, we weren't able to find
-		anything about the project.			*/ 
+		anything about the project.			*/
 	if(response === undefined)
 	{
 		rev.innerHTML = "That project ID could not be found!";
@@ -136,7 +136,7 @@ function GET_Projects_ByProjectID()
 		array[3] = arg['url'];
 
 		/*	Here I display some of the information about the project.
-			
+
 			Note: 	Use the output of the console.log(response) command to find
 					out more information about a given project. There are other
 					properties you can display to the user.		*/
@@ -163,18 +163,18 @@ function GET_Fields_ByFieldID()
 		async: false,
 		dataType: "JSON"
 	}).responseText;	// Getting response text from this ajax request.
-	
+
 	//console.log(response);	// Debugging
 
 	/*	If the response text ends up being undefined, we weren't able to find
-		anything about the field. IE it doesn't exist.			*/ 
+		anything about the field. IE it doesn't exist.			*/
 	if(response === undefined)
 	{
 		rev.innerHTML = "That field ID could not be found!";
 	}
 	else{
 
-		/* 	Now we should have some information about the field. This should let 
+		/* 	Now we should have some information about the field. This should let
 			us parse the request and then store the information about the field. */
 		var arg = JSON.parse(response);
 		var array = [];
@@ -192,7 +192,7 @@ function GET_Fields_ByFieldID()
 						"<br/>Type: " 			+ array[1] 	+
 						"<br/>Unit: " 			+ array[2] 	+
 						"<br/>Restrictions: " 	+ array[3];
-		 
+
 		//console.log(arg);	// Debugging
 	}
 }

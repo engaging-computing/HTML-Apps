@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- Define the character set for this HMTL file. -->
 		<meta charset="UTF-8">
 
 		<!-- CSS files -->
@@ -12,13 +13,14 @@
 		<script src="water_testing.js"></script>
 
 		<!-- Google Maps API script -->
-		<script type="text/javascript" 
+		<script type="text/javascript"
 		        src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
         <!-- Changes the title in the browser's tab -->
 		<title>Water Testing App</title>
 	</head>
 	<body>
+		<!-- Introduction -->
 		<h1>Water Testing App</h1>
 		<p>
 			This app lets you collect water samples and analysis the results
@@ -79,6 +81,8 @@
 			value="Submit to iSENSE.">
 		</p>
 
+		<!-- The mapcanvas (Google Map) shows up here. If there was an error,
+			 then the error message is displayed in the status div. 	-->
 		<article>
       		<p>Trying to find your location: <span id="status">checking...</span></p>
 		</article>
@@ -96,7 +100,7 @@
 					return;
 			  	}
 
-                // Updates the HTML file 
+                // Updates the HTML file
 			  	s.innerHTML = "found you!";
 			  	s.className = 'success';
 
@@ -132,7 +136,7 @@
 			  	};
 			  	var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
 
-                //  Makes a Google Maps Marker for the 
+                //  Makes a Google Maps Marker for the
 			  	var marker = new google.maps.Marker({
 					position: latlng,
 				  	map: map,
