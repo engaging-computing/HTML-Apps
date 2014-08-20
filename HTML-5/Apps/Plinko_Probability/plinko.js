@@ -17,6 +17,7 @@ function end(choice) {
 
 function submitter()
 {
+	// Make sure the user selected both a letter & a number.
 	if(start_choice == 0 || end_choice == 0)
 	{
 		alert("ERROR - select a letter AND a number!");
@@ -48,19 +49,20 @@ function submitter()
 	 	}
 	}
 
-	console.log(upload.data);
+	//console.log(upload.data);
 
 	// Modify the title to be either A, B or C
 	upload.title = "Plinko " + [timestamp];
 
+	// Confirm the user wants to submit the data to iSENSE.
 	if(confirm("Do you want to upload this data to iSENSE?")) {
-		// Post to iSENSE
-		$.post(API_URL, upload);
+		$.post(API_URL, upload); 	// Post to iSENSE
 
 		// Add a link in the HTML file to the project they contributed to.
 		The_URL.innerHTML = '<a href="'+ USER_URL +'">' + USER_URL_TEXT + '</a>';
 	}
 	else {
+		// Changes the HTML.
 		The_URL.innerHTML = "Canceled!";
 	}
 }
