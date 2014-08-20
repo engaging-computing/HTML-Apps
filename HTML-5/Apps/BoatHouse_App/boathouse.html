@@ -11,11 +11,15 @@
 		</script>
 		<script src="boathouse.js"></script>
 
+        <!-- Changes the title in the browser's tab -->
 		<title>Boat House App</title>
 	</head>
 	<body>
+	    <!-- Title -->
 		<h1>Boat House App</h1>
 
+        <!-- Using a form to store all the data. I did not realize you could just
+             use id's to do the same thing.     -->
 		<form name="boathouse">
 			<!-- The table keeps all the input buttons lined up nicely. -->
 			<table>
@@ -66,13 +70,18 @@
 			</table>
 		</form>
 
+        <!--    Submit button, calls a JS function that grabs all the above
+                data and sends it to iSENSE. -->
 		<input 	type="button" id='sub' onclick="submitter()"
 				value="Submit to iSENSE.">
 
+        <!--    After submitting, the URL to the project is shown below. -->
 		<span id="The_URL"><p>
 			The URL to the project that you contributed to will appear here!
 		</p></span>
 
+        <!--    Simple index button - clicking it brings you up a level, to the
+                Index of all the WebApps. -->
 		<p><a href="../webapps.html">
 			Return to the WebApps index</a></p>
 

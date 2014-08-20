@@ -12,8 +12,10 @@
 		<script src="water_testing.js"></script>
 
 		<!-- Google Maps API script -->
-		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+		<script type="text/javascript" 
+		        src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
+        <!-- Changes the title in the browser's tab -->
 		<title>Water Testing App</title>
 	</head>
 	<body>
@@ -70,6 +72,8 @@
 			</table>
 		</form>
 
+        <!--    Submit button, calls a JS function that grabs all the above
+                data and sends it to iSENSE. -->
 		<p>
 			<input type="button" id='sub' onclick="submitter()"
 			value="Submit to iSENSE.">
@@ -82,15 +86,17 @@
 		<!-- 	The following was originally from: http://html5demos.com/geo
 				I've since modified it for the Water Testing App				-->
 		<script>
-			// IF we can get the user's location, this function goes off.
+			// If we can get the user's location, this function goes off.
 			function success(position) {
 			  	var s = document.querySelector('#status');
 
 			  	if (s.className == 'success') {
-					// not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back
+					// Not sure why we're hitting this twice in FF.
+					// I think it's to do with a cached result coming back
 					return;
 			  	}
 
+                // Updates the HTML file 
 			  	s.innerHTML = "found you!";
 			  	s.className = 'success';
 
@@ -103,16 +109,21 @@
 				// Adds the map canvas to the HTML
 			  	document.querySelector('article').appendChild(mapcanvas);
 
+                // Get latitude and longitude
 			   	 lat = position.coords.latitude;
 			  	long = position.coords.longitude;
 
+                // Updates the HTML to show the accuracy of the geolocation ping.
 			   	document.getElementById("accurate").innerHTML =
 			   	"You are here! (at least within a "
 			   	+ position.coords.accuracy + " meter radius)";
 
-			   	var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                // Settings for the Google Map that shows up if we can get a user's
+                // location.
+			   	var latlng = new google.maps.LatLng(position.coords.latitude,
+			   	                                    position.coords.longitude);
 			  	var myOptions = {
-					zoom: 18,
+				    zoom: 18,
 					center: latlng,
 					mapTypeControl: true,
 					navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
@@ -121,6 +132,7 @@
 			  	};
 			  	var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
 
+                //  Makes a Google Maps Marker for the 
 			  	var marker = new google.maps.Marker({
 					position: latlng,
 				  	map: map,
@@ -135,6 +147,8 @@
 			  	s.className = 'fail';
 			}
 
+            // Detects if the user's browser supports geolocation. Basically
+            // whether they have an updated browser + location enabled.
 			if (navigator.geolocation) {
 			  	navigator.geolocation.getCurrentPosition(success, error);
 			} else {
@@ -142,14 +156,20 @@
 			}
 		</script>
 
+        <!-- Shows the accuracy of this location test. Likely not as accurate
+             as GPS as it usually pings Google's servers and/or other servers to
+             get an estimate of a user's lat & long.     -->
 		<div id="accurate"></div> <br/>
 		NOTE: the HTML5 geolocation feature is not as accurate as GPS. <br/>
     	As a result the location may be off slightly. <br/>
 
+        <!--    After submitting, the URL to the project is shown below. -->
 		<p><span id="The_URL">
 			The URL to the project that you contributed to will appear here!
 		</span></p>
 
+        <!--    Simple index button - clicking it brings you up a level, to the
+                Index of all the WebApps. -->
 		<p><a href="../webapps.html">
 			Return to the WebApps index</a></p>
 	</body>
