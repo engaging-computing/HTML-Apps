@@ -1,0 +1,61 @@
+body {
+	background-color: #dddddd;
+	color: #333333;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 15px;
+}
+
+h1 {
+	background: #113;
+	color: #a7d0ff;
+	font: Times;
+	font-size: 70px;
+	margin: 0px;
+	size: 20px;
+	text-align: center;
+}
+
+p{
+	color: black;
+	font-weight: bold;
+	text-align: center;
+}
+
+pre{
+	color: black;
+	font-weight: bold;
+	text-align: center;
+	font-size: 15px;
+}
+
+#center{
+	color: black;
+	font-weight: bold;
+	text-align: center;
+}
+
+#large{
+	height: auto;
+	width: 200%;
+}
+
+#left{
+	color: blue;
+	font-weight: bold;
+	text-align: left;
+}
+
+#map_canvas{
+	margin: 0 auto;
+}
+
+#right{
+	color: blue;
+	font-weight: bold;
+	text-align: right;
+}
+
+#zoom{
+	height: auto;
+	width: auto;
+}

@@ -1,0 +1,39 @@
+/* General styling */
+body {
+	background-color: #dddddd;
+	color: #333333;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 18px;
+}
+
+h1 {
+	background: #113;
+	color: #a7d0ff;
+	font-size: 70px;
+	font: Times;
+	margin: 0px;
+	text-align: center;
+	text-indent: 20px;
+}
+
+p{
+	color: black;
+	font-weight: bold;
+	text-align: center;
+}
+
+#center{
+	color: black;
+	font-weight: bold;
+	text-align: center;
+}
+
+#large{
+	height: auto;
+	width: 200%;
+}
+
+#zoom{
+	height: auto;
+	width: auto;
+}
