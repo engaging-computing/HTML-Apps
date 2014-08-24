@@ -206,7 +206,7 @@ body {
 .button-blue, .button-white, .button-inactive {
 	border-radius: 10px;
 	cursor: pointer;
-	-webkit-user-select: none;      
+	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 }

@@ -2,9 +2,9 @@ function submitter()
 {
 	/*
 		Here are all the various URLs that are used.
-		API_URL => used in making the POST to iSENSE. 
+		API_URL => used in making the POST to iSENSE.
 		(Check out the iSENSE API for more information.)
-		
+
 		USER_URL & USER_URL_TEXT => these are for the dynamic links.
 		(Note the differences between the API_URL and the USER_URL!
 		 /api/v1/projects/PROJECT ID/jsonDataUpload is for the API
@@ -14,15 +14,15 @@ function submitter()
 	var API_URL = 'http://isenseproject.org/api/v1/projects/556/jsonDataUpload';
 	var USER_URL = 'http://isenseproject.org/projects/556';
 	var USER_URL_TEXT = 'Click here to go to your project!';
-	
+
 	/*
 		Change this portion with your own email & password.
-		You can also customize the app so the user can put their own 
+		You can also customize the app so the user can put their own
 		email and password.
 	*/
 	var    email = 'j@j.j';
 	var password = 'j';
-	
+
 	/*
 		This portion gets a timestamp by using the JavaScript new Data() function.
 		Stringify the timestamp to get the correct format for iSENSE.
@@ -46,7 +46,7 @@ function submitter()
 	/*
 		This is the main data that will be uploaded to iSENSE.
 		The right side must be in quotes, and set up as it is in order to do
-		a post to the iSENSE dataset jsonDataUpload API. The iSENSE API 
+		a post to the iSENSE dataset jsonDataUpload API. The iSENSE API
 		documentation can be found at http://isenseproject.org/api/v1/docs
 	*/
 	var upload = {
@@ -70,10 +70,10 @@ function submitter()
 				to the folllowing address, making sure to replace "--PROJECT ID--"
 				with your own project ID:
 				http://isenseproject.org/api/v1/projects/--PROJECT ID--/
-				
+
 				The field IDs are listed at the end. An example of one field ID from
 				project 556 is this:
-				
+
 				{"id":2685,"name":"Timestamp","type":1,"unit":null,"restrictions":null}
 			*/
 	 	}
@@ -85,7 +85,7 @@ function submitter()
 		iSENSE datasets cannot have the exact same title. If you attempt to hard
 		code in a title, such as "table" and then try to upload a dataset several
 		times with "table" as the title, you WILL get an error from the iSENSE API.
-		Most likely: 
+		Most likely:
 	*/
 	upload.title = "Table " + [letter] + " " + [timestamp];
 
@@ -94,14 +94,14 @@ function submitter()
 		Note, the $.post() function is a jquery library. Make sure to include
 		one in your HTML file. Google has one that can easily be included - see
 		the HTML doc for more information.
-		
+
 		Also, the if/else isn't necessarily required by iSENSE. I used it to detect
 		if the user wants to quit/disregard the current upload.
 	*/
 	// Side note - the confirm part is a JavaScript popup that just asks for "OK" or "Cancel".
 	if(confirm("Do you want to upload this data to iSENSE?")) {
-		
-		/* 
+
+		/*
 			The POST command. All that is required for iSENSE datasets is the API_URL,
 			and the data, which should be formatted as outlined in the API docs.
 			See the above upload variable for how to do so.

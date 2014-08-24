@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- Define the character set for this HMTL file. -->
+		<meta charset="UTF-8">
+
 		<!-- CSS file -->
 		<link rel="stylesheet" type="text/css" href="fields_getter.css" />
 
@@ -9,13 +12,15 @@
 		</script>
 		<script src="fields_getter.js"></script>
 
-		<meta charset="UTF-8">
+		<!-- Changes the title in the browser's tab -->
 		<title>iSENSE Project Fields</title>
 	</head>
 	<body>
+		<!-- Introduction -->
 		<h1>iSENSE Project Fields</h1>
 		<p>This WebApp is capable of grabbing all the fields from a project.</p>
 
+		<!-- The table keeps all the input buttons lined up nicely. -->
 		<table align="center">
 			<tr>
 				<th align="right">Enter a project ID: </th>
@@ -23,19 +28,25 @@
 			</tr>
 		</table>
 
-		<br/>
+		<br/><p>Results will show up below this line.</p>
 
-		<p>Results will show up below this line.</p>
+		<!-- 	The div "left" is so that the results show up on the left hand side.
+				Also, the two divs within the "left" div will change depending on what
+				is returned from the server.
 
+				Note: if a Project ID is not found the JS will make
+				"That Project ID could not be found" display.-->
 		<div id="left">
 			<p><div id="resp"></div></p>
 			<p><div id="user_input"></div></p>
 		</div>
 
-		<br/>
-		<!-- snippets = shift space -->
-		<button onclick="get_fields()">Click here to pull information from iSENSE</button>
+		<!--    Submit button, calls a JS function that grabs all the above
+                data and sends it to iSENSE. -->
+		<br/><button onclick="get_fields()">Click here to pull information from iSENSE</button>
 
+        <!--    Simple index button - clicking it brings you up a level, to the
+                Index of all the WebApps. -->
 		<p><a href="../webapps.html">
 			Return to the WebApps index</a></p>
 
