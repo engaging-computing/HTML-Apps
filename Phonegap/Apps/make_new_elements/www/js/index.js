@@ -25,7 +25,7 @@ jQuery(document).ready(function(){
 });
 
 function post(){
-    	
+
 		var values = {};
 		var id = arg.fields[i].id;
 		var email = email_from_user;
@@ -35,7 +35,7 @@ function post(){
 		var text = [];
 		var k = 0;
 		var l = 0;
-		
+
 
 		number_of_fields_post_1 = number_of_fields;
 		number_of_fields_post_2 = number_of_fields;
@@ -82,16 +82,16 @@ function post(){
 				'email': email,
 				'password': password,
 				'title': ''+timestamp,
-				'data': data	  	
+				'data': data
 		}
-	
+
 		$.post('http://rsense-dev.cs.uml.edu/api/v1/projects/'+project_id_from_user+'/jsonDataUpload',upload);
 
 		alert("Successfully Posted");
 
 		//$("input:text").val("");
 }
- 
+
 function get(number_of_fields){
 
 	$("#divID").hide();
@@ -107,15 +107,15 @@ function get(number_of_fields){
 
 	if(arg.fields[m].type === 1)
 	{
-		keys.push(arg.fields[j].id); 
+		keys.push(arg.fields[j].id);
 		number_of_fields--;
 		j++;
-	} 
+	}
 
 	while(number_of_fields > 0)
 	{
 		number_of_fields--;
-		
+
 		keys.push(arg.fields[j].id);               //Adding field numbers to keys
 
 		field_number = arg.fields[j].name;         //Changing to next field_number
@@ -124,7 +124,7 @@ function get(number_of_fields){
 		$("p").append('<input type="text" id="'+keys[j]+'" name="field">');   // Creating new text box for that field number
 
 		j++;
-	}	
+	}
 	if(arg.fields[number_of_fields_if-1].type === 5)
 	{
 		$('#field'+keys[number_of_fields_if-1]).hide();
@@ -132,9 +132,9 @@ function get(number_of_fields){
 		$('#'+keys[number_of_fields_if-2]).hide();
 		$('#'+keys[number_of_fields_if-1]).hide();
 	}
-	
 
-	
+
+
 	$("#create").hide();
 	$("#post").show();
 };
@@ -165,7 +165,7 @@ function onSuccess(position) {
    	latitude_for_post = position.coords.latitude;
    	longitude_for_post = position.coords.longitude;
 }
-			
+
 
 function onError(error) {
     alert('code: '    + error.code    + '\n' +

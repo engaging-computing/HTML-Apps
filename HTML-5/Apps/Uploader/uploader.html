@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- Define the character set for this HMTL file. -->
+		<meta charset="UTF-8">
+
 		<!-- CSS file -->
 		<link rel="stylesheet" type="text/css" href="uploader.css" />
 
@@ -12,7 +15,7 @@
 		<!-- Google Maps API script -->
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
-		<meta charset="UTF-8">
+        <!-- Changes the title in the browser's tab -->
 		<title>iSENSE Uploader</title>
 	</head>
 	<body>
@@ -22,7 +25,8 @@
 		<div id="user_prompt"></div>
 		<div align="left" id="submit_user"></div>
 
-		<!-- Buttons for changing parts of the WebApp. Currently only Project Title really works well. -->
+		<!-- 	Buttons for changing parts of the WebApp.
+				Currently only Project & Title really work well. -->
 		<br/>
 		<button id="buttonz" onClick="popup_user()">Click here <br/>to Login</button>
 		<button id="buttonz" onClick="popup_contributor()">Click here to add a Contributor Key</button>
@@ -56,9 +60,7 @@
 			</table>
 		</div>
 
-		<br/>
-
-		Results/Fields will show up below this line.
+		<p>Results/Fields will show up below this line.</p>
 
 		<div id="left">
 			<p><div id="resp"></div></p>
@@ -69,12 +71,13 @@
 			<div id="Upload"></div>
 		</table>
 
+		<!-- The URL is added to this div. -->
 		<div id="The_URL">
 			The URL to the project that you contributed to will appear here!
-		</div>
+		</div><br/>
 
-		<br/>
-		<!-- snippets = shift space -->
+		<!-- This is button is how the user grabs fields from iSENSE
+			 and later submits the data to iSENSE -->
 		<div id="change_me">
 			<button id="rSENSE" onclick="get_fields()">
 				Click here to pull information from rSENSE
@@ -86,6 +89,7 @@
 			div#mapcanvas { margin: 0 auto 0 auto; }
 		</style>
 
+		<!-- The Google Map shows up here. -->
 		<article>
 		  	<p>Trying to find your location: <span id="status">checking...</span></p>
 		</article>
@@ -94,15 +98,17 @@
 				I've since modified it for the Water Testing App
 				And now for the iSENSE Uploader App					-->
 		<script>
-			// IF we can get the user's location, this function goes off.
+			// If we can get the user's location, this function goes off.
 			function success(position) {
 			  	var s = document.querySelector('#status');
 
 			  	if (s.className == 'success') {
-					// Firefox fix, cache result?
+					// Not sure why we're hitting this twice in FF.
+					// I think it's to do with a cached result coming bac
 					return;
 			  	}
 
+                // Updates the HTML file
 			  	s.innerHTML = "found you!";
 			  	s.className = 'success';
 
@@ -115,14 +121,19 @@
 				// Adds the map canvas to the HTML
 			  	document.querySelector('article').appendChild(mapcanvas);
 
+                // Get latitude and longitude
 			   	 lat = position.coords.latitude;
 			  	long = position.coords.longitude;
 
+                // Updates the HTML to show the accuracy of the geolocation ping.
 			   	document.getElementById("accurate").innerHTML =
 			   	"You are here! (at least within a "
 			   	+ position.coords.accuracy + " meter radius)";
 
-			   	var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                // Settings for the Google Map that shows up if we can get a user's
+                // location.
+			   	var latlng = new google.maps.LatLng(position.coords.latitude,
+			   										position.coords.longitude);
 			  	var myOptions = {
 					zoom: 18,
 					center: latlng,
@@ -133,6 +144,7 @@
 			  	};
 			  	var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
 
+                //  Makes a Google Maps Marker for the
 			  	var marker = new google.maps.Marker({
 					position: latlng,
 				  	map: map,
@@ -147,6 +159,7 @@
 			  	s.className = 'fail';
 			}
 
+			// We couldn't get the user's location
 			if (navigator.geolocation) {
 			  	navigator.geolocation.getCurrentPosition(success, error);
 			} else {
@@ -154,13 +167,19 @@
 			}
 		</script>
 
+        <!-- Shows the accuracy of this location test. Likely not as accurate
+             as GPS as it usually pings Google's servers and/or other servers to
+             get an estimate of a user's lat & long.     -->
 		<div id="accurate"></div> <br/>
 		NOTE: the HTML5 geolocation feature is not as accurate as GPS. <br/>
     	As a result the location may be off slightly. <br/>
 
+        <!--    After submitting, the URL to the project is shown below. -->
 		<p>NOTE: required at a mininium is a username/password or a contributor key, <br/>
 		as well as a project ID for the project you'd like to contribute to. </p>
 
+        <!--    Simple index button - clicking it brings you up a level, to the
+                Index of all the WebApps. -->
 		<p><a href="../webapps.html">
 			Return to the WebApps index</a></p>
 
