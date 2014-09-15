@@ -9,7 +9,7 @@ function submitter()
 		about the given project.
 
 		type: 	Must be either "POST" or "GET" for iSENSE - in this case it MUST be
-				a "GET" request because we aren't posting anything to iSENSE.
+			a "GET" request because we aren't posting anything to iSENSE.
 		url: use the URL variable at the top. You could also hardcode this in.
 		async: false, because we want to make a cross domain request.
 		dataType: "JSON" because we are requesting the data in JSON format.
@@ -45,9 +45,9 @@ function submitter()
 			than what I have listed below. You can however use these fields to
 			upload data to iSENSE.		*/
 		rev.innerHTML = "Information about this field: " 	+
-						"<br/>Name: " 			+ array[0] 	+
-						"<br/>Type: " 			+ array[1] 	+
-						"<br/>Unit: " 			+ array[2] 	+
+						"<br/>Name: " 		+ array[0] 	+
+						"<br/>Type: " 		+ array[1] 	+
+						"<br/>Unit: " 		+ array[2] 	+
 						"<br/>Restrictions: " 	+ array[3];
 
 		//console.log(arg);	// Debugging
